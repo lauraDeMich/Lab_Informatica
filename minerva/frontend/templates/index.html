@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minerva — Web Parser</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 60px auto; padding: 0 20px; }
+    h1   { color: #2c3e50; }
+    .status { display: flex; gap: 16px; margin: 24px 0; }
+    .badge  { padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: bold; }
+    .ok     { background: #d4edda; color: #155724; }
+    .error  { background: #f8d7da; color: #721c24; }
+    .domains { list-style: none; padding: 0; }
+    .domains li { background: #f0f4f8; margin: 6px 0; padding: 8px 14px; border-radius: 6px; }
+    p.note { color: #888; font-size: 13px; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <h1>🦉 Minerva Web Parser</h1>
+  <p>Laboratorio di Ingegneria Informatica — Sapienza 2025/2026</p>
+
+  <h2>Stato del sistema</h2>
+  <div class="status">
+    <span class="badge {{ 'ok' if status.backend == 'ok' else 'error' }}">
+      Backend: {{ status.backend }}
+    </span>
+    <span class="badge {{ 'ok' if status.database == 'ok' else 'error' }}">
+      Database: {{ status.database }}
+    </span>
+    <span class="badge {{ 'ok' if status.ollama == 'ok' else 'error' }}">
+      Ollama: {{ status.ollama }}
+    </span>
+  </div>
+
+  <h2>Domini supportati</h2>
+  <ul class="domains">
+    {% for domain in domains %}
+      <li>{{ domain }}</li>
+    {% else %}
+      <li>Nessun dominio disponibile</li>
+    {% endfor %}
+  </ul>
+
+  <p class="note">Frontend completo in sviluppo (OBJ-7).</p>
+</body>
+</html>
