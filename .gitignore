@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Dati scaricati/generati: probabilmente troppo pesanti/volatili per Git
+data/raw_html/*
+!data/raw_html/.gitkeep
+
+# Il Gold Standard invece SI versiona (è lavoro manuale, va protetto)
+# -> nessuna esclusione su data/gold_standard/
+
+.env
+.DS_Store
+**/.DS_Store
