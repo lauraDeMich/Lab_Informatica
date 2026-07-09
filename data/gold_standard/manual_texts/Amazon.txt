@@ -1,0 +1,324 @@
+Amazon è un'azienda multinazionale di commercio elettronico statunitense, con sede principale a Seattle nello Stato di Washington. È la più grande Internet company al mondo. Nel 1999 Time ha proclamato il fondatore dell'azienda Jeff Bezos Uomo dell'anno, a riconoscimento del successo di Amazon nel rendere popolare il commercio elettronico.
+
+Fondata con il nome di Cadabra.com da Jeff Bezos il 5 luglio 1994 e lanciata nel 1995, Amazon.com iniziò come libreria online, ma presto allargò la gamma dei prodotti venduti a DVD, CD musicali, software, videogiochi, prodotti elettronici, fumetti, abbigliamento, mobilia, cibo, giocattoli e altro ancora per diversificare l'attività. Fu tra le prime grandi imprese Internet simbolo della bolla alla fine degli anni '90. Dopo che la bolla scoppiò, Amazon dovette fare i conti con un certo scetticismo nei confronti del suo modello di business, ma nel 2003 raggiunse per la prima volta un utile d'esercizio.
+
+Entrò nel mercato azionario il 15 maggio 1997, sul Nasdaq con il simbolo AMZN con un prezzo iniziale di $18,00 per azione (equivalente a $1,50 dopo tre stock split alla fine degli anni '90). Il 30 aprile 2020, in piena crisi COVID-19, raggiunse la quotazione record di 2 474 $. Amazon possiede anche Alexa, A9.com, IMDb, Twitch, ComiXology, Audible e Goodreads.
+Storia
+L'azienda iniziò la sua attività come libreria, offrendo una vasta scelta di titoli. Successivamente Bezos la ribattezzò in Amazon, dal nome del Rio delle Amazzoni. Scelse questo fiume per evocarne non la lunghezza, ma il bacino idrografico. L'azienda fu registrata nel 1994 nello stato statunitense di Washington e cominciò le attività nel luglio 1995 spostandosi nell'anno successivo in Delaware.
+
+Il piano aziendale non prevedeva di fare profitto per i primi 4-5 anni, e alla fine degli anni Novanta la società crebbe più lentamente di molte altre compagnie Internet; questa crescita lenta fece discutere molti azionisti, ma quando la bolla delle dot-com scoppiò e molte aziende del settore fallirono, Amazon resistette e raggiunse il primo periodo di profitto nel quarto trimestre del 2002, seppur con soli 5 milioni di dollari, equivalente a un centesimo di dollaro per azione, con rendite di più di un miliardo di dollari, ma fu un importante evento simbolico. Da allora rimase sempre in attivo con profitti netti di 35 milioni di dollari nel 2003, 588 milioni nel 2004 e 359 milioni nel 2005. I ricavi continuarono a crescere grazie alla diversificazione dell'offerta e la presenza su un mercato internazionale con 3,9 miliardi di dollari nel 2002, 5,3 nel 2003, 6,9 nel 2004 e 8,5 nel 2005. Il 21 novembre 2005 Amazon entrò nell'indice S&P 500, sostituendo la vecchia AT&T dopo la fusione di questa con SBC Communications.
+
+Il sito si espanse velocemente offrendo nuove sezioni per nuove linee di prodotti di vari tipi e permettendo ai clienti di recensire i prodotti acquistati. Una parte delle vendite viene dagli affiliati al sito, detti "associati", ovvero venditori indipendenti che ricevono una commissione per indirizzare i clienti che poi acquisteranno dal sito di Amazon attraverso i link sui loro siti. Alla fine del 2003 Amazon aveva quasi un milione di associati. Questi possono accedere al catalogo di Amazon direttamente dai loro siti usando il servizio XML Amazon Web Services (AWS). Amazon fu la prima a usare questo sistema di referenti. L'idea fu poi copiata da molti altri siti di commercio elettronico.
+
+Amazon comprò Internet Movie Database (IMDb) nell'aprile 1998. Comprò poi PlanetAll (azienda di Cambridge, Massachusetts) nell'agosto 1998, pagando con 800 000 azioni di Amazon stock. PlanetAll gestiva un sito di rubrica/agenda/calendario basato su web. Con la stessa acquisizione Amazon ebbe anche Junglee.com, una startup specializzata in data-mining con XML, per 1,6 milioni di azioni di Amazon. I due affari insieme furono valutati al tempo in circa 280 milioni di dollari. La maggior parte dei dipendenti delle due ditte fu assorbita da Amazon all'inizio del 1999. Essi continuarono a sviluppare servizi per la community di Amazon, come Amazon.com Auctions, Amazon.com Marketplace, Friends & Favorites e Purchase Circles.
+
+Amazon.com lanciò Amazon.com Auctions, il suo servizio di aste online nel marzo 1999 senza riuscire però a superare eBay. Seguì il lancio di un altro servizio di commercio elettronico chiamato zShops nel settembre 1999, e a novembre una collaborazione con Sotheby's chiamata sothebys.amazon.com, poi fallita. Anche se zShops non riuscì a resistere come ci si sarebbe aspettato, preparò il grande successo di Amazon Marketplace, lanciato nel 2001, che permetteva ai clienti di vendere libri, CD, DVD e altri prodotti sia nuovi sia usati. Amazon Marketplace rivaleggia oggi con half.com di eBay.
+
+Nel giugno 1999 Amazon comprò Alexa Internet, Accept.com ed Exchange.com con una serie di acquisti valutata a 645 milioni di dollari. Nel 2002 divenne il rivenditore esclusivo di Segway Human Transporter, di cui Bezos fu fin dagli inizi grande sostenitore. Nel settembre 2002 Amazon lanciò la Amazon Visa Card, presto seguita dal servizio di autenticazione e acquisto facilitato per i clienti Amazon. Lo stesso sistema fu poi imitato anche da Buy.com, Overstock.com, united.com e aol.com. Il 21 giugno 2003 Amazon coordinò quella che fu a quel tempo una delle maggiori vendite nella storia del commercio elettronico: 1,3 milioni di copie del romanzo Harry Potter e l'ordine della Fenice.
+
+Nel 2001 Amazon fu uno dei primi siti di commercio elettronico ad accettare donazioni per la Croce Rossa a favore delle vittime degli attentati dell'11 settembre 2001. Per alcuni giorni la compagnia dedicò alla causa la sua intera homepage. Nel 2004 Amazon lanciò la funzionalità "Presidential Candidates" con cui i clienti potevano donare da 5 a 200 dollari per la campagna elettorale del loro candidato preferito per le presidenziali del 2004; fu usata la struttura dell'Amazon Honor System, nato nel 2001 affinché i clienti potessero segnalare il proprio sito web preferito e comprare software online; Amazon guadagnava il 2,9% del pagamento superiore a 30 centesimi. Il sistema non fu mai disattivato, ma è poco usato.
+
+Search Inside the Book è una caratteristica che dà ai clienti la possibilità di cercare parole chiave all'interno di un libro del catalogo. All'inizio, nell'ottobre 2003, operava su 120 000 titoli (33 milioni di pagine di testo) e ora su 250 000 libri. Amazon si è accordata con circa 130 case editrici per permettere agli utenti di fare queste ricerche. Per evitare violazioni di copyright, Amazon.com non mostra una copia in formato testo delle pagine ma un'immagine che non può essere stampata; inoltre, limita il numero di pagine che possono essere viste dall'utente. A pagamento è disponibile anche un servizio che permette di leggere alcuni libri online attraverso il programma Amazon Upgrade.
+Nel 2004 Amazon acquistò Joyo.com, un sito di e-commerce cinese. Nello stesso anno lanciò a9.com, gruppo specializzato in algoritmi di ricerca (come quello usato per il servizio Search Inside the Book) e altre tecnologie innovative per Internet, come Find It on the Block che permette di vedere non solo il recapito di un'attività commerciale, ma anche la sua foto e le informazioni su altri negozi e attività nella stessa strada. Sempre nel 2004, con Ridley Scott Associates, Amazon produsse e pubblicò online 5 cortometraggi, sponsorizzati grazie a un'alleanza strategica con Chase, intitolati Portrait, Agent Orange, Do Geese See God, Tooth Fairy e Careful What You Wish For.
+
+Per lo tsunami del 26 dicembre 2004 Amazon organizzò una raccolta fondi a favore della Croce Rossa americana tramite l'Honor System. Al 31 gennaio 2005 più di 162 000 persone avevano donato complessivamente 13,1 milioni di dollari. Nella stessa settimana Amazon creò un sistema simile per le Croci Rosse britannica, canadese, francese, tedesca e giapponese sui siti nazionali di Amazon. Riattivò questo sistema di donazioni alla Croce Rossa per l'emergenza dell'uragano Katrina nell'agosto 2005. All'8 settembre erano stati effettuati più di 98 000 pagamenti per un totale di 10,7 milioni di dollari.
+
+Nel 2005 Amazon acquisì BookSurge, un'azienda di print on demand. Nel marzo 2005 annunciò il suo primo concorso di cortometraggi, Amazon Short Film Competition. In collaborazione con American Express, Tribeca Film Festival e Macromedia, più di 1 000 corti entrarono in gara. Amazon costruì una pagina speciale per la visualizzazione online dei filmati, visitata da milioni di clienti, che potevano anche votare il vincitore. Rachel's Challenge si classificò al primo posto. Dato il grande successo, fu annunciata un'altra edizione del concorso.
+
+Nel novembre 2005 Amazon aggiunse una funzionalità wiki al database dei prodotti, consentendo a ogni cliente che aveva fatto almeno un acquisto di modificare la pagina di un prodotto. Amazon Prime è un servizio a pagamento che offre la consegna gratuita in un giorno su alcuni prodotti. Annunciata alla fine del 2005, Amazon Connect è un'altra funzionalità che permette agli autori dei libri in vendita di inserire commenti nelle pagine relative alle loro pubblicazioni e sulla homepage di quelli che hanno comprato i loro libri.
+Nel gennaio 2006 Amazon stabilì una collaborazione con SideStep, ditta di ricerche di offerte di viaggio online, al fine di potenziare questo servizio nella propria sezione dedicata al turismo. Nel marzo 2006 lanciò un servizio di online storage, Amazon S3. Un numero illimitato di file, di dimensioni comprese tra 1 byte e 5 gigabyte, può essere memorizzato in S3 e distribuito via HTTP o BitTorrent. Il servizio costa 15 centesimi per gigabyte memorizzato al mese e 20 centesimi per gigabyte trasferito al mese. Nel luglio 2006 fu lanciato il sito Amazon Grocery, per vendere cibo non facilmente deperibile e articoli casalinghi (per essere competitivo con i negozi tradizionali, per gli acquisti sopra i 25 dollari la spedizione è gratuita). Ad agosto 2006 Amazon introdusse EC2 ("Elastic Compute Cloud"), una site farm virtuale dove gli utenti possono usare l'infrastruttura di Amazon ad alta stabilità per "far girare" le proprie applicazioni, come, ad esempio, simulazioni e web hosting. Nel settembre 2006 lanciò Amazon Unbox, un servizio di download di video che offre migliaia di filmati con spettacoli televisivi, telefilm, film e da più di 30 emittenti. Unbox non è compatibile con i computer Mac. I video scaricati possono essere trasferiti su DVD, da usare solo sul computer che ha scaricato il filmato e non su qualunque lettore DVD. Dopo circa due mesi di attività, Unbox si classificò seconda tra le Scariest Tech di Fortune del 2006.
+
+Nel gennaio 2007 Amazon creò Amapedia, in precedenza ProductWiki, un database wiki sviluppato con PHP e PostgreSQL, dedicato alle recensioni dei prodotti.
+
+Il 23 novembre 2010 fu lanciata la versione italiana di Amazon, dopo un anno e mezzo di versione temporanea con il dominio .eu. Nel gennaio 2014 Amazon attivò la spedizione serale che permette di ordinare un pacco entro le 12 e riceverlo entro le 21 dello stesso giorno. Nel luglio 2015 l'azienda annunciò il proprio modello di consegna delle merci tramite droni con l'obiettivo di consegnare i pacchi in soli 30 minuti, definendo in modo più dettagliato rispetto al passato la sua visione per il futuro del volo attraverso sistemi non controllati dall'uomo.
+Nel novembre del 2014 Amazon fu lanciato Echo, un dispositivo per uso domestico dotato di altoparlanti e microfono che integra all'interno un sistema di intelligenza artificiale, denominato Alexa, che risponde a comandi vocali. Nel marzo del 2016 la gamma Echo si ampliò con l'arrivo dei nuovi modelli Tap ed Echo Dot.
+
+Il 18 maggio 2019 Amazon entrò nel capitale dell'azienda britannica di consegne a domicilio Deliveroo.
+
+Il 2 febbraio 2021 Jeff Bezos annunciò che nel corso del terzo trimestre del 2021 sarebbe avvenuto un cambio al vertice di Amazon, dato che egli avrebbe lasciato il posto di amministratore delegato ad Andy Jassy, già AD di Amazon Web Services dal 2016, per diventare presidente esecutivo della società. Tale passaggio di carica divenne ufficiale il 5 luglio; lo stesso giorno Jassy lasciò il ruolo di amministratore delegato di Amazon Web Services, cedendo il suo posto ad Adam Selipsky, che lo stava affiancando dal 17 maggio dello stesso anno.
+
+Nel febbraio 2023 entra nel mercato delle componenti hardware di base per PC. Nello stesso anno, dopo il flop del servizio cloud Amazon Photos, negli Stati Uniti inizia la chiusura di diversi punti vendita di Amazon Go, una catena di negozi alimentari di tipologia senza cassa, e che prevede perciò la rilevazione degli acquisti mediante scanner e telecamere con addebito diretto sul conto Amazon, senza l'utilizzo di carte di credito e casse automatiche.
+
+Sempre dal 2023 impiega l'intelligenza artificiale generativa e le Deep Neural Networks per valutare la veridicità delle recensioni. Nel 2024 in alcuni Paesi, tra cui anche l'Italia, viene introdotta una nuova funzionalità in fase di acquisto, chiamata "Ask to a friend" ("Chiedi ad un amico"). Prima di comprare un prodotto, l'utente potrà confrontarsi con amici e parenti, in modo da avere riscontro dai propri cari senza dover consultare recensioni.
+
+Il 16 ottobre 2025 Amazon annuncia il progetto Cascade Advanced Energy Facility, vale a dire la costruzione di centrali nucleari modulari di ultima generazione per alimentare in maniera green i consumi dei propri Data center e dell'intelligenza artificiale.
+
+Dal 2018 al 2025 la forza lavoro di Amazon negli Stati Uniti è più che triplicata passando a 1.2 milioni di unità. Il gruppo prevede il raddoppio delle vendite di merci entro il 2033. Secondo documenti strategici interni visionati dal The New York Times, una visione strategica intende automatizzare il 75% delle attività operative, risparmiando l'assunzione di più di 600.000 persone entro tale data. Dopo il taglio di oltre 27.000 posizioni nel 2022,  Amazon ha annunciato nuovi licenziamenti a partire dal gennaio 2026. Dei 14.000 licenziamenti annunciati a novembre, circa il 40% riguardava ruoli ingegneristici automatizzati dall'intelligenza artificiale. Al 2025 Amazon è il secondo datore di lavoro privato degli Stati Uniti per numero di lavoratori. Secondo Reuters e Bloomberg un ulteriore giro di 14.000 licenziamenti è atteso a partire dal mese di gennaio 2026, andando a costituire la più massiccia riorganizzazione nella storia dell'azienda.
+
+Nel 2025 Amazon registrato ricavi per 717 miliardi di dollari, battendo per la prima volta WorldMart.
+
+Nel gennaio 2026 viene lanciato l’Aws European Sovereign Cloud, un servizio i cui data center sono collocati in Europa e separati a livello logico e fisico dalla casa madre americana. Esso è gestito da cittadini europei residenti nell'UE che si occupano di tutte le attività connesse.
+
+L'amministratore delegato ha annunciato investimenti in conto capitale per 200 miliardi di dollari per il 2026 in intelligenza artificiale, chip, robotica e satelliti in orbita bassa.
+Proprietà e gestione
+Azionisti
+Elenco dei principali azionisti al 13 novembre 2021:
+Nome 	Azioni 	%
+Jeff Bezos 	50 533 149 	9,98
+The Vanguard Group 	30 907 168 	6,10
+MacKenzie Bezos 	17 404 224 	3,44
+T. Rowe Price Associates (Investment Management) 	16 173 783 	3,19
+SSgA Funds Management 	15 963 398 	3,15
+Fidelity Management & Research 	14 593 446 	2,88
+BlackRock Fund Advisors 	9 307 013 	1,84
+Geode Capital Management 	6 749 351 	1,33
+Northern Trust Investments (Investment Management) 	4 840 325 	0,96
+Norges Bank Investment Management 	4 567 893 	0,90
+Servizi
+Amazon Pay
+Amazon Pay è il servizio che consente di effettuare pagamenti attraverso l'account Amazon dell'utente.
+Pago in contanti
+È il servizio che in Italia permette di acquistare sul sito e pagare in contanti nei punti vendita convenzionati. Dal 2021 si applica a 5.000 punti vendita Western Union e, dal 2026, a 30.000 centri PuntoLis.
+Amazon Prime e Prime Now
+In molti Paesi, Amazon offre il servizio a pagamento Amazon Prime, che permette di ricevere i prodotti acquistati in tempi più brevi, e usufruire di altri servizi. Il 2017 è stato l'anno record per quanto riguarda sottoscrizioni e consegne a livello mondiale: è stata superata infatti la quota di 100 milioni di abbonati.
+Amazon MGM Studios
+Amazon MGM Studios è la divisione di Amazon.com che sviluppa fumetti, film e show televisivi avviata alla fine del 2010. Il contenuto è distribuito attraverso Prime Video, servizio di video streaming concorrente di servizi come Netflix e Hulu. Per le serie televisive, Amazon produce la puntata pilota e la rende disponibile ai clienti ed eventualmente viene prodotta l'intera stagione della serie. Il primo gruppo di episodi pilota è stato reso disponibile il 19 aprile 2013, il secondo il 6 febbraio 2014, il terzo il 28 agosto 2014 e il quarto il 15 gennaio 2015. Il primo film originale distribuito da Amazon è Chi-Raq di Spike Lee nel 2015. Per lo sviluppo di film e serie televisive viene utilizzato anche un modello di crowdsourcing. Le sceneggiature sono presentate attraverso il web, vengono esaminate e valutate da altri lettori e/o dal personale di Amazon. Gli script possono anche essere presentati con la possibilità di permettere ad altre persone di modificarli. In aggiunta vi è un metodo di invio separato per sceneggiatori professionisti.
+Amazon Web Services
+Amazon Web Services è una piattaforma di cloud computing e servizi web offerti commercialmente su web a partire dal 2002. La gigantesca mole di dati che ogni secondo viene memorizzata dallo storage dell'infrastruttura di Amazon viene anche rivenduta a terzi come servizio. La virtualizzazione dei server permette a chi ha infrastrutture hardware dedicate, come appunto Amazon, di fornire attraverso diverse modalità servizi di cloud computing. Analoghi servizi vengono svolti da Microsoft e VMWare.
+Self publishing
+Kindle Direct Publishing
+Nota anche con la sigla KDP Amazon, è la piattaforma di self-publishing per eBook di proprietà di Amazon.com.
+CreateSpace
+Computer quantistici
+Amazon gestisce quattro servizi relativi ai computer quantistici: Amazon Braket, Quantum Solutions Lab, Center for Quantum Computing, e Center for Quantum Networking, lanciato nel giugno 2022.
+
+Attivo dal 2019, Amazon Braket fornisce accesso a computer quantistici basati sulla superconduttività, ioni intrappolati, fotoni, ricottura quantistica e atomi raffreddati. Esso aiuta a velocizzare la ricerca scientifica e lo sviluppo software per i computer quantistici sia per la programmazione sia per la simulazione.
+Bedrock
+Il 13 aprile 2023 la divisione Amazon Web Services, che si occupa di cloud computing, ha lanciato il servizio Bedrock, un'intelligenza artificiale generativa basata su modelli di grandi lingue, che è stata addestrata su una gran mole di dati per rispondere a domande, completare bozze di e-mail o per l'autocompletamento del testo di una ricerca. Il servizio è a disposizione degli sviluppatori software che possono integrare l'intelligenza artificiale nei loro programmi, e permette di accedere all'intelligenza artificiale di AI21 Labs, Anthropic e Stable AI.
+Sedi e collaborazioni
+La sede principale dell'azienda si trova a Beacon Hill, nei pressi di Seattle, nello Stato di Washington. Ha altri uffici nella zona metropolitana di Seattle, tra cui nell'International District, a Rainier Valley e al Columbia Center, nel centro di Seattle. In Europa, Amazon ha sedi a Lussemburgo, Monaco di Baviera, Parigi, Dublino, Bratislava in Slovacchia, Slough in Inghilterra e Milano, mentre in Estremo Oriente è presente a Tokyo e Pechino.
+
+I siti web di Borders.com, Borders.co.uk, Waldenbooks.com, Virginmega.com, CDNOW.com, e HMV.com automaticamente redirezionano i visitatori sul sito di Amazon. Fino al 30 giugno 2006, anche digitare ToysRUs.com in un browser avrebbe condotto ad Amazon.com's Toys & Games ma questa alleanza fu conclusa per una vertenza legale. Amazon.com opera come sito rivenditore dei prodotti di Target, la NBA, Endless.com, Sears Canada e Bombay Company e supporta il servizio Shop@AOL di AOL.
+
+Amazon possiede versioni canadesi del sito in inglese e francese, ma non ha stabilimenti o altre strutture in Canada a causa delle restrizioni a cui sono soggette le aziende venditrici di libri possedute da gruppi esteri. Anche i server si trovano negli Stati Uniti e Amazon ha un accordo con le Poste Canadesi per le spedizioni e per l'uso delle strutture della Crown corporation a Mississauga, in Ontario. Nel 2002, l'associazione dei librai canadesi e la Indigo Books and Music denunciò l'accordo tra Amazon e le Poste Canadesi perché poteva costituire un tentativo di aggiramento delle leggi canadesi, ma nel 2004 la causa fu abbandonata.
+Centri di sviluppo del software
+Amazon ha diversi centri di sviluppo del software nel mondo, tra cui Slough ed Edimburgo nel Regno Unito, Dublino in Irlanda, Bangalore, Chennai e Hyderabad in India, Kennewick negli USA, Città del Capo, Iasi e Bucarest in Romania, Pechino e Shibuya, a Tokyo.
+Centri di smistamento e magazzini
+Nord America (NAFTA)
+Nazione 	Regione 	Città
+Stati Uniti 	Arizona 	Phoenix
+Goodyear
+California 	Moreno Valley
+Newark
+Patterson
+Redlands
+Tracy
+San Bernardino
+Stockton
+Carolina del Nord 	Concord
+Carolina del Sud 	Spartanburg
+West Columbia
+Connecticut 	Windsor Locks
+Delaware 	Middletown
+New Castle
+Florida 	Davenport
+Doral
+Lakeland
+Ruskin
+Georgia 	East Point
+Illinois 	Chicago (in costruzione)
+Indiana 	Indianapolis
+Jeffersonville
+Plainfield
+Whitestown
+Kansas 	Coffeyville
+Lenexa
+Kentucky 	Campbellsville
+Hebron
+Lexington
+Louisville
+Shepherdsville
+Maryland 	Baltimora
+Massachusetts 	Stoughton
+Nevada 	Fernley
+North Las Vegas
+Reno
+New Hampshire 	Nashua
+New Jersey 	Avenel
+Robbinsville
+Swedesboro
+Pennsylvania 	Breinigsville
+Carlisle
+Harrisburg
+Hazleton
+Lewisberry
+Pittsburgh
+Tennessee 	Charleston
+Chattanooga
+Lebanon
+Murfreesboro
+Nashville
+Texas 	Coppell
+Fort Worth
+Humble
+Schertz
+Virginia 	Chester
+Petersburg
+Washington 	Bellevue
+DuPont
+Sumner
+Kent
+Wisconsin 	Kenosha
+Canada 	Ontario 	Brampton
+Milton
+Mississauga
+Columbia Britannica 	Annacis Island
+Messico 	Estado de México
+Europa
+Nazione	Regione	Città	Anno
+Spagna	Madrid	San Fernando de Henares	2012
+Spagna	Catalogna 	El Prat de Llobregat 	2019
+Slovacchia	Bratislava	Bratislava	2011
+Scozia	Fife	Dunfermline	
+Scozia	Inverclyde	Gourock	
+Paesi Bassi	Olanda Settentrionale	Amsterdam	
+Italia 	Trentino-Alto Adige 	Trento 	2021
+Italia	Friuli-Venezia Giulia 	Pordenone 	2019
+Italia	Piemonte	Brandizzo	spostato da Avigliana nel 2018
+Italia	Piemonte	Larizzate	2017
+Italia	Piemonte	Torrazza Piemonte	2018
+Italia	Piemonte	Novara 	2021
+Italia	Piemonte	Alessandria 	2022
+Italia	Piemonte	Grugliasco 	2021
+Italia	Piemonte	Vercelli 	2017
+Italia	Lombardia	Buccinasco	2018
+Italia	Lombardia	Milano (Affori)	2015
+Italia	Lombardia	Milano (Rogoredo)	2016
+Italia	Lombardia	Casirate d'Adda, BG	2018
+Italia	Lombardia	Castegnato, BS	2020
+Italia	Lombardia	Pioltello, MI 	2021
+Italia	Toscana	Calenzano	2017
+Italia	Toscana	Pisa 	2020
+Italia	Emilia-Romagna	Castel San Giovanni	2011
+Italia	Emilia-Romagna	Crespellano	2018
+Italia	Emilia-Romagna	Spilamberto	2018
+Italia	Emilia-Romagna	Santarcangelo di Romagna 	2019
+Italia	Emilia-Romagna	Calderara di Reno 	2021
+Italia	Lazio	Passo Corese	2017
+Italia	Lazio	Roma (Magliana)	2018
+Italia	Lazio	Colleferro 	2020
+Italia	Lazio	Ardea 	2022
+Italia	Marche 	Ancona
+
+(Camerano)
+	2021
+Italia	Umbria 	Magione 	2021
+Italia	Veneto 	Castelguglielmo 	2020
+Italia	Campania 	Frattamaggiore-Arzano 	2019
+Italia	Puglia	Bitonto 	2020
+Italia	Liguria 	Campi 	2020
+Italia	Sicilia 	Catania 	2020
+Italia	Abruzzo 	San Salvo 	2022
+Inghilterra	South Yorkshire	Doncaster	2017
+Inghilterra	Hertfordshire	Hemel Hempstead	
+Inghilterra	Bedfordshire	Ridgmont	
+Inghilterra	Cambridgeshire	Peterborough	
+Inghilterra	Staffordshire	Rugeley	2011
+Germania	Assia	Bad Hersfeld	1996 e 2010
+Germania	Brandeburgo	Brieselang	2013
+Germania	Renania-Palatinato	Coblenza	2012
+Germania	Baviera	Graben	2011
+Germania	Sassonia	Lipsia	2006
+Germania	Baden-Württemberg	Pforzheim	2012
+Germania	Renania Settentrionale-Vestfalia	Rheinberg	2011
+Germania	Renania Settentrionale-Vestfalia	Werne	2010
+Galles	Swansea	Crymlyn Burrows	2008
+Galles	Swansea	Jersey Marine	2008
+Francia	Loiret	Boigny-sur-Bionne	2000
+Francia	Nord-Passo di Calais	Lauwin-Planque	2013
+Francia	Drôme	Montélimar	2010
+Francia	Loiret	Saran	2007
+Francia	Saona e Loira	Sevrey	2012
+Asia
+Nazione	Provincia/Municipalità/Regione/Divisione	Città
+Cina	Guangdong	Canton
+Jiangsu	Suzhou
+Municipalità di Pechino	Pechino
+Sichuan	Chengdu
+Municipalità di Tianjin	Tianjin
+Municipalità di Shanghai	Shanghai
+Heilongjiang	Harbin
+Liaoning	Shenyang
+Shandong	Jinan
+Guangxi	Nanning
+Shaanxi	Xi'an
+Fujian	Xiamen
+Giappone	Kantō	Chiba
+Ichikawa
+Yachiyo
+Kansai	Sakai
+Daitō
+Osaka
+Kantō	Kawagoe
+Saitama
+India	Konkan, Maharashtra	Mumbai
+Bangalore, Karnataka	Bangalore
+Telangana	Hyderabad
+Tamil Nadu	Chennai
+Gujarat	Ahmedabad
+Jaipur, Rajasthan	Jaipur
+Gurgaon, Haryana	Gurgaon
+Al 2023, Amazon impiega 1,5 milioni di persone di cui un milione nei magazzini (parzialmente automatizzati). I robot sono in grado di posizionare le scatole vuote e indicare il luogo di stoccaggio di quelle nuove.Sempre nel 2023 Amazon ha deciso di investire parte del miliardo di dollari destinato alle imprese innovative nell'automa Digit di Agility Robotics che con l'inizio della produzione di massa e la conseguente economia di scala conta di abbattere il costo degli automi a 3 euro l'ora.
+Controversie
+Quella che segue è una lista parziale delle controversie legali e/o etiche che hanno coinvolto la società Amazon.com, Inc. nel corso degli anni:
+
+    Nel 1999 la Amazon Bookstore Cooperative di Minneapolis citò in causa Amazon.com per l'uso del marchio: la cooperativa usava il nome "Amazon" dal 1970. Le due parti raggiunsero un accordo per poter condividere il nome. La compagnia ha anche subito un boicottaggio per l'utilizzo di alcuni brevetti relativi a procedure di pagamento elettronico.
+    Amazon si è trovata più di una volta al centro di polemiche sia per la vendita di libri a favore della pedofilia, sia di libri negazionisti riguardo alla Shoah.
+    Nel 2009 Amazon, tramite la tecnologia DRM, ha cancellato dai dispositivi Kindle di migliaia di ignari utenti statunitensi due libri di George Orwell: La fattoria degli animali e 1984, risarcendo gli utenti con un accredito sui rispettivi conti pari al costo di ogni libro cancellato. Amazon in una lettera ha giustificato l'azione affermando che quei libri erano stati messi in distribuzione per errore in quanto non autorizzati dall'editore detenente i diritti: all'epoca dei fatti, i dispositivi Kindle erano in commercio solo negli USA, dove il copyright su quei libri scade nel 2044, a differenza di altri paesi in cui le opere erano già nel pubblico dominio. In seguito alla conseguente protesta dei suoi consumatori Amazon ha rilasciato una nota sostenendo che eviterà in futuro di cancellare file dai Kindle degli utenti senza averne autorizzazione per quanto concerne «situazioni simili».
+    Nel 2010, su pressioni del governo statunitense, Amazon ha disabilitato i server che ospitavano i file dell'organizzazione Wikileaks di Julian Assange.
+    Vi sono state proteste da parte dei dipendenti di Amazon sulle condizioni di lavoro, a cui la dirigenza della compagnia ha reagito. Nel dicembre del 2008 Amazon UK, che opera presso quattro grandi magazzini in Gran Bretagna, è fortemente criticato per le condizioni di lavoro imposte, in uno dei suoi magazzini, ai propri dipendenti nel corso delle festività di fine anno. Anche in Amazon France esistevano le stesse condizioni. Nel febbraio 2013, i giornalisti Diana Löbl e Peter Onneken pubblicano un reportage che denuncia le degradanti condizioni di lavoro per i lavoratori temporanei stranieri presso la sede Amazon di Bad Hersfeld in Germania, sempre nel corso del periodo festivo di fine anno. Nel maggio del 2013, il giornalista Jean-Baptiste Malet pubblica con Fayard il lavoro En Amazonie, une enquête sur Amazon France. Per scoprire i retroscena di Amazon, si fa assumere come intermediario presso il centro logistico di Montélimar, assegnato al turno notturno. Il racconto, «edificante» secondo Le Nouvel Observateur, descrive le condizioni di lavoro dei numerosi lavoratori interinali di Amazon, i «nuovi proletari per i quali creiamo ogni giorno nuovi posti di lavoro, a colpi di clic». Jean-Baptiste Malet punta il dito contro il numero enorme di lavoratori precari, i ritmi sfiancanti, le pessime condizioni di lavoro mascherate da paternalismo reinventato. Estendendo la sua inchiesta alla Germania, torna ad affrontare la questione in un articolo per il Monde diplomatique pubblicato nel novembre 2013. Anche il giornalista del Mirror Alan Selby ha documentato le terribili condizioni lavorative nel Regno Unito, con tempi contingentati per andare in bagno e assenza di sedie per riposare.
+    Il 10 dicembre 2014 l'ufficio tributario di San Marino, su mandato della Segreteria di Stato per le finanze e il bilancio, sequestra tre bancali di merce destinati al piccolo Stato. L'accusa contro Amazon è di non aver pagato l'imposta sulle importazioni pari al 17% su ogni prodotto. Qualche giorno dopo la multinazionale ferma le spedizioni nella Repubblica per non adeguarsi alla normativa sammarinese. La soluzione per gli utenti sammarinesi è stata in parte risolta facendosi spedire la merce in Italia o mettendo San Marino come parte della provincia di Rimini (Es: Città di San Marino, Provincia Rimini, CAP 47853, Stato ITALIA), essendo il CPI (codice postale interno) sammarinese parte dell'area italiana che segue l'area territoriale del CAP italiano.
+    Nel periodo tra il 2011 e il 2015, Amazon avrebbe presentato al fisco italiano importi inferiori alla realtà. Per tale motivo nel 2017 è finita al centro di accertamenti da parte dell'Agenzia delle entrate, ed è stato accertato che il colosso americano aveva per anni scelto di registrare i suoi utili prodotti in Italia in Lussemburgo, per approfittare di un regime fiscale agevolato, pur avendo sedi stabili in Italia. Accusata di essere una "stabile organizzazione" occulta, Amazon aveva concordato il versamento di 100 milioni di euro allo Stato per chiudere il contenzioso, ma i suoi comportamenti non erano stati ritenuti di rilevanza penale.
+    Nel 2019, Amazon Books ha introdotto la censura e proibito la vendita di testi contrari alla teoria del gender, relativi al NARTH e alla cosiddetta terapia riparativa di Joseph Nicolosi.
+    Durante la pandemia di COVID-19, Amazon viene accusata da alcune organizzazioni di lavoratori di attuare politiche inadeguate di protezione da contagio nei riguardi dei propri dipendenti. Da inizio 2020 fino a settembre dello stesso anno, l'azienda dichiara che il numero complessivo dei lavoratori che hanno contratto l'infezione risulta essere 19 816.
+    Nel 2021 l'Antitrust italiana ha sanzionato per oltre un miliardo di euro Amazon, per aver discriminato i venditori indipendenti che usano il suo sito. Le condotte di Amazon avrebbero accresciuto il divario tra il potere di Amazon e quello della concorrenza anche nell'attività di consegna degli ordini e-commerce. A causa dell'abuso, inoltre, sarebbero stati danneggiati anche i marketplace concorrenti in quanto i venditori, che adottavano la logistica di Amazon, sarebbero stati scoraggiati dall'offrire i propri prodotti su altre piattaforme online. Una sanzione record quella decisa dall'Autorità garante della concorrenza e del mercato che arriva dopo due anni e 7 mesi di indagini. Oltre al pagamento di 1,128 milioni di euro dovrà concedere a tutti i venditori sulla piattaforma la stessa visibilità per raggiungere i clienti anche se gestiscono autonomamente attività, l'imballaggio e la consegna dei prodotti.
+La protezione dei dati personali
+La questione della protezione dei dati personali legati agli acquisti online è un tema che preoccupa da anni. Uno studio di Anthony D. Miyazaki e Ana Fernandez mette in evidenza che la maggior parte delle persone è ansiosa riguardo alla sicurezza dei propri dati durante lo shopping online. Questa preoccupazione è leggermente inferiore tra gli utenti più assidui di Internet, ma nel 2001 la maggior parte delle persone si rivolgeva comunque a siti come Amazon per necessità: la comodità degli acquisti prevaleva sulle preoccupazioni legate alla protezione dei dati.
+
+Proprio grazie a questa fiducia, Amazon è riuscita a espandere il proprio business, coprendo un'ampia gamma di settori, dal servizio di streaming alle consegne di generi alimentari. Tuttavia, come dimostra uno studio del 2019 di Emily West, questa varietà di offerte permette ad Amazon di raccogliere un’enorme quantità di dati sui propri consumatori, consentendo una personalizzazione sempre più accurata delle proposte. In questo contesto, i dati diventano il fulcro del modello di business di Amazon. West denuncia un “capitalismo di sorveglianza”, in cui la raccolta e l'analisi dei dati diventano prassi comune, accettata dai consumatori che si sentono dipendenti dai servizi offerti.
+
+Alcuni prodotti di Amazon, però, sollevano seri interrogativi sulla tutela della privacy. Catherine Jackson e Angela Orebaugh, nel loro articolo, evidenziano come Amazon Echo memorizzi registrazioni vocali per migliorare le prestazioni di Alexa, l'assistente virtuale. Queste registrazioni, che possono violare l'intimità della vita domestica, possono essere utilizzate come prove in tribunale, come dimostra il caso Arkansas VS Bates negli Stati Uniti. In questo modo, il salvataggio dei dati personali da parte di Amazon pone nuove sfide e interrogativi sulla privacy.
+Restrizione alle spedizioni
+A partire dal 16 novembre 2018, Amazon Italia Logistica e Amazon Italia Transport sono stati censiti nell'elenco degli operatori postali autorizzati per il territorio italiano, pubblicato nel sito del Ministero dello sviluppo economico, ottenendo l'autorizzazione generale che include anche le consegne normalmente effettuate dai corrieri.
+
+Amazon in Italia non effettua consegne di materiali pericolosi nelle isole e in determinati comuni costieri. Inoltre non effettua consegne nei seguenti Paesi:
+
+    Corea del Nord
+    Cuba
+    Iran
+    Iraq
+    Siria
+    Sudan
+
+Amazon ha restrizioni di consegna in alcuni Paesi:
+
+    Arabia Saudita
+    Algeria
+    Bahrein
+    Bangladesh
+    Bhutan
+    Bielorussia
+    Birmania
+    Bosnia ed Erzegovina
+    Brunei
+    Cina
+
+    Egitto
+    Emirati Arabi Uniti
+    Giappone
+    Giordania
+    India
+    Israele
+    Kuwait
+    Libia
+    Malaysia
+    Marocco
+
+    Oman
+    Pakistan
+    Qatar
+    San Marino
+    Singapore
+    Tunisia
+    Turchia
+

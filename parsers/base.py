@@ -79,12 +79,14 @@ class BaseDomainParser(ABC):
     # ------------------------------------------------------------------ #
     # Hook di estrazione (override nelle sottoclassi se serve)
     # ------------------------------------------------------------------ #
+      # Come Ricavare il TITOLO
     def extract_title(self, result, url: str) -> str:
         """Default: usa il titolo restituito da Crawl4AI nei metadata."""
         metadata = getattr(result, "metadata", None) or {}
         title = metadata.get("title") if isinstance(metadata, dict) else None
         return title or url
 
+      # Pulizia Aggiuntiva del Testo Estratto
     def postprocess_markdown(self, raw_markdown: str) -> str:
         """
         Hook per pulizia aggiuntiva del markdown estratto da Crawl4AI.
@@ -96,6 +98,7 @@ class BaseDomainParser(ABC):
     # ------------------------------------------------------------------ #
     # Validazione
     # ------------------------------------------------------------------ #
+      # Controlla che l'URL appartenga al Dominio Corretto
     def _validate_domain(self, url: str) -> None:
         netloc = urlparse(url).netloc.lower()
         expected = self.domain.lower()
@@ -108,6 +111,7 @@ class BaseDomainParser(ABC):
     # ------------------------------------------------------------------ #
     # Operazioni pubbliche
     # ------------------------------------------------------------------ #
+      # Scarica SOLO HTML Grezzo
     async def fetch_raw_html(self, url: str) -> str:
         """Scarica SOLO l'HTML grezzo, senza alcun post-processing."""
         self._validate_domain(url)
@@ -125,6 +129,7 @@ class BaseDomainParser(ABC):
             raise RuntimeError("Crawl4AI non ha restituito HTML.")
         return html
 
+      # Pipeline Completa: Scarica + Pulisce URL.
     async def parse(self, url: str) -> ParsedPage:
         """Pipeline completa: scarica + parsa un URL live, con la config del dominio."""
         self._validate_domain(url)
@@ -139,6 +144,7 @@ class BaseDomainParser(ABC):
 
         return self._build_parsed_page(result, url)
 
+      # Come la Funzione Precedente, ma parte da un HTML già Salvato (No Rete)
     async def parse_from_html(self, html: str, url: str) -> ParsedPage:
         """
         Ri-parsa un HTML già scaricato (es. per il GS o per siti che
@@ -159,6 +165,7 @@ class BaseDomainParser(ABC):
     # ------------------------------------------------------------------ #
     # Costruzione dell'output finale
     # ------------------------------------------------------------------ #
+      # Assembla Risultato Finale in Oggetto 'ParsedPage'
     def _build_parsed_page(self, result, url: str) -> ParsedPage:
         raw_markdown = getattr(result, "markdown", "") or ""
         html_text = getattr(result, "html", "") or ""

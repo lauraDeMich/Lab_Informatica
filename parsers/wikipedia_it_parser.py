@@ -12,6 +12,10 @@ Strategia:
 - PruningContentFilter: filtro aggiuntivo lato markdown-generator che
   scarta blocchi di testo troppo corti/poco informativi (spesso residui
   di menu o didascalie isolate).
+
+  Contiene Implementazione Concreta e Specifica per il Dominio di Wikipedia ['it.wikipedia.org'].
+
+  Mette a Punto nello Specifico ed Usato per Wikipedia ciò che è stato Introdotto in 'parsers/base.py'
 """
 
 from __future__ import annotations
@@ -58,6 +62,7 @@ class WikipediaItParser(BaseDomainParser):
             page_timeout=30000,
         )
 
+      # Estrae il Titolo e Rimuove il Suffisso ' - Wikipedia' che Compare nel '<title>' delle Pagine Wikipedia.
     def extract_title(self, result, url: str) -> str:
         metadata = getattr(result, "metadata", None) or {}
         title = metadata.get("title") if isinstance(metadata, dict) else None
@@ -66,6 +71,7 @@ class WikipediaItParser(BaseDomainParser):
             return title.replace(" - Wikipedia", "").strip()
         return url
 
+      # Dopo la Pulizia Base, Tronca il Testo alla Prima Occorrenza di Sezioni Finali NON Utili.
     def postprocess_markdown(self, raw_markdown: str) -> str:
         text = super().postprocess_markdown(raw_markdown)
         # Rimuove sezioni finali ricorrenti e poco informative per il GS/eval
