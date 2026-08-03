@@ -6,7 +6,7 @@ Due livelli di verifica:
    il modello Pydantic GoldStandardEntry accetti/rifiuti correttamente i
    dati (funziona sempre, anche prima di aver costruito il GS).
 2. test_gold_standard_file_*: richiedono che
-   data/gold_standard/it_wikipedia_org.json esista già (generato con
+   gs_data/it_wikipedia_org_gs.json esista già (generato con
    scripts/build_gold_standard.py e poi completato A MANO con i gold_text).
    Se il file non esiste ancora, questi test vengono saltati con un
    messaggio esplicativo invece di fallire "a sorpresa".
@@ -21,14 +21,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from pydantic import ValidationError
 
-from models.schema import GoldStandardEntry
+from backend.src.models.schemas import GoldStandardEntry
 
-GS_PATH = (
-    Path(__file__).resolve().parent.parent
-    / "data"
-    / "gold_standard"
-    / "it_wikipedia_org.json"
-)
+GS_PATH = Path(__file__).resolve().parent.parent / "gs_data" / "it_wikipedia_org_gs.json"
 
 MIN_ENTRIES = 10
 EXPECTED_DOMAIN = "it.wikipedia.org"

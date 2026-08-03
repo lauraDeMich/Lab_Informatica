@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Stats{% endblock %}
+{% block content %}
+<div class="mb-4">
+    <div class="text-uppercase small fw-semibold" style="color: var(--accent); letter-spacing: .12em;">Panoramica</div>
+    <h1 class="display-heading mb-0">Statistiche aggregate</h1>
+</div>
+
+{% if stats_error %}
+<div class="alert alert-danger">Impossibile caricare le statistiche: {{ stats_error }}</div>
+{% elif db_stats %}
+
+{% if charts %}
+<div class="d-flex flex-wrap gap-3 mb-3">
+    {% for m in chart_metrics %}
+    <span class="d-inline-flex align-items-center gap-1" style="font-size: .78rem; color: #7a7666;">
+        <span style="display:inline-block;width:.55rem;height:.55rem;border-radius:1px;background:{{ m.color }};"></span>
+        {{ m.label }}
+    </span>
+    {% endfor %}
+</div>
+
+<div class="d-flex flex-column gap-3 mb-3">
+    {% for c in charts %}
+    <div class="card shadow-sm domain-stat-row">
+        <div class="card-body d-flex flex-wrap align-items-center gap-4">
+            <div class="domain-stat-label">
+                <div class="fw-semibold"><i class="bi bi-globe2" style="color: var(--accent);"></i> {{ c.short_name }}</div>
+                {% if c.judge_score is not none %}
+                <span class="judge-pill mt-1">{{ "%.1f"|format(c.judge_score) }}<span class="text-muted fw-normal">/5</span></span>
+                {% endif %}
+            </div>
+
+            {% if c.has_data %}
+            <div class="flex-grow-1 domain-stat-bars">
+                {% for bar in c.bars %}
+                <div class="bar-row" tabindex="0">
+                    <span class="bar-row-label">{{ bar.label }}</span>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: {{ bar.pct }}%; background: {{ bar.color }};"></div>
+                    </div>
+                    <span class="bar-row-value">{{ "%.2f"|format(bar.value) }}</span>
+                    <span class="bar-tooltip">{{ bar.label }}: {{ "%.2f"|format(bar.value) }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-muted small">Nessuna valutazione ancora disponibile per questo dominio.</div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="card shadow-sm">
+<div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+        <thead style="background-color: var(--ink); color: #fff;">
+            <tr>
+                <th>Dominio</th>
+                <th>Web resources</th>
+                <th>Gold standard</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1</th>
+                <th>ROUGE-1 F1</th>
+                <th>Judge score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for domain in db_stats.web_resources.keys() %}
+            <tr>
+                <td>{{ domain }}</td>
+                <td>{{ db_stats.web_resources.get(domain, 0) }}</td>
+                <td>{{ db_stats.gold_standard.get(domain, 0) }}</td>
+                {% set ev = db_stats.avg_eval.get(domain) %}
+                <td>{{ "%.2f"|format(ev.token_level_eval.precision) if ev else "—" }}</td>
+                <td>{{ "%.2f"|format(ev.token_level_eval.recall) if ev else "—" }}</td>
+                <td>{{ "%.2f"|format(ev.token_level_eval.f1) if ev else "—" }}</td>
+                <td>{{ "%.2f"|format(ev.x_eval.rouge1_f1) if ev and ev.x_eval.rouge1_f1 is not none else "—" }}</td>
+                {% set judge = db_stats.avg_eval_judge.get(domain) %}
+                <td>{{ "%.2f"|format(judge.judge_score) if judge else "—" }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="8" class="text-muted text-center">Nessun dato ancora disponibile.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% else %}
+<div class="alert alert-warning">Nessun dato disponibile.</div>
+{% endif %}
+{% endblock %}

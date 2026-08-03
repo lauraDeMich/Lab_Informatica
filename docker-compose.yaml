@@ -1,0 +1,81 @@
+services:
+  database:
+    image: mariadb:11
+    container_name: minerva_database
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: minerva_db
+      MARIADB_USER: minerva
+      MARIADB_PASSWORD: minerva
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_volume:/var/lib/mysql
+    healthcheck:
+      # Script ufficiale incluso nell'immagine mariadb, pensato apposta per
+      # gli healthcheck Docker: piu' robusto di chiamare mysqladmin/mariadb-admin
+      # a mano, il cui nome binario e' cambiato tra le versioni dell'immagine.
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: minerva_ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_volume:/root/.ollama
+    entrypoint:
+      - /bin/sh
+      - -c
+      # Aspetta che il server risponda davvero (poll su "ollama list") invece
+      # di un semplice "sleep N" a tempo fisso, che potrebbe non bastare su
+      # macchine piu' lente e far fallire il pull.
+      - "ollama serve & until ollama list > /dev/null 2>&1; do sleep 1; done && ollama pull ${OLLAMA_MODEL:-qwen3:4b} && wait"
+
+  backend:
+    build: ./backend
+    container_name: minerva_backend
+    restart: unless-stopped
+    # Playwright/Chromium (usati da Crawl4AI) possono andare in crash con lo
+    # /dev/shm di default di Docker (64MB), troppo piccolo per un browser
+    # headless reale.
+    shm_size: '1g'
+    environment:
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_USER: minerva
+      DB_PASSWORD: minerva
+      DB_NAME: minerva_db
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:4b}
+      GS_DATA_DIR: /app/gs_data
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./gs_data:/app/gs_data:ro
+    depends_on:
+      database:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+
+  frontend:
+    build: ./frontend
+    container_name: minerva_frontend
+    restart: unless-stopped
+    environment:
+      BACKEND_URL: http://backend:8003
+    ports:
+      - "8004:8004"
+    depends_on:
+      - backend
+
+volumes:
+  mariadb_volume:
+  ollama_volume:

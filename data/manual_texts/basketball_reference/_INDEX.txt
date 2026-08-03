@@ -1,0 +1,10 @@
+jamesle01_html.txt  ->  https://www.basketball-reference.com/players/j/jamesle01.html
+jordami01_html.txt  ->  https://www.basketball-reference.com/players/j/jordami01.html
+curryst01_html.txt  ->  https://www.basketball-reference.com/players/c/curryst01.html
+bryanko01_html.txt  ->  https://www.basketball-reference.com/players/b/bryanko01.html
+duranke01_html.txt  ->  https://www.basketball-reference.com/players/d/duranke01.html
+2024_html.txt  ->  https://www.basketball-reference.com/teams/BOS/2024.html
+2017_html.txt  ->  https://www.basketball-reference.com/teams/GSW/2017.html
+2020_html.txt  ->  https://www.basketball-reference.com/teams/LAL/2020.html
+NBA_2024_html.txt  ->  https://www.basketball-reference.com/leagues/NBA_2024.html
+abdulka01_html.txt  ->  https://www.basketball-reference.com/players/a/abdulka01.html

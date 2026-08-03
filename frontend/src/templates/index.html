@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="py-4 mb-2">
+    <div class="text-uppercase small fw-semibold" style="color: var(--accent); letter-spacing: .12em;">Laboratorio di Ingegneria Informatica</div>
+    <h1 class="display-heading display-5 mb-2">Minerva — Pipeline di Parsing Web</h1>
+    <p class="text-muted fs-5 mb-0" style="max-width: 26rem;">
+        Parsing, Gold Standard e valutazione automatica di pagine web.
+    </p>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <a href="/parser" class="text-decoration-none">
+            <div class="card h-100 shadow-sm hover-lift text-center">
+                <div class="card-body py-4">
+                    <i class="bi bi-code-slash fs-1 mb-1 d-block" style="color: var(--accent);"></i>
+                    <h5 class="card-title">Parser &amp; Evaluation</h5>
+                    <p class="card-text text-muted small mb-0">Testa un parser su un URL e confrontalo col Gold Standard.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/gold-standard" class="text-decoration-none">
+            <div class="card h-100 shadow-sm hover-lift text-center">
+                <div class="card-body py-4">
+                    <i class="bi bi-archive fs-1 mb-1 d-block" style="color: var(--accent);"></i>
+                    <h5 class="card-title">Gold Standard</h5>
+                    <p class="card-text text-muted small mb-0">Costruisci e gestisci il Gold Standard nel database.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/stats" class="text-decoration-none">
+            <div class="card h-100 shadow-sm hover-lift text-center">
+                <div class="card-body py-4">
+                    <i class="bi bi-bar-chart-line fs-1 mb-1 d-block" style="color: var(--accent);"></i>
+                    <h5 class="card-title">Stats</h5>
+                    <p class="card-text text-muted small mb-0">Panoramica aggregata delle metriche per dominio.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-7">
+        <div class="card shadow-sm h-100">
+            <div class="card-header">Gruppo</div>
+            <div class="card-body d-flex flex-wrap gap-2">
+                {% for s in students %}
+                <div class="member-chip">
+                    {% set parts = s.name.split(' ') %}
+                    <div class="avatar">{{ parts[0][0] }}{{ parts[-1][0] }}</div>
+                    <div>
+                        <div class="name">{{ s.name }}</div>
+                        <div class="matricola">Matricola {{ s.matricola }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card shadow-sm h-100">
+            <div class="card-header">System status</div>
+            <div class="card-body d-flex flex-column gap-2">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="status-dot {{ 'status-dot-ok' if status.backend == 'ok' else 'status-dot-error' }}"></span> Backend
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="status-dot {{ 'status-dot-ok' if status.database == 'ok' else 'status-dot-error' }}"></span> MariaDB
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="status-dot {{ 'status-dot-ok' if status.ollama == 'ok' else 'status-dot-error' }}"></span> Ollama
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm mt-3">
+    <div class="card-header">Domini supportati</div>
+    <ul class="list-group list-group-flush">
+        {% for d in domains %}
+        <li class="list-group-item d-flex align-items-center gap-2">
+            <i class="bi bi-globe2" style="color: var(--accent);"></i> {{ d }}
+        </li>
+        {% else %}
+        <li class="list-group-item text-muted">Nessun dominio disponibile (backend non raggiungibile?)</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

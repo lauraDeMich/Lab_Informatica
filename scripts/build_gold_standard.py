@@ -38,7 +38,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from parsers.wikipedia_it_parser import WikipediaItParser
+from backend.src.parsers.wikipedia_it_parser import WikipediaItParser
 
 # ---------------------------------------------------------------------- #
 # 1) LISTA DEGLI URL CANDIDATI PER IL GOLD STANDARD DI it.wikipedia.org
@@ -66,9 +66,9 @@ CANDIDATE_URLS = [
     "https://it.wikipedia.org/wiki/Caparezza",                       # persona / musica
 ]
 
-OUTPUT_JSON = Path(__file__).resolve().parent.parent / "data" / "gold_standard" / "it_wikipedia_org.json"
+OUTPUT_JSON = Path(__file__).resolve().parent.parent / "gs_data" / "it_wikipedia_org_gs.json"
 RAW_HTML_DIR = Path(__file__).resolve().parent.parent / "data" / "raw_html" / "wikipedia_it"
-MANUAL_TEXTS_DIR = Path(__file__).resolve().parent.parent / "data" / "gold_standard" / "manual_texts"
+MANUAL_TEXTS_DIR = Path(__file__).resolve().parent.parent / "data" / "manual_texts"
 
 
 def slugify(url: str) -> str:

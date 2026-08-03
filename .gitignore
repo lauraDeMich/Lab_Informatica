@@ -9,7 +9,14 @@ data/raw_html/*
 !data/raw_html/.gitkeep
 
 # Il Gold Standard invece SI versiona (è lavoro manuale, va protetto)
-# -> nessuna esclusione su data/gold_standard/
+# -> nessuna esclusione su gs_data/
+
+# Volumi Docker: la persistenza reale usa named volumes, non queste
+# cartelle (tenute solo per rispettare la struttura di consegna richiesta)
+mariadb_data/*
+!mariadb_data/.gitkeep
+ollama_data/*
+!ollama_data/.gitkeep
 
 .env
 .DS_Store

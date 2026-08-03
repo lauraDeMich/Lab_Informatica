@@ -1,46 +1,68 @@
 # Progetto Finale — Laboratorio di Ingegneria Informatica
 
-Pipeline end-to-end per l'acquisizione e l'analisi di documenti da fonti
-web eterogenee.
+Pipeline end-to-end per l'acquisizione e l'analisi di documenti da fonti web
+eterogenee: parsing, Gold Standard, valutazione automatica (metriche + LLM
+Judge), database MariaDB, API REST FastAPI, Web UI Jinja2, tutto
+containerizzato con Docker Compose.
 
-- **Obiettivo 1**: Parser per Domini Web
-- **Obiettivo 2**: Gold Standard per Domini Assegnati (implementato qui per it.wikipedia.org)
+**Stato attuale**: pipeline completa e funzionante per tutti e 4 i domini
+assegnati: **it.wikipedia.org** (F1 ~0.90), **www.applevis.com** (F1 ~0.97),
+**www.basketball-reference.com** (F1 ~0.90) e **www.ondarock.it** (F1 ~0.98).
+
+> Nota sui domini: nell'elenco ufficiale del corso i domini extra sono
+> registrati con "www." (`www.applevis.com`, `www.basketball-reference.com`,
+> `www.ondarock.it`), non nella forma nuda — usare sempre la forma con
+> "www." per coerenza con i controlli automatici.
+>
+> Nota su basketball-reference.com: il Gold Standard copre solo il blocco
+> informativo "#meta" di ogni pagina (bio giocatore / riepilogo squadra /
+> vincitori premi stagione), non le enormi tabelle di statistiche
+> partita-per-partita che seguono — quelle sono dati veri ma non "testo
+> informativo di sintesi" nel senso richiesto dalla consegna.
+>
+> Nota su ondarock.it: il parser usa il selettore ".main_text", condiviso
+> dalle sezioni recensioni/interviste/monografie. Il Gold Standard è stato
+> costruito estraendo lo stesso blocco con un parser HTML tollerante
+> (lxml, non il html.parser di base): su almeno una pagina (monografia dei
+> Twenty One Pilots) l'HTML contiene una struttura leggermente malformata
+> che il parser stdlib di Python interrompe a metà pagina, troncando
+> silenziosamente il contenuto — un bug analogo a un errore di misura, non
+> di parsing del sito reale, ma buono da tenere a mente per il report.
 
 ## Struttura del repository
 
 ```
 .
-├── parsers/
-│   ├── __init__.py
-│   ├── base.py                          # classe abstract comune a tutti i domini
-│   └── wikipedia_it_parser.py           # parser per it.wikipedia.org
-├── models/
-│   ├── __init__.py
-│   └── schema.py                        # ParsedPage (Obiettivo 1) + GoldStandardEntry (Obiettivo 2)
-├── scripts/
-│   └── build_gold_standard.py           # scarica html_text/title per il GS di Wikipedia IT
-├── tests/
-│   ├── test_structure.py                # test statici Obiettivo 1, senza browser
-│   └── test_gold_standard.py            # test statici + validazione del GS (Obiettivo 2)
+├── docker-compose.yaml       # orchestrazione dei 4 container
+├── domains.json              # domini attualmente supportati
+├── backend/                  # FastAPI: parser, DB, evaluation, judge, API REST
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── src/
+│       ├── main.py           # app FastAPI, tutti gli endpoint (Obiettivo 6)
+│       ├── config.py         # variabili d'ambiente
+│       ├── db/                # Obiettivo 5: schema, connessione, CRUD, seed
+│       ├── parsers/           # Obiettivo 1: BaseDomainParser, WikipediaItParser, ParserFactory
+│       ├── evaluation/        # Obiettivo 3/4: metriche, remove_markdown, LLM judge
+│       └── models/            # schemi Pydantic (I/O di dominio e delle API)
+├── frontend/                 # Obiettivo 7: Web UI Jinja2 (home + 3 pagine)
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── src/
+│       ├── main.py
+│       └── templates/
+├── gs_data/                   # Obiettivo 2: Gold Standard, un JSON per dominio
+│   └── it_wikipedia_org_gs.json
+├── mariadb_data/, ollama_data/  # placeholder richiesti dalla consegna (persistenza reale via named volume Docker)
 ├── data/
-│   ├── gold_standard/                   # GS costruito a mano (Obiettivo 2) — versionato
-│   │   └── it_wikipedia_org.json        # generato da scripts/build_gold_standard.py + editing manuale
-│   └── raw_html/                        # snapshot HTML grezzi — NON versionato
-├── requirements.txt
-├── .gitignore
-└── README.md
+│   ├── manual_texts/          # testo copiato a mano per ogni pagina del GS (intermedio)
+│   └── raw_html/              # snapshot HTML grezzi scaricati dagli script (non versionato)
+├── scripts/                   # tooling di sviluppo per costruire il GS di Wikipedia
+├── tests/                     # test locali, senza Docker (parser/evaluation/GS)
+└── requirements.txt            # dipendenze per far girare scripts/ e tests/ in locale
 ```
 
-## Domini assegnati al gruppo
-
-| Dominio                          | Parser                              | Stato |
-|-----------------------------------|--------------------------------------|-------|
-| it.wikipedia.org (ITA)            | `wikipedia_it_parser.py`            | ✅ Obiettivo 1 fatto — 🔧 Obiettivo 2 in corso |
-| basketball-reference.com          | —                                    | ⏳ da fare |
-| applevis.com                      | —                                    | ⏳ da fare |
-| ondarock.it                       | —                                    | ⏳ da fare |
-
-## Setup
+## Setup locale (senza Docker, per sviluppo/test)
 
 ```bash
 python -m venv .venv
@@ -49,108 +71,53 @@ pip install -r requirements.txt
 crawl4ai-setup                   # scarica il browser Chromium (richiede rete libera)
 ```
 
-## Test
+## Avvio con Docker Compose (sistema completo)
 
 ```bash
-# Test statici Obiettivo 1 (no browser, verificano solo la logica/config delle classi)
-python tests/test_structure.py
-
-# Test statici + validazione del Gold Standard (Obiettivo 2)
-python tests/test_gold_standard.py
-
-# Test "live" di esempio (richiede crawl4ai-setup già eseguito)
-python -c "import asyncio; from parsers.wikipedia_it_parser import WikipediaItParser as W; print(asyncio.run(W().parse('https://it.wikipedia.org/wiki/Roma')).parsed_text[:300])"
+docker compose up --build
 ```
 
----
+Espone: backend su `:8003`, frontend su `:8004`, MariaDB su `:3306`, Ollama su
+`:11434`. Al primo avvio il backend crea le tabelle e popola il database con i
+Gold Standard presenti in `gs_data/`.
 
-## Obiettivo 2 — Gold Standard per it.wikipedia.org
+## Test locali (no Docker, no rete)
 
-### Cos'è e a cosa serve
-
-Il Gold Standard (GS) è un insieme di pagine di riferimento, verificate
-a mano, che verrà usato nell'Obiettivo 3 per misurare quanto bene il
-parser di Wikipedia IT estrae il testo (precision/recall/F1 a livello
-di token, confrontando l'output del parser con il GS).
-
-Formato di ogni entry (vedi `models/schema.py: GoldStandardEntry`):
-
-```json
-{
-  "url": "https://it.wikipedia.org/wiki/Roma",
-  "domain": "it.wikipedia.org",
-  "title": "Roma",
-  "html_text": "<html>... pagina grezza, senza filtri ...</html>",
-  "gold_text": "Roma è la capitale d'Italia... (SOLO testo informativo, copiato a mano)"
-}
+```bash
+python tests/test_structure.py      # Obiettivo 1: parser + ParserFactory
+python tests/test_gold_standard.py  # Obiettivo 2: validazione del Gold Standard
+python tests/test_evaluation.py     # Obiettivo 3: metriche di valutazione
 ```
 
-Tutte le entry vengono salvate in un unico file JSON,
-`data/gold_standard/it_wikipedia_org.json` (una lista di entry).
+## Domini assegnati al gruppo
 
-### Cosa fa lo script automaticamente
+| Dominio                          | Stato |
+|-----------------------------------|-------|
+| it.wikipedia.org (ITA)            | ✅ completo (F1 ~0.90) |
+| www.applevis.com                  | ✅ completo (F1 ~0.97) |
+| www.basketball-reference.com      | ✅ completo (F1 ~0.90) |
+| www.ondarock.it                   | ✅ completo (F1 ~0.98) |
 
-`scripts/build_gold_standard.py`:
-1. Prende una lista di 10 URL di it.wikipedia.org già scelti nel file
-   (pagine di tipo diverso: videogiochi, aziende, scienza, monumenti,
-   spazio, informatica, musica — nessuna home page), definita in
-   `CANDIDATE_URLS`.
-2. Per ognuno, scarica l'HTML grezzo con `WikipediaItParser.fetch_raw_html`
-   (stessa infrastruttura Crawl4AI dell'Obiettivo 1) e lo salva anche in
-   `data/raw_html/wikipedia_it/<slug>.html` come backup.
-3. Estrae automaticamente il `title` dall'HTML.
-4. Scrive/aggiorna `data/gold_standard/it_wikipedia_org.json` con tutti
-   i campi compilati **tranne `gold_text`**, che viene lasciato `""`
-   (o mantenuto se già presente da un run precedente, per non perdere
-   il lavoro manuale già fatto).
+## Grader ufficiale (esonero 1)
 
-### ⚠️ Cosa DEVI completare tu a mano
+Il professore fornisce un'immagine Docker che testa automaticamente gli
+endpoint del backend. Uso:
 
-Lo script **non può e non deve** generare `gold_text` automaticamente:
-il punto del Gold Standard è proprio che sia costruito e verificato da
-una persona, come termine di paragone "corretto" per valutare il parser.
+```bash
+docker load -i lab-grader-esonero-1:1.0.1.tar.gz
+docker compose up --build -d
+docker run --network host lab-grader-esonero-1:1.0.1 <matricola>
+```
 
-Passaggi precisi:
+Va eseguito con il sistema già su (`docker compose up --build -d`) e passando
+la matricola di un membro del gruppo come argomento.
 
-1. **Esegui lo script in locale** (nel tuo virtualenv, con rete libera
-   verso it.wikipedia.org e dopo aver lanciato `crawl4ai-setup`):
-   ```bash
-   python scripts/build_gold_standard.py
-   ```
-   Questo crea/aggiorna `data/gold_standard/it_wikipedia_org.json` con
-   10 entry, tutte con `gold_text: ""`.
+## Costruzione del Gold Standard di Wikipedia (già fatto, per riferimento)
 
-2. **Per ciascuna delle 10 entry**, apri l'URL corrispondente nel
-   browser e:
-   - Copia **solo il testo informativo**: titolo + corpo dell'articolo.
-   - **NON includere**: menu di navigazione, sidebar, footer, banner
-     pubblicitari, box "Voci correlate"/"Altri progetti"/note a fondo
-     pagina, o qualunque elemento ripetuto identico su ogni pagina del
-     sito.
-   - Incolla il testo copiato (pulito, in **testo semplice, NON
-     markdown**, senza tag HTML) nel campo `"gold_text"` di quella entry,
-     dentro `data/gold_standard/it_wikipedia_org.json`.
-
-3. Se vuoi **cambiare o aggiungere pagine**, modifica la lista
-   `CANDIDATE_URLS` in `scripts/build_gold_standard.py` (minimo 10 URL
-   richiesti, già ce ne sono 10) e ri-esegui lo script: i `gold_text`
-   già compilati per gli URL non modificati vengono mantenuti.
-
-4. **Verifica il tuo lavoro** con:
-   ```bash
-   python tests/test_gold_standard.py
-   ```
-   Questo controlla che: il file esista, ci siano almeno 10 entry, ogni
-   entry rispetti lo schema (`GoldStandardEntry`), non ci siano URL
-   duplicati o home page, e — soprattutto — che **nessun `gold_text` sia
-   rimasto vuoto**.
-
-### Perché non è stato fatto tutto in automatico qui
-
-L'ambiente in cui è stato preparato questo repository non ha accesso di
-rete verso `it.wikipedia.org` (è isolato per motivi di sicurezza), quindi
-non è stato possibile eseguire realmente lo script di download né
-scrivere i `gold_text`, che comunque per specifica del progetto vanno
-scritti da una persona e non generati automaticamente. Lo scheletro del
-JSON (con `html_text`/`title` compilati e `gold_text` vuoto) verrà
-prodotto quando lancerai tu lo script sulla tua macchina.
+`scripts/build_gold_standard.py` scarica l'HTML grezzo delle pagine elencate
+in `CANDIDATE_URLS` e crea/aggiorna `gs_data/it_wikipedia_org_gs.json` con
+`url`/`domain`/`title`/`html_text` compilati e `gold_text` vuoto, più un file
+`.txt` vuoto per pagina in `data/manual_texts/`. Dopo aver copiato a mano il
+testo informativo di ogni pagina in quei file `.txt`, `scripts/fill_gold_text.py`
+li inserisce nel campo `gold_text` del JSON. Verifica finale con
+`python tests/test_gold_standard.py`.

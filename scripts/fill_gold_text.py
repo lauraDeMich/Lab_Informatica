@@ -31,8 +31,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-GS_JSON = Path(__file__).resolve().parent.parent / "data" / "gold_standard" / "it_wikipedia_org.json"
-MANUAL_TEXTS_DIR = Path(__file__).resolve().parent.parent / "data" / "gold_standard" / "manual_texts"
+GS_JSON = Path(__file__).resolve().parent.parent / "gs_data" / "it_wikipedia_org_gs.json"
+MANUAL_TEXTS_DIR = Path(__file__).resolve().parent.parent / "data" / "manual_texts"
 
 
 def slugify(url: str) -> str:

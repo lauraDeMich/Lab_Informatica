@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Minerva{% endblock %} — Pipeline di Parsing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1b1f2e;
+            --ink-soft: #2b3145;
+            --accent: #6f8f5c;
+            --accent-soft: #a8c398;
+            --paper: #faf7f1;
+            --paper-card: #ffffff;
+            --border-soft: #e8e2d4;
+        }
+
+        body {
+            background-color: var(--paper);
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--ink);
+        }
+
+        h1, h2, h3, h4, h5, .display-heading {
+            font-family: 'Fraunces', Georgia, serif;
+            letter-spacing: -0.01em;
+        }
+
+        /* Navbar */
+        .navbar-minerva {
+            background-color: var(--ink);
+            border-bottom: 2px solid var(--accent);
+        }
+        .navbar-minerva .navbar-brand {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.35rem;
+            color: var(--accent-soft) !important;
+            letter-spacing: 0.02em;
+        }
+        .navbar-minerva .nav-link {
+            color: #d8d3c4 !important;
+            font-weight: 500;
+            padding: .5rem 1rem !important;
+            border-radius: .375rem;
+            transition: color .15s ease, background-color .15s ease;
+        }
+        .navbar-minerva .nav-link:hover {
+            color: var(--accent-soft) !important;
+            background-color: rgba(255,255,255,.06);
+        }
+        .navbar-minerva .nav-link.active {
+            color: var(--ink) !important;
+            background-color: var(--accent-soft);
+        }
+
+        /* Cards */
+        .card {
+            border: 1px solid var(--border-soft);
+            border-radius: .75rem;
+        }
+        .card.shadow-sm {
+            box-shadow: 0 2px 10px rgba(27, 31, 46, .05) !important;
+        }
+        .card-header {
+            background-color: var(--paper-card);
+            border-bottom: 1px solid var(--border-soft);
+            font-weight: 600;
+            font-family: 'Fraunces', serif;
+        }
+        .hover-lift {
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(27, 31, 46, .10) !important;
+        }
+
+        /* Buttons */
+        .btn-dark {
+            background-color: var(--ink);
+            border-color: var(--ink);
+        }
+        .btn-dark:hover {
+            background-color: var(--ink-soft);
+            border-color: var(--ink-soft);
+        }
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            font-weight: 600;
+        }
+        .btn-accent:hover {
+            background-color: var(--accent-soft);
+            border-color: var(--accent-soft);
+            color: var(--ink);
+        }
+
+        /* Manina su tutto ciò che è selezionabile/interattivo */
+        select,
+        .form-select,
+        option,
+        button,
+        .btn,
+        [role="button"],
+        a,
+        input[type="submit"],
+        input[type="button"],
+        .list-group-item-action {
+            cursor: pointer;
+        }
+
+        /* Misc */
+        pre.text-box {
+            max-height: 420px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            background: var(--paper-card);
+            border: 1px solid var(--border-soft);
+            border-radius: .5rem;
+            padding: .85rem;
+            font-size: .85rem;
+        }
+        .badge-ok { background-color: #2f7a52; }
+        .badge-error { background-color: #b3413a; }
+
+        .status-dot {
+            display: inline-block;
+            width: .65rem;
+            height: .65rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .status-dot-ok {
+            background-color: #2f9e5c;
+            box-shadow: 0 0 0 3px rgba(47, 158, 92, .18);
+        }
+        .status-dot-error {
+            background-color: #c0392b;
+            box-shadow: 0 0 0 3px rgba(192, 57, 43, .18);
+        }
+
+        .member-chip {
+            display: flex;
+            align-items: center;
+            gap: .65rem;
+            background: var(--paper-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+            padding: .4rem .9rem .4rem .4rem;
+        }
+        .member-chip .avatar {
+            width: 2.1rem;
+            height: 2.1rem;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--ink);
+            color: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: .85rem;
+        }
+        .member-chip .name {
+            font-weight: 600;
+            font-size: .88rem;
+            line-height: 1.1;
+        }
+        .member-chip .matricola {
+            font-size: .74rem;
+            color: #7a7666;
+        }
+
+        .domain-stat-row .card-body {
+            padding: 1rem 1.25rem;
+        }
+        .domain-stat-label {
+            min-width: 9rem;
+            flex-shrink: 0;
+        }
+        .domain-stat-bars {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            min-width: 16rem;
+        }
+        .bar-row {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            outline: none;
+            border-radius: .25rem;
+        }
+        .bar-row:focus-visible {
+            box-shadow: 0 0 0 2px var(--accent-soft);
+        }
+        .bar-row-label {
+            width: 5.7rem;
+            flex-shrink: 0;
+            font-size: .78rem;
+            color: #7a7666;
+        }
+        .bar-track {
+            flex: 1 1 auto;
+            height: .85rem;
+            background: var(--paper);
+            border-radius: .5rem;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: .5rem;
+            transition: width .2s ease;
+        }
+        .bar-row-value {
+            width: 2.6rem;
+            flex-shrink: 0;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-size: .82rem;
+            color: var(--ink);
+        }
+        .bar-tooltip {
+            position: absolute;
+            left: 6.3rem;
+            bottom: 100%;
+            margin-bottom: .3rem;
+            background: var(--ink);
+            color: #fff;
+            font-size: .72rem;
+            padding: .2rem .55rem;
+            border-radius: .3rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .12s ease;
+            z-index: 2;
+        }
+        .bar-row:hover .bar-tooltip,
+        .bar-row:focus-visible .bar-tooltip {
+            opacity: 1;
+        }
+
+        .judge-pill {
+            display: inline-flex;
+            align-items: baseline;
+            gap: .15rem;
+            background: var(--paper);
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+            padding: .15rem .65rem;
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: .85rem;
+            color: var(--ink);
+        }
+
+        footer.site-footer {
+            border-top: 1px solid var(--border-soft);
+            color: #8b8776;
+            font-size: .82rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-minerva mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/">𓅄 Minerva</a>
+        <div class="navbar-nav flex-row gap-1">
+            <a class="nav-link {% if request.url.path == '/' %}active{% endif %}" href="/">Home</a>
+            <a class="nav-link {% if request.url.path == '/parser' %}active{% endif %}" href="/parser">Parser &amp; Evaluation</a>
+            <a class="nav-link {% if request.url.path == '/gold-standard' %}active{% endif %}" href="/gold-standard">Gold Standard</a>
+            <a class="nav-link {% if request.url.path == '/stats' %}active{% endif %}" href="/stats">Stats</a>
+        </div>
+    </div>
+</nav>
+<div class="container pb-5">
+    {% block content %}{% endblock %}
+</div>
+<footer class="site-footer text-center py-4 mt-5">
+    Minerva — Laboratorio di Ingegneria Informatica, Sapienza Università di Roma
+</footer>
+<script>
+    // Disabilita il pulsante di submit al primo click: alcune richieste
+    // (parsing live + LLM judge) possono richiedere fino a ~2 minuti, e
+    // Ollama processa una richiesta di judge alla volta. Un doppio click
+    // per impazienza mette una seconda richiesta in coda dietro la prima,
+    // facendo scadere il timeout lato browser di ENTRAMBE invece che di
+    // una sola: questo previene il problema alla radice.
+    function minervaSubmitOnce(form) {
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) {
+            if (btn.dataset.submitted === "1") {
+                return false;
+            }
+            btn.dataset.submitted = "1";
+            btn.disabled = true;
+            btn.dataset.originalText = btn.textContent;
+            btn.textContent = "Elaborazione in corso…";
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

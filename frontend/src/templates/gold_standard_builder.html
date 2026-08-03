@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Gold Standard{% endblock %}
+{% block content %}
+<h1 class="display-heading mb-4">Gold Standard Builder</h1>
+
+<form method="get" action="/gold-standard" class="row g-2 mb-3">
+    <div class="col-auto">
+        <label class="col-form-label">Dominio supportato</label>
+    </div>
+    <div class="col-auto">
+        <select name="domain" class="form-select" onchange="this.form.submit()">
+            {% for d in domains %}
+            <option value="{{ d }}" {% if d == selected_domain %}selected{% endif %}>{{ d }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</form>
+
+<div class="row g-3">
+    <div class="col-md-8">
+        <form method="post" action="/gold-standard/fetch" class="card shadow-sm mb-3" onsubmit="return minervaSubmitOnce(this)">
+            <div class="card-body">
+                <input type="hidden" name="domain" value="{{ selected_domain or '' }}">
+                <label class="form-label">URL</label>
+                <div class="input-group">
+                    <input type="text" name="url" class="form-control" value="{{ url }}" placeholder="https://..." required>
+                    <button type="submit" class="btn btn-accent">Carica HTML</button>
+                </div>
+            </div>
+        </form>
+
+        {% if fetch_error %}
+        <div class="alert alert-danger">Errore nel download: {{ fetch_error }}</div>
+        {% endif %}
+
+        {% if fetched %}
+        <form method="post" action="/gold-standard/save">
+            <input type="hidden" name="domain" value="{{ selected_domain or '' }}">
+            <input type="hidden" name="url" value="{{ fetched.url }}">
+            <div class="mb-2">
+                <label class="form-label">HTML scaricato ({{ fetched.title }})</label>
+                <textarea class="form-control" name="html_text" rows="8" style="font-size:.75rem;">{{ fetched.html_text }}</textarea>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Gold text (copia qui SOLO il testo informativo della pagina)</label>
+                <textarea class="form-control" name="gold_text" rows="10" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Salva nel database</button>
+        </form>
+        {% endif %}
+
+        {% if save_error %}
+        <div class="alert alert-danger mt-3">Errore nel salvataggio: {{ save_error }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-header">URL presenti nel GS ({{ gs_urls|length }})</div>
+            <ul class="list-group list-group-flush">
+                {% for gs_url in gs_urls %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="text-truncate" style="max-width: 70%;" title="{{ gs_url }}">{{ gs_url }}</span>
+                    <form method="post" action="/gold-standard/delete" class="m-0">
+                        <input type="hidden" name="domain" value="{{ selected_domain or '' }}">
+                        <input type="hidden" name="url" value="{{ gs_url }}">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Elimina</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="list-group-item text-muted">Nessuna entry.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

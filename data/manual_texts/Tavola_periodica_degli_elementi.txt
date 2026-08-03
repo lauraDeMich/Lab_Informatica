@@ -1,0 +1,264 @@
+La tavola periodica degli elementi (o semplicemente tavola periodica o tavola di Mendeleev) è lo schema con cui sono ordinati gli elementi chimici sulla base del loro numero atomico Z e del numero di elettroni presenti negli orbitali atomici s, p, d, f.
+
+È la prima e storicamente più usata versione di tavola periodica, ideata nel 1869 dal chimico russo Dmitrij Ivanovič Mendeleev e, in modo indipendente, dal chimico tedesco Julius Lothar Meyer. Contava in principio numerosi spazi vuoti per gli elementi previsti dalla teoria, alcuni dei quali sarebbero stati scoperti solo nella seconda metà del Novecento.
+Storia
+Durante la storia della chimica, mentre si scoprivano sempre più elementi, si rese necessaria l'introduzione di una notazione simbolica che permettesse di scriverli in maniera universale, concisa e unica. Vennero dunque create dagli studiosi diverse liste in cui venivano indicati i simboli degli elementi chimici.
+
+Con l'aumentare del numero degli elementi conosciuti, fu chiara la necessità di raggrupparli seguendo un criterio logico inequivocabile. I primi tentativi di raggruppamento furono svolti da Johann Wolfgang Döbereiner che nel 1817 raggruppò a tre a tre gli elementi con caratteristiche chimiche simili. Il lavoro continuò in quella direzione fino alla prima vera e propria tavola periodica, ideata da Dmitrij Ivanovič Mendeleev, che ordinava gli elementi secondo il loro peso atomico e sfruttava la periodicità delle proprietà chimiche per riunire negli stessi gruppi gli elementi con proprietà chimiche simili. Fu solo nel 1913 che, per ovviare a incongruenze riscontrate in alcuni elementi dovute essenzialmente alla presenza in natura degli stessi come miscela di più isotopi in diverse percentuali, il fisico Henry Moseley ne propose un raggruppamento in funzione del numero atomico, linearmente crescente e indipendente dalla quantità neutronica.
+La tavola periodica di Mendeleev, salvo qualche leggera modifica, è la tavola periodica che usiamo ancora oggi. Con il passare degli anni, nuovi elementi vengono sintetizzati e si vanno ad aggiungere agli altri elementi della tavola periodica, che comunque conserva le caratteristiche di periodicità osservate da Mendeleev.
+Primi tentativi di schematizzazione
+Nel 1789 Antoine Lavoisier pubblicò una lista di 33 elementi chimici, raggruppandoli in gas, metalli, non-metalli e terrosi; i chimici spesero il secolo successivo in cerca di uno schema di classificazione più preciso. Nel 1829 Johann Wolfgang Döbereiner osservò che la maggior parte degli elementi si poteva raggruppare in gruppi di tre in base alle loro proprietà chimiche. Ad esempio litio, sodio e potassio furono raggruppati insieme come metalli soffici e reattivi. Döbereiner osservò anche che, quando confrontava il loro peso atomico, quello del secondo era approssimativamente uguale alla media di quelli del primo e del terzo; questa divenne conosciuta come "legge delle triadi". Il chimico tedesco Leopold Gmelin lavorò con questo sistema e, nel 1843, identificò 10 triadi, tre gruppi da 4 e uno da 5. Jean Baptiste Dumas pubblicò un lavoro nel 1857 nel quale descriveva le relazioni fra i vari gruppi dei metalli. Nonostante vari chimici fossero in grado di identificare le relazioni fra piccoli gruppi di elementi, essi dovevano costruire uno schema che li legasse tutti. Nel 1858, il chimico tedesco August Kekulé osservò che il carbonio ha spesso 4 atomi legato a esso. Il metano per esempio ha un atomo di carbonio e 4 atomi di idrogeno. Questo concetto alla fine divenne conosciuto come valenza e da tale concetto discende che elementi diversi legano con un diverso numero di atomi.
+Nel 1862 il geologo francese Alexandre-Émile Béguyer de Chancourtois pubblicò una prima forma di tavola periodica, che lui chiamò "Vis tellurique", cioè "Vite tellurica", a causa del fatto che in questa configurazione a vite il tellurio assumeva la posizione centrale. Egli fu la prima persona ad accorgersi della periodicità degli elementi. Con gli elementi posizionati su una spirale su un cilindro, de Chancourtois dimostrò che gli elementi con caratteristiche simili sembravano apparire a intervalli regolari. La sua tabella includeva qualche ione e composto oltre agli elementi. Inoltre usò nella sua tabella termini geologici anziché chimici e non includeva un diagramma; come risultato, essa ricevette poca attenzione fino al lavoro di Dmitrij Mendeleev.
+Nel 1864 il chimico tedesco Julius Lothar Meyer pubblicò una tavola con 44 elementi messi in ordine di valenza. La tavola mostrava che gli elementi con proprietà simili spesso condividevano la stessa valenza. Nello stesso periodo il chimico inglese William Odling pubblicò uno schema di 57 elementi, ordinati in base al loro peso atomico. Seppur con qualche irregolarità e buco, egli si accorse che sembrava che ci fosse una periodicità dei pesi atomici fra gli elementi e che questo si accordava con "il raggruppamento che ricevevano di solito". Odling alluse all'idea di una legge periodica ma non la perseguì. Egli in seguito (nel 1870) pubblicò una classificazione degli elementi basata sulla valenza.
+Il chimico inglese John Newlands produsse una serie di fogli dal 1863 al 1866, notando che quando gli elementi erano ordinati in ordine di peso atomico crescente, proprietà fisiche e chimiche simili ricorrevano a intervalli di 8, egli paragonò questa periodicità alle ottave della musica. Questa così definita "legge delle ottave", però, fu ridicolizzata dai contemporanei di Newlands e la Chemical Society rifiutò di pubblicare il suo lavoro. Newlands comunque abbozzò una tavola degli elementi e la usò per predire l'esistenza di elementi mancanti, come il germanio, il gallio e lo scandio. La Chemical Society riconobbe l'importanza di queste scoperte solamente 5 anni dopo aver premiato Mendeleev.
+
+Nel 1867 Gustavus Hinrichs, un chimico accademico nato in Danimarca e operante negli Stati Uniti, pubblicò un sistema periodico a spirale basato su pesi e spettri atomici e somiglianze chimiche. Il suo modello fu considerato cervellotico, vistoso e complicato e questo ne ha probabilmente ostacolato il riconoscimento e l'accettazione.
+La tavola periodica di Mendeleev
+Nel 1870 il chimico tedesco Julius Lothar Meyer pubblicò una versione estesa della sua tavola periodica del 1864. In maniera indipendente, il professore di chimica russo Dmitrij Mendeleev pubblicò nel 1869 la sua prima tavola periodica. Nelle tavole periodiche di Meyer e Mendeleev gli elementi erano ordinati in righe e colonne, in ordine di peso atomico e cominciavano una nuova riga o colonna quando le caratteristiche degli elementi cominciavano a ripetersi.
+Tra le due, fu adottata la tavola di Mendeleev in quanto era più precisa rispetto alla tavola di Meyer per due ragioni:
+
+    in primo luogo erano presenti degli spazi vuoti (capì che senza di essi la tavola periodica non poteva essere precisa), ipotizzando che gli elementi corrispondenti a tali spazi vuoti non fossero stati ancora scoperti; Mendeleev non fu il primo chimico a farlo, ma fu il primo a cui fu riconosciuto di usare gli andamenti nella sua tavola periodica per predire le proprietà di quegli elementi mancanti, come scandio, gallio e germanio, che chiamò ekaboro, ekaalluminio ed ekasilicio, rispettivamente;
+    in secondo luogo Mendeleev decise di ignorare occasionalmente l'ordine suggerito dai pesi atomici e di scambiare elementi adiacenti per farli entrare nella colonna con le loro stesse proprietà chimiche.
+
+Quando si svilupparono le teorie della struttura atomica, ci si accorse che Mendeleev aveva, senza volerlo, ordinato gli elementi in ordine di numero atomico o carica nucleare crescente. L'importanza dei numeri atomici nell'organizzazione della tavola periodica non fu apprezzata finché non si scoprì l'esistenza dei protoni e dei neutroni. Le tavole periodiche di Mendeleev usavano la massa atomica invece del numero atomico per organizzare gli elementi, informazione determinabile con buona precisione al suo tempo. Come notato, la massa atomica funzionava abbastanza bene nella maggior parte dei casi a dare una rappresentazione che era in grado di predire le proprietà degli elementi mancanti in maniera più accurata di qualsiasi altro metodo. La sostituzione con i numeri atomici fornì una sequenza definitiva, basata sugli interi per gli elementi, usata ancora oggi perfino quando nuovi elementi sintetici sono prodotti e studiati.
+Gli sviluppi successivi
+Nel 1871 Mendeleev pubblicò una forma aggiornata della tavola periodica, dando anche accurate predizioni sugli elementi che aveva notato che mancavano, ma che sarebbero dovuti esistere. Questi vuoti furono riempiti in sequenza, quando i chimici scoprirono nuovi elementi reperibili in natura. Inoltre la scoperta dei "gas rari" o "nobili", fra il 1885 e il 1890, fece aggiungere un ottavo gruppo, ovvero una colonna a destra delle sette indicate da Mendeleev.
+
+Con lo sviluppo della meccanica quantistica diventò evidente che ogni periodo (riga) corrispondeva al riempimento dei livelli energetici caratterizzati dallo stesso numero quantico principale. Atomi più grandi hanno più orbitali elettronici con lo stesso numero quantico principale, quindi le tavole successive hanno richiesto periodi sempre più lunghi. Conseguentemente, nel 1905, Alfred Werner propose un modello esteso di tavola periodica su 32 colonne, in cui lantanidi e attinidi ed elementi di transizione, erano inseriti fra il 2º e il 3º gruppo di Mendeleev. Questa proposta fu modificata da Paul Pfeiffer nel 1920, che restrinse la tavola a 18 colonne, come si rappresenta tuttora, mettendo i lantanidi e gli attinidi su un unico rigo sotto la tavola. Nonostante piccole quantità di qualche elemento transuranico (più pesante dell'uranio) si trovino in natura, tutti questi elementi sono stati scoperti in laboratorio. La loro produzione ha espanso la tavola periodica in maniera significativa. Il primo di questi fu il nettunio, sintetizzato nel 1939. Poiché molti degli elementi transuranici sono molto instabili e decadono velocemente, è difficile individuarli e studiarne le caratteristiche. Ci sono state controversie a proposito della scoperta di qualche elemento annunciata in competizione da diversi laboratori; questo ha richiesto che recensioni indipendenti determinassero quale squadra di ricerca avesse la priorità e di conseguenza il diritto di dare il nome all'elemento.
+Nel 1943 il chimico statunitense Glenn Seaborg sintetizzò il plutonio; due anni dopo (nel 1945) suggerì che gli attinidi, come i lantanidi, avessero il sotto-orbitale f pieno; prima infatti si pensava che gli attinidi formassero una quarta riga nell'orbitale d. L'ipotesi di Seaborg fu successivamente verificata, e nel 1951 gli fu conferito il Premio Nobel per la chimica per i suoi lavori di sintesi degli attinidi. Da questo momento i lantanidi e gli attinidi furono rappresentati su due diverse righe del blocco f.
+
+Nel 2010, la collaborazione russo-statunitense nel laboratorio dell'Istituto unito per la ricerca nucleare di Dubna, in Russia, ha annunciato di aver sintetizzato alcuni atomi di tennesso (l'elemento 117, all'epoca noto col nome provvisorio "ununseptio"). Nel 2012 sono stati accettati e nominati il flerovio (elemento 114) e il livermorio (elemento 116). Il 30 dicembre 2015, gli elementi 113, 115, 117 e 118 sono stati introdotti nella tavola periodica ufficiale dell'IUPAC, andando così a completare il settimo periodo della tavola. I loro nomi ufficiali (rispettivamente nihonio, moscovio, tennesso e oganesson) sono stati ufficialmente approvati il 28 novembre 2016.
+
+L’Assemblea Generale delle Nazioni Unite ha dichiarato il 2019 “Anno Internazionale della Tavola Periodica degli Elementi Chimici” in occasione dei 150 anni dalla pubblicazione della tavola periodica di Dmitrij Mendeleev.
+Nel 2024, la Commissione Italiana del CNR per IUPAC (rappresentanza ufficiale dell'Italia in IUPAC) ha coordinato la traduzione concordata in lingua italiana della Tavola Periodica, coordinando per la prima volta un gruppo di lavoro multidisciplinare composto da esperti del CNR, della Società Chimica Italiana, della Società Chimica Svizzera, di Federchimica, dell’Accademia della Crusca, della Federazione delle Associazioni Scientifiche e Tecniche e del Dipartimento Istruzione della Segretaria di Stato della Repubblica di San Marino. Il lavoro del gruppo di studiosi ha portato alla revisione sistematica dei nomi italiani degli elementi già noti e alla definizione dei nomi degli elementi di più recente scoperta, fino alla casella 118.
+Organizzazione degli elementi
+Gruppo → 	1 	2 	3 	
+	4 	5 	6 	7 	8 	9 	10 	11 	12 	13 	14 	15 	16 	17 	18
+Periodo ↓ 	
+1 	1
+H 	
+	2
+He
+2 	3
+Li 	4
+Be 	
+	
+	5
+B 	6
+C 	7
+N 	8
+O 	9
+F 	10
+Ne
+3 	11
+Na 	12
+Mg 	
+	
+	13
+Al 	14
+Si 	15
+P 	16
+S 	17
+Cl 	18
+Ar
+4 	19
+K 	20
+Ca 	21
+Sc 	
+	22
+Ti 	23
+V 	24
+Cr 	25
+Mn 	26
+Fe 	27
+Co 	28
+Ni 	29
+Cu 	30
+Zn 	31
+Ga 	32
+Ge 	33
+As 	34
+Se 	35
+Br 	36
+Kr
+5 	37
+Rb 	38
+Sr 	39
+Y 	
+	40
+Zr 	41
+Nb 	42
+Mo 	43
+Tc 	44
+Ru 	45
+Rh 	46
+Pd 	47
+Ag 	48
+Cd 	49
+In 	50
+Sn 	51
+Sb 	52
+Te 	53
+I 	54
+Xe
+6 	55
+Cs 	56
+Ba 	57
+La 	*
+	72
+Hf 	73
+Ta 	74
+W 	75
+Re 	76
+Os 	77
+Ir 	78
+Pt 	79
+Au 	80
+Hg 	81
+Tl 	82
+Pb 	83
+Bi 	84
+Po 	85
+At 	86
+Rn
+7 	87
+ Fr  	88
+Ra 	89
+Ac 	**
+	104
+Rf 	105
+Db 	106
+Sg 	107
+Bh 	108
+Hs 	109
+Mt 	110
+Ds 	111
+Rg 	112
+Cn 	113
+Nh 	114
+Fl 	115
+Mc 	116
+Lv 	117
+Ts 	118
+Og
+
+* Lantanoidi 	58
+Ce 	59
+Pr 	60
+Nd 	61
+Pm 	62
+Sm 	63
+Eu 	64
+Gd 	65
+Tb 	66
+Dy 	67
+Ho 	68
+Er 	69
+Tm 	70
+Yb 	71
+Lu
+** Attinoidi 	90
+Th 	91
+Pa 	92
+U 	93
+Np 	94
+Pu 	95
+Am 	96
+Cm 	97
+Bk 	98
+Cf 	99
+Es 	100
+Fm 	101
+Md 	102
+No 	103
+Lr
+Serie chimiche della tavola periodica Metalli alcalini 	Metalli alcalino terrosi 	Lantanoidi 	Attinoidi 	Elementi di transizione
+Metalli del blocco p 	Semimetalli 	Non metalli 	Alogeni 	Gas nobili
+Legenda per i colori dei numeri atomici:
+
+    gli elementi numerati in blu sono liquidi a T = 298 K e p = 100 kPa;
+    quelli in verde sono gas a T = 298 K e p = 100 kPa;
+    quelli in nero sono solidi a T = 298 K e p = 100 kPa;
+    quelli in rosso sono artificiali e non sono naturalmente presenti sulla Terra (sono tutti solidi a T = 298 K e p = 100 kPa). Il tecnezio e il plutonio sono presenti in minime quantità nelle miniere di uranio, nelle giganti rosse e nei resti di supernovae.
+Nella tavola periodica moderna gli elementi sono posti progressivamente in ciascun periodo da sinistra a destra secondo la sequenza dei loro numeri atomici, incominciando una nuova riga dopo un gas nobile. Il primo elemento nella riga successiva è sempre un metallo alcalino con un numero atomico più grande di un'unità rispetto a quello del gas nobile (ad esempio dopo il kripton, un gas nobile con il numero atomico 36, incomincia una nuova riga con il rubidio, un metallo alcalino con il numero atomico 37).
+
+Poiché gli elementi sono collocati in sequenza secondo il numero atomico, le serie degli elementi sono a volte specificate da termini come "fino a" (ad esempio fino al ferro), "oltre" (ad esempio oltre l'uranio), o "da… fino a" (ad esempio dal lantanio fino al lutezio). A volte si usano informalmente anche i termini "leggero" e "pesante" per indicare i numeri atomici relativi (non le densità), come nelle espressioni "più leggero del carbonio" o "più pesante del piombo", sebbene tecnicamente il peso o massa degli atomi degli elementi (i loro pesi atomici o masse atomiche) non sempre aumenti in maniera monotona con i loro numeri atomici. A titolo di esempio il tellurio, elemento 52, è in media più pesante dello iodio, elemento 53.
+
+L'idrogeno e l'elio sono spesso collocati in posti diversi da quelli che indicherebbero le loro configurazioni elettroniche: l'idrogeno di solito è collocato sopra il litio, in accordo con la sua configurazione elettronica, ma a volte è posto sopra il fluoro, o perfino sopra il carbonio, in quanto si comporta in modo simile a essi. L'elio è posto quasi sempre sopra il neon, poiché sono chimicamente molto simili.
+Il significato dei numeri atomici per l'organizzazione della tavola periodica non fu apprezzato finché non divennero chiare l'esistenza e le proprietà dei protoni e dei neutroni. Come ricordato in precedenza, le tavole periodiche di Mendeleev usavano invece i pesi atomici, informazioni determinabili ai suoi tempi con precisione accettabile, che funzionarono abbastanza bene nella maggior parte dei casi per offrire una presentazione di grande potenza predittiva, di gran lunga migliore di qualsiasi altra rappresentazione completa delle proprietà degli elementi chimici allora possibile. La sostituzione dei numeri atomici, una volta compresa, diede una sequenza definitiva per gli elementi, basata su numeri interi, utilizzata ancora oggi anche quando si stanno producendo e studiando nuovi elementi sintetici.
+Metodi di raggruppamento
+Gruppi
+I gruppi (o famiglie) raggruppano gli elementi che si trovano sulla stessa colonna della tavola periodica.
+
+Ogni gruppo comprende gli elementi che hanno la stessa configurazione elettronica esterna (cioè il modo in cui gli elettroni si dispongono attorno al nucleo); poiché le proprietà chimiche degli elementi dipendono dalla loro configurazione elettronica, all'interno di ogni gruppo si trovano elementi con caratteristiche chimiche simili (cioè che si comportano in maniera simile durante lo svolgimento delle reazioni chimiche) e mostrano un chiaro andamento delle proprietà lungo il gruppo (che è associato all'aumentare del peso atomico).
+
+In base al sistema di denominazione internazionale, i gruppi sono indicati numericamente da 1 a 18 dalla colonna più a sinistra (i metalli alcalini) alla colonna più a destra (i gas nobili). I sistemi di denominazione più vecchi differivano leggermente tra l'Europa e gli Stati Uniti d'America.
+
+Ad alcuni di questi gruppi sono stati dati nomi asistematici, come metalli alcalini, metalli alcalino-terrosi, pnicogeni, calcogeni, alogeni e gas nobili. Tuttavia, alcuni altri gruppi, come il gruppo 4, sono indicati semplicemente con i numeri corrispondenti, in quanto mostrano minori somiglianze e/o andamenti in senso verticale.
+
+Le moderne teorie quanto-meccaniche della struttura atomica spiegano le tendenze dei gruppi proponendo che gli elementi all'interno dello stesso gruppo hanno generalmente le stesse configurazioni elettroniche nel loro guscio di valenza, che è il fattore più importante nella spiegazione delle loro proprietà simili.
+
+Considerando gli elementi appartenenti allo stesso gruppo, si notano variazioni monotone del raggio atomico, dell'energia di ionizzazione e dell'elettronegatività. In particolare, muovendosi dall'alto in basso in un gruppo, i raggi atomici degli elementi aumentano. Poiché ci sono livelli di energia maggiormente riempiti, gli elettroni di valenza si trovano a maggiore distanza dal nucleo. Dall'alto, ogni elemento successivo ha una minore energia di ionizzazione perché è più facile allontanare un elettrone, in quanto gli elettroni sono meno strettamente legati. Similmente, un gruppo presenta generalmente una diminuzione dall'alto verso il basso dell'elettronegatività, dovuta a una distanza crescente tra gli elettroni di valenza e il nucleo.
+Periodi
+I periodi (o serie) raggruppano gli elementi che si trovano sulla stessa riga della tavola periodica.
+
+Ogni periodo incomincia con un elemento il cui atomo ha come configurazione elettronica esterna un elettrone di tipo ns, dove n è il numero quantico principale, e procedendo verso gli atomi successivi (più a destra sulla stessa riga), il numero atomico Z aumenta di un'unità a ogni passaggio;[44] dunque gli elementi dello stesso periodo hanno lo stesso livello energetico. Sebbene il comportamento chimico degli elementi sia fortemente influenzato dal gruppo di appartenenza, ci sono regioni in cui gli elementi che mostrano proprietà chimiche più simili sono quelli appartenenti allo stesso periodo, come nel caso del blocco f, dove i lantanidi e gli attinidi formano due serie di elementi di tipo orizzontale.
+
+Considerando gli elementi appartenenti allo stesso periodo, si notano variazioni monotone del raggio atomico, dell'energia di ionizzazione, dell'affinità elettronica e dell'elettronegatività. In particolare, muovendosi da sinistra a destra attraverso un periodo, il raggio atomico solitamente diminuisce. Ciò accade perché ciascun elemento successivo possiede rispetto al precedente un protone e un elettrone in più, per cui la forza con cui gli elettroni sono attirati verso il nucleo è maggiore. Questa diminuzione del raggio atomico fa anche sì che l'energia di ionizzazione aumenti quando ci si muove da sinistra a destra attraverso un periodo. Più strettamente legato è un elemento, maggiore è l'energia richiesta per allontanare un elettrone. L'elettronegatività aumenta allo stesso modo dell'energia di ionizzazione a causa dell'attrazione esercitata sugli elettroni dal nucleo. Anche l'affinità elettronica varia spostandosi da un lato all'altro di un periodo. I metalli (lato sinistro di un periodo) hanno generalmente una minore affinità elettronica dei non metalli (lato destro di un periodo), con l'eccezione dei gas nobili.
+Blocchi
+A causa dell'importanza del guscio elettronico più esterno, le diverse regioni della tavola periodica sono talvolta chiamate blocchi della tavola periodica, denominati secondo il sottoguscio in cui risiede l'"ultimo" elettrone.  Il blocco s comprende i primi due gruppi (metalli alcalini e metalli alcalino-terrosi) nonché l'idrogeno e l'elio. Il blocco p comprende gli ultimi sei gruppi, che corrispondono ai gruppi da 13 a 18 nella numerazione IUPAC (da 3A a 8A in quella statunitense), e contiene, tra gli altri, tutti i metalloidi. Il blocco d comprende i gruppi da 3 a 12 secondo la numerazione IUPAC (o da 3B a 2B in quella statunitense) e contiene tutti i metalli di transizione. Il blocco f, di solito collocato sotto il resto della tavola periodica, comprende i lantanidi e gli attinidi.
+Altre convenzioni e variazioni
+Nel presentare la tavola periodica, i lantanidi e gli attinidi sono spesso mostrati come due righe aggiuntive sotto il corpo principale, con un segnaposto o un determinato elemento della serie (lantanio oppure lutezio, e attinio oppure laurenzio, rispettivamente) mostrato in un singolo spazio della tavola principale, fra bario e afnio, e radio e rutherfordio, rispettivamente. Questa convenzione è interamente una questione di estetica e praticità di formattazione. Una tavola periodica "formattata larga" inserisce le serie di lantanidi e attinidi nei posti adeguati, come parti della sesta e della settima riga della tavola periodica.
+Qualche tavola periodica include una linea di divisione fra metalli e non metalli. Varie altre categorie di elementi potrebbero essere evidenziate su una tavola periodica: esse includono per esempio metalli di transizione, metalli di post-transizione o metalloidi. Sono anche conosciuti e occasionalmente marcati raggruppamenti più specializzati come i metalli refrattari e i metalli nobili, che sono sottoinsiemi, in questo caso, dei metalli di transizione.
+Variazioni periodiche
+Le varie caratteristiche degli elementi chimici che variano periodicamente sono utilizzate per categorizzare l'elemento stesso (come ad esempio il gruppo di appartenenza).
+Più precisamente, il raggio atomico aumenta nello stesso gruppo spostandosi verso gli elementi in basso e diminuisce avanzando da sinistra a destra nello stesso periodo; ciò è dovuto al fatto che scendendo nel gruppo il numero quantico principale n aumenta e ciò fa sì che l'atomo abbia una nuvola elettronica più sviluppata, mentre andando da sinistra a destra nel periodo n rimane uguale, mentre varia il numero di protoni all'interno del nucleo, facendo aumentare le forze nucleari di attrazione tra gli elettroni e il nucleo attorno al quale gravitano, con la conseguente diminuzione del raggio atomico.
+
+L'energia di ionizzazione, l'elettronegatività e l'affinità elettronica diminuiscono scendendo in un gruppo e aumentano avanzando da sinistra verso destra nel periodo. Ciò è dovuto al fatto che scendendo nel gruppo gli elettroni nell'ultimo livello energetico sono attirati con una forza via via più blanda per diminuzione delle forze nucleari (gli atomi sono meno elettronegativi) e ciò fa diminuire l'energia necessaria per strapparli (diminuisce l'energia di ionizzazione) e l'energia liberata quando l'atomo acquista un elettrone (affinità elettronica). Andando da sinistra verso destra in un periodo invece gli elettroni sono attirati sempre con maggiore forza dalle forze nucleari (aumenta l'elettronegatività) e ciò fa aumentare l'energia per strappargli un elettrone (aumenta l'energia di ionizzazione) e l'energia liberata per acquisto di un elettrone (affinità elettronica).
+Rappresentazioni alternative
+Ci sono varie tavole periodiche con schemi diversi da quello della tavola periodica standard o comune. È stato stimato che nel corso di 100 anni a partire dalla pubblicazione della tavola di Mendeleev ne siano state pubblicate circa 800 versioni differenti. Oltre alle tante variazioni che si basano sul formato "rettangolare", sono state ideate versioni che si basano su forme più o meno complesse, tra cui ad esempio: forme circolari, cubiche, a cilindro, edili (simili a palazzi), a elica, a simbolo dell'infinito, a prisma ottagonale, piramidali, separate, sferiche, a spirale e a triangolo. Le tavole periodiche alternative sono sviluppate per evidenziare o enfatizzare certe proprietà chimiche e fisiche degli elementi in maniera superiore rispetto a quanto faccia la tavola periodica tradizionale. Un famoso schema alternativo è quello di Theodor Benfey (1960): gli elementi sono posizionati in una spirale continua, con l'idrogeno al centro e i metalli di transizione, i lantanidi e gli attinidi che occupano le protuberanze.
+
+La maggior parte delle tavole periodiche è bidimensionale, nonostante le tavole tridimensionali siano datate perfino al 1862 (precedendo la tavola bidimensionale di Mendeleev del 1869). Esempi più recenti includono la classificazione periodica di Courtine (1925), il sistema a lamina di Wringley (1949), l'ellisse periodica di Giguere (1965) e l'albero periodico di Dufour (1996). La tavola periodica del fisico Stowe rappresenta un caso particolare, in quanto è stata descritta come quadridimensionale (tre dimensioni sono date dallo spazio e una dal colore).
+
+Nel 2023 l'Università di Firenze ha sviluppato una tavola periodica indicante la superconduttività e la temperatura critica degli elementi, predette da un algoritmo addestrato con una rete neurale.
+Sebbene le variabili fisiche e le interazioni fondamentali siano numerose la scienza cerca da anni di selezionare quelle indipendenti per descrivere la dinamica del moto delle paricelle nel modo corretto. Nel caso specifico in cui esse siano degli elettroni per poter definire una distribuzione spaziale di densità di carica elettrica intorno al nucleo di appartenenza il primo parametro da valutare è il numero degli elettroni presenti nell'atomo, perché da esso dipende la geometria spaziale elettronica. L'immagine bidimensionale soprastante mostra schematicamente il legame tra il numero atomico e la distribuzione di carica elettrica nell'ipotesi di equilibrio elettrodinamico.
+Questioni aperte
+Elementi presenti in natura
+Sebbene spesso ci si riferisca al francio (chiamato da Mendeleev "eka-cesio") come l'ultimo elemento naturale a essere stato scoperto, il plutonio, prodotto sinteticamente nel 1940, è stato identificato in tracce come un elemento primordiale rintracciabile in natura. Nel 1971 e nel 2012 è stato appurato che tutti gli elementi fino al californio possono essere trovati in natura in quantità minuscole nelle cave di uranio a causa della cattura neutronica e del decadimento beta.
+Elementi con caratteristiche chimiche sconosciute
+Nonostante tutti gli elementi fino all'oganesson siano stati scoperti, si conoscono le proprietà chimiche degli elementi solo fino all'hassio (elemento 108) e quelle del copernicio (elemento 112). Gli altri elementi potrebbero comportarsi differentemente da quanto previsto per estrapolazione, a causa di effetti relativistici; per esempio, è stato previsto che il flerovio dovrebbe avere qualche proprietà simile a quelle dei gas nobili, però tuttora è posizionato nel gruppo del carbonio. Esperimenti più recenti, tuttavia, hanno suggerito che il flerovio si comporti chimicamente come il piombo, come ci si aspetta dalla sua posizione nella tavola periodica.
+Estensioni più particolareggiate
+Non è chiaro se i nuovi elementi continueranno lo schema a periodi di 8 della tavola periodica corrente o avranno bisogno di ulteriori aggiustamenti o adattamenti. Seaborg si aspettava un ottavo periodo, che include un blocco-s per gli elementi 119 e 120, un nuovo blocco-g per i successivi 18 elementi e altri 30 elementi che continuano gli attuali blocchi f, d e p. Più recentemente, alcuni fisici (tra cui Pekka Pyykkö) hanno teorizzato che questi elementi aggiuntivi non seguano la regola di Madelung, che predice come gli stadi sono riempiti e quindi modifica l'aspetto della tavola periodica attuale.
+Fine della tavola periodica
+Il numero di elementi possibili non è conosciuto. Un'ipotesi avanzata da Elliot Adams nel 1911, basata sul posizionamento degli elementi in ogni riga orizzontale, era che gli elementi di peso atomico superiore a 256 (in termini moderni numero atomico 99-100) non potessero esistere. Una più precisa e recente stima è che la tavola periodica potrebbe finire poco dopo l'isola di stabilità, che si pensa che abbia come centro l'elemento 126, poiché l'estensione delle tavole periodiche e dei nuclidi è ristretta dalle linee di confine (in inglese "drip lines") dei protoni e dei neutroni.
+
+Altre ipotesi sulla fine della tavola periodica sono:
+
+    all'elemento 128 (di John Emsley);
+    all'elemento 137 (di Richard Feynman);
+    all'elemento 155 (di Albert Khazan).
+
+Inoltre secondo il modello di Bohr atomi con numero atomico maggiore di 137 non potrebbero esistere, poiché un elemento con numero atomico maggiore di 137 avrebbe bisogno che il primo elettrone, quello sull'orbitale 1s, viaggi più velocemente della velocità della luce, per cui il modello di Bohr, non relativistico, non può essere applicato a un ipotetico elemento come questo.
+
+Anche l'equazione relativistica di Dirac presenta dei problemi con gli elementi con più di 137 protoni. Per tali elementi la funzione d'onda di Dirac per lo stato fondamentale è oscillatoria invece che fissa e non c'è gap energetico fra lo spettro di energia positivo e quello negativo, come nel Paradosso di Klein. Calcoli più accurati che tengono conto degli effetti della grandezza finita dei nuclei indicano che l'energia di legame supera il proprio limite superiore per la prima volta con 137 protoni. Per gli elementi più pesanti, se l'orbitale più interno non è riempito, il campo elettrico del nucleo spingerà un elettrone al di fuori dell'atomo, determinando l'emissione spontanea di un positrone; tuttavia questo non succede se l'orbitale più interno è riempito. Dunque l'elemento 137 non rappresenta necessariamente la fine della tavola periodica.
+Nel marzo (2020) venne definita presso la UWA la matrice elettro atomica basata sul postulato di simmetria platonica delle orbitali stabili con 2 e 6 elettroni.
+
+Si rappresentò la nube elettronica di 20 elementi selezionati per la loro simmetria con una configurazione bi-orbitale simmetrizzata rispetto al centro elettronico di carica. Utilizzando un algoritmo binario furono codificate le orbitali a 2 e 6 elettroni in una sequenza numerica di 0, 1. Dallo studio si è sviluppata la tavola periodica lineare e successivamente circolare comprendente 172 elementi.
+Posizionamento di idrogeno ed elio
+Idrogeno ed elio sono spesso posizionati in posti differenti da quelli che la loro configurazione elettronica indicherebbe: l'idrogeno è solitamente posizionato sopra il litio, in accordo con la sua configurazione elettronica, ma talvolta è posizionato sopra il fluoro o perfino sopra il carbonio, poiché esso si comporta anche in modo simile a loro. È a volte anche posizionato come un elemento singolo in un gruppo a parte, poiché non si comporta in maniera abbastanza simile a nessun altro elemento per fare parte del suo gruppo. L'elio è quasi sempre posizionato sopra il neon, poiché essi sono molto simili chimicamente, avendo entrambi l'orbitale di valenza completo, come tra l'altro tutti gli altri gas nobili, di cui entrambi fanno parte. Comunque a volte è piazzato sopra il berillio poiché hanno configurazione elettronica simile.
+Elementi del 6° e del 7° periodo nel gruppo 3
+Nonostante scandio e ittrio siano sempre i primi due elementi del terzo gruppo, sull'identità dei due elementi successivi non c'è ancora accordo; essi sono sia lantanio e attinio, sia lutezio e laurenzio. Nonostante ci siano parecchie giustificazioni chimico-fisiche affinché lutezio e laurenzio siano messi nel terzo gruppo al posto di lantanio e attinio, non tutti gli autori ne sono convinti.
+Gruppi inclusi nei metalli di transizione
+Secondo la definizione IUPAC, un metallo di transizione è "un elemento il cui atomo presenta un sotto-guscio d incompleto o che può dare origine a cationi con sotto-guscio d incompleto".
+
+Secondo questa definizione tutti gli elementi appartenenti ai gruppi da 3 a 11 sono metalli di transizione. La definizione IUPAC quindi esclude il gruppo 12 dai metalli di transizione, il quale comprende cadmio, zinco e mercurio. Questa ipotesi spiegherebbe così le caratteristiche di conducibilità elettrica del gruppo 11.
+
+Talvolta i metalli di transizione sono identificati con gli elementi del blocco d, includendo di conseguenza i gruppi dal 3 al 12 nei metalli di transizione. In questo caso gli elementi del gruppo 12 sono trattati come un caso speciale dei metalli di transizione, nel quale gli elettroni dell'orbitale d non sono utilizzati normalmente nel formare legami chimici.
+
+Siccome il mercurio può usare i suoi elettroni d per formare fluoruro di mercurio (HgF4), secondo alcuni anche il mercurio dovrebbe fare parte dei metalli di transizione. Invece secondo Jensen la formazione di un composto come HgF4 può avvenire solo sotto condizioni estreme, per cui non ci si può riferire al mercurio come a un metallo di transizione tramite nessuna interpretazione ordinaria della definizione di metallo di transizione.
+
+Altri chimici escludono gli elementi del terzo gruppo dalla definizione di metallo di transizione (vengono così inseriti tra i lantanidi e attinidi), sulla base che tali elementi del gruppo 3 non formano nessuno ione con l'orbitale d parzialmente occupato e di conseguenza non esibiscono le caratteristiche dei metalli di transizione. In questi casi ci si riferisce solamente ai gruppi da 4 a 11 come metalli di transizione.
+Forma ottimale
+Le diverse forme della tavola periodica hanno messo i chimici e i fisici di fronte alla domanda se esista una forma ottimale o definitiva della tavola periodica. Si pensa che la risposta a questa domanda dipenda dalla questione se la periodicità chimica degli elementi sia qualcosa di assoluto e fortemente legata con la struttura stessa dell'universo, oppure se questa periodicità è al contrario un prodotto dell'interpretazione umana soggettiva, influenzata dalle circostanze, dalle credenze e dalle predilezioni degli osservatori umani.
+
+Una base oggettiva per la periodicità chimica dovrebbe dare una risposta alle domande a proposito del posizionamento di idrogeno ed elio e riguardo alla composizione del terzo gruppo. Una tale visione assoluta, se esiste, non è ancora stata scoperta. Quindi ci si può riferire alle varie differenti forme della tavola periodica come a variazioni sul tema della periodicità chimica, ognuna delle quali esplora ed enfatizza differenti aspetti, proprietà, prospettive e relazioni di e fra gli elementi. Si pensa che l'uso attuale della tavola periodica standard o medio-lunga sia un risultato del fatto che questo schema abbia un buon bilanciamento di caratteristiche in termini di semplicità e costruzione e la capacità di descrivere efficientemente l'ordine atomico e gli andamenti periodici.
