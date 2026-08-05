@@ -20,7 +20,7 @@ DB_CONNECT_RETRY_DELAY_SECONDS = float(os.getenv("DB_CONNECT_RETRY_DELAY_SECONDS
 
 # --- Ollama (LLM-as-Judge, Obiettivo 4) --------------------------------- #
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen3:4b")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2:3b")
 
 # Il primo caricamento del modello su CPU (mmap dei pesi + avvio del
 # llama-server interno di Ollama) puo' richiedere diversi minuti; un

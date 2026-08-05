@@ -36,7 +36,7 @@ services:
       # Aspetta che il server risponda davvero (poll su "ollama list") invece
       # di un semplice "sleep N" a tempo fisso, che potrebbe non bastare su
       # macchine piu' lente e far fallire il pull.
-      - "ollama serve & until ollama list > /dev/null 2>&1; do sleep 1; done && ollama pull ${OLLAMA_MODEL:-qwen3:4b} && wait"
+      - "ollama serve & until ollama list > /dev/null 2>&1; do sleep 1; done && ollama pull ${OLLAMA_MODEL:-llama3.2:3b} && wait"
 
   backend:
     build: ./backend
@@ -61,7 +61,7 @@ services:
       DB_PASSWORD: minerva
       DB_NAME: minerva_db
       OLLAMA_URL: http://ollama:11434
-      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:4b}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.2:3b}
       GS_DATA_DIR: /app/gs_data
     ports:
       - "8003:8003"
