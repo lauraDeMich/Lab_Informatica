@@ -255,87 +255,13 @@ async def _render_gold_standard_page(
 # --------------------------------------------------------------------- #
 # Stats
 # --------------------------------------------------------------------- #
-# Palette categoriale pastello (ordine fisso, mai ciclato): blu/corallo/
-# menta/ambra, versioni desaturate delle stesse 4 famiglie di tonalita' di
-# prima (vedi skill "dataviz"), scelte apposta DIVERSE dall'accento verde
-# salvia del sito: qui il colore deve identificare la metrica, non il
-# brand, e 4 tonalita' di verde sarebbero indistinguibili. Essendo colori
-# chiari il contrasto sulla card bianca e' basso di suo: per questo ogni
-# barra ha SEMPRE il valore numerico scritto accanto (canale di sollievo
-# richiesto dalla skill quando il contrasto del solo colore non basta).
-_CHART_METRICS = [
-    ("precision", "Precision", "#9dc3e8"),
-    ("recall", "Recall", "#f2a98d"),
-    ("f1", "F1", "#8fd4bb"),
-    ("rouge1", "ROUGE-1 F1", "#f3c96a"),
-]
-
-_DOMAIN_SHORT_NAMES = {
-    "it.wikipedia.org": "Wikipedia",
-    "www.applevis.com": "AppleVis",
-    "www.basketball-reference.com": "BBall-Ref",
-    "www.ondarock.it": "OndaRock",
-}
-
-
-def _build_stats_charts(db_stats: dict) -> list[dict]:
-    """Prepara, per ogni dominio, i valori delle 4 metriche (Precision/
-    Recall/F1/ROUGE-1) gia' pronti per essere disegnati come barre
-    orizzontali CSS (una riga per dominio, vedi stats.html): stesso colore
-    fisso per metrica ovunque, cosi' una sola legenda condivisa resta
-    valida per tutte le righe.
-    """
-    domains = sorted(db_stats.get("web_resources", {}).keys())
-
-    charts = []
-    for domain in domains:
-        ev = db_stats.get("avg_eval", {}).get(domain)
-        judge = db_stats.get("avg_eval_judge", {}).get(domain)
-        values = {
-            "precision": ev["token_level_eval"]["precision"] if ev else 0.0,
-            "recall": ev["token_level_eval"]["recall"] if ev else 0.0,
-            "f1": ev["token_level_eval"]["f1"] if ev else 0.0,
-            "rouge1": (ev["x_eval"]["rouge1_f1"] if ev and ev["x_eval"]["rouge1_f1"] is not None else 0.0),
-        }
-
-        bars = [
-            {
-                "key": key,
-                "label": label,
-                "color": color,
-                "value": values[key],
-                "pct": round(values[key] * 100, 1),
-            }
-            for key, label, color in _CHART_METRICS
-        ]
-
-        charts.append(
-            {
-                "domain": domain,
-                "short_name": _DOMAIN_SHORT_NAMES.get(domain, domain),
-                "has_data": ev is not None,
-                "judge_score": judge["judge_score"] if judge else None,
-                "bars": bars,
-            }
-        )
-
-    return charts
-
-
 @app.get("/stats", response_class=HTMLResponse)
 async def stats_page(request: Request) -> HTMLResponse:
     async with httpx.AsyncClient() as client:
         db_stats, stats_error = await _get(client, "/db_stats")
 
-    charts = _build_stats_charts(db_stats) if db_stats else []
-
     return templates.TemplateResponse(
         request,
         "stats.html",
-        {
-            "db_stats": db_stats,
-            "stats_error": stats_error,
-            "charts": charts,
-            "chart_metrics": [{"key": k, "label": lbl, "color": c} for k, lbl, c in _CHART_METRICS],
-        },
+        {"db_stats": db_stats, "stats_error": stats_error},
     )

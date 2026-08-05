@@ -14,11 +14,18 @@ stagione i vincitori dei premi principali. Accanto a "#meta" (stesso
 contenitore "#info", non annidati) ci sono anche "#bling" (i badge dei
 riconoscimenti: "14x All-Star", "6x NBA Champion" ecc.) e ".stats_pullout"
 (una riga di sintesi con le medie di stagione/carriera: G, PTS, TRB, AST,
-FG%...). Entrambi sono inclusi nello scope: sono un riassunto compatto e di
+FG%...). Sulle sole pagine giocatore (non su squadre/campionato) c'è anche
+"#div_faq": una sezione "Frequently Asked Questions" in prosa vera (non
+tabellare), verificata pagina per pagina, con alcune informazioni non
+presenti altrove in "#meta" (patrimonio stimato, stipendio dell'ultima
+stagione). Tutti sono inclusi nello scope: sono un riassunto compatto e di
 dimensione fissa, l'equivalente di un infobox Wikipedia, non le enormi
 tabelle partita-per-partita/stagione-per-stagione di "#content" (quelle
 restano escluse: dati veri ma non "testo informativo di sintesi" nel senso
-richiesto dalla consegna). Il Gold Standard è costruito sullo stesso scope.
+richiesto dalla consegna). Il selettore per "#div_faq" degrada bene sulle
+pagine che non lo hanno (squadra/campionato): CSS multi-selector, se un
+sottoselettore non trova nulla gli altri restano validi. Il Gold Standard è
+costruito sullo stesso scope.
 
 NOTA sulle esclusioni: non usiamo il parametro excluded_tags insieme a
 excluded_selector (stessa lezione imparata su AppleVis: la sovrapposizione
@@ -42,7 +49,7 @@ class BasketballReferenceParser(BaseDomainParser):
 
     def build_crawler_run_config(self) -> CrawlerRunConfig:
         return CrawlerRunConfig(
-            css_selector="#meta, #bling, .stats_pullout",
+            css_selector="#meta, #bling, .stats_pullout, #div_faq",
             excluded_selector=", ".join(
                 [
                     "script",

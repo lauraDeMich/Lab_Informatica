@@ -46,6 +46,14 @@ services:
     # /dev/shm di default di Docker (64MB), troppo piccolo per un browser
     # headless reale.
     shm_size: '1g'
+    # Senza un vero init come PID 1, i processi Chromium/crashpad che
+    # muoiono a metà lancio (es. per timeout su una macchina con poca RAM)
+    # restano orfani/zombie e non vengono mai reaped: accumulandosi, alla
+    # fine bloccano anche il processo principale (uvicorn) rendendolo esso
+    # stesso uno zombie non killabile (verificato: "docker restart" falliva
+    # con "PID è zombie e non può essere ucciso"). init: true fa partire
+    # tini come PID 1, che fa il reap di questi processi automaticamente.
+    init: true
     environment:
       DB_HOST: database
       DB_PORT: 3306
