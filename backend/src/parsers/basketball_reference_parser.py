@@ -5,12 +5,13 @@ Basketball Reference ospita pagine fortemente tabulari (statistiche NBA):
   - Schede giocatore: /players/<lettera>/<id>.html
   - Schede squadra per stagione: /teams/<sigla>/<anno>.html
   - Pagine stagione NBA: /leagues/NBA_<anno>.html
+  - Riepiloghi playoff: /playoffs/NBA_<anno>.html
 
 Ogni pagina ha un blocco "#meta" (dentro "#content") con le informazioni
 DAVVERO informative: per un giocatore nome, soprannomi, posizione, altezza/
 peso, squadra, data/luogo di nascita, draft, esordio NBA; per una squadra
 record, allenatore, dirigente, statistiche di sintesi; per una pagina
-stagione i vincitori dei premi principali. Accanto a "#meta" (stesso
+stagione/playoff i vincitori dei premi principali. Accanto a "#meta" (stesso
 contenitore "#info", non annidati) ci sono anche "#bling" (i badge dei
 riconoscimenti: "14x All-Star", "6x NBA Champion" ecc.) e ".stats_pullout"
 (una riga di sintesi con le medie di stagione/carriera: G, PTS, TRB, AST,
@@ -22,10 +23,20 @@ stagione). Tutti sono inclusi nello scope: sono un riassunto compatto e di
 dimensione fissa, l'equivalente di un infobox Wikipedia, non le enormi
 tabelle partita-per-partita/stagione-per-stagione di "#content" (quelle
 restano escluse: dati veri ma non "testo informativo di sintesi" nel senso
-richiesto dalla consegna). Il selettore per "#div_faq" degrada bene sulle
-pagine che non lo hanno (squadra/campionato): CSS multi-selector, se un
-sottoselettore non trova nulla gli altri restano validi. Il Gold Standard è
-costruito sullo stesso scope.
+richiesto dalla consegna).
+
+Eccezione deliberata sulle pagine "/playoffs/": qui includiamo anche
+"#all_playoffs", la tabella con l'esito di ogni serie (chi ha eliminato chi,
+punteggio serie, risultato di ogni gara). A differenza del log
+partita-per-partita di UN giocatore (dati granulari ripetitivi, esclusi),
+per una pagina di riepilogo playoff questa tabella E' la cronaca sintetica
+dell'intera post-season: chi ha vinto ogni serie e come, non solo chi ha
+vinto il titolo. La consideriamo quindi parte del riassunto informativo
+della pagina, non "rumore" tabellare da escludere.
+
+Il selettore per "#div_faq"/"#all_playoffs" degrada bene sulle pagine che
+non li hanno: CSS multi-selector, se un sottoselettore non trova nulla gli
+altri restano validi. Il Gold Standard è costruito sullo stesso scope.
 
 NOTA sulle esclusioni: non usiamo il parametro excluded_tags insieme a
 excluded_selector (stessa lezione imparata su AppleVis: la sovrapposizione
@@ -49,7 +60,7 @@ class BasketballReferenceParser(BaseDomainParser):
 
     def build_crawler_run_config(self) -> CrawlerRunConfig:
         return CrawlerRunConfig(
-            css_selector="#meta, #bling, .stats_pullout, #div_faq",
+            css_selector="#meta, #bling, .stats_pullout, #div_faq, #all_playoffs",
             excluded_selector=", ".join(
                 [
                     "script",

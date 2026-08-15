@@ -212,12 +212,6 @@ async def evaluate_judge(payload: EvaluateJudgeRequest) -> EvaluateJudgeResponse
 @app.get("/full_gs_eval", response_model=FullGsEvalResponse)
 async def full_gs_eval(
     domain: str = Query(...),
-    # Specifica Esonero 1: SOLO token_level_eval/x_eval, niente LLM Judge
-    # (l'esonero esplicitamente non lo richiede). La specifica Progetto
-    # Finale invece lo vuole: chi la implementa passa include_judge=true.
-    # Di default disattivato anche per evitare tempi lunghissimi (il judge
-    # su CPU puo' richiedere minuti per pagina) quando non serve.
-    include_judge: bool = Query(False),
 ) -> FullGsEvalResponse:
     _require_supported_domain(domain)
     parser = ParserFactory.get_parser_for_domain(domain)
@@ -254,20 +248,19 @@ async def full_gs_eval(
                 conn, entry["url"], domain, tle["precision"], tle["recall"], tle["f1"], "rouge1_f1", rouge1["f1"]
             )
 
-            if include_judge:
-                judge_score = None
-                judge_feedback = None
-                try:
-                    judge_result = await evaluate_with_judge(parsed_page.parsed_text, entry["gold_text"])
-                    judge_score = judge_result["judge_score"]
-                    judge_feedback = judge_result["judge_feedback"]
-                    judge_scores.append(judge_score)
-                except OllamaUnavailableError as exc:
-                    logger.warning("full_gs_eval: judge non disponibile per %s: %s", entry["url"], exc)
-                if judge_score is not None:
-                    repository.upsert_llm_judgment(
-                        conn, entry["url"], domain, config.OLLAMA_MODEL, judge_score, judge_feedback or ""
-                    )
+            judge_score = None
+            judge_feedback = None
+            try:
+                judge_result = await evaluate_with_judge(parsed_page.parsed_text, entry["gold_text"])
+                judge_score = judge_result["judge_score"]
+                judge_feedback = judge_result["judge_feedback"]
+                judge_scores.append(judge_score)
+            except OllamaUnavailableError as exc:
+                logger.warning("full_gs_eval: judge non disponibile per %s: %s", entry["url"], exc)
+            if judge_score is not None:
+                repository.upsert_llm_judgment(
+                    conn, entry["url"], domain, config.OLLAMA_MODEL, judge_score, judge_feedback or ""
+                )
     finally:
         conn.close()
 
@@ -280,7 +273,7 @@ async def full_gs_eval(
             "recall": _avg(recalls),
             "f1": _avg(f1s),
         },
-        judge_score=_avg(judge_scores) if include_judge else None,
+        judge_score=_avg(judge_scores),
         x_eval={
             "rouge1": {
                 "precision": _avg(rouge_precisions),
@@ -296,14 +289,15 @@ async def full_gs_eval(
 # --------------------------------------------------------------------- #
 @app.post("/add_web_resource", response_model=StatusOkResponse)
 def add_web_resource(payload: AddWebResourceRequest) -> StatusOkResponse:
+    # A differenza di /parse e /gold_standard, la specifica NON elenca il
+    # dominio non supportato come errore per questo endpoint: accetta
+    # qualunque URL. Se il dominio corrisponde a un parser registrato
+    # normalizziamo al suo dominio "canonico" (es. "www.applevis.com"),
+    # altrimenti usiamo il netloc grezzo dell'URL cosi' com'e'.
     try:
-        # Normalizziamo al dominio "canonico" registrato nel parser (es.
-        # "applevis.com"), non al netloc grezzo dell'URL (es.
-        # "www.applevis.com"): altrimenti finirebbero nel DB due valori
-        # diversi per lo stesso dominio, rompendo i filtri per dominio.
         domain = ParserFactory.get_parser_for_url(payload.url).domain
     except UnsupportedDomainError:
-        return StatusOkResponse(status="error")
+        domain = urlparse(payload.url).netloc.lower()
 
     title = _extract_title_from_html(payload.html_text) or payload.url
     conn = get_connection()

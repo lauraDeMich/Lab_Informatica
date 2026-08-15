@@ -122,10 +122,7 @@ class EvaluateJudgeResponse(BaseModel):
 class FullGsEvalResponse(BaseModel):
     token_level_eval: TokenLevelEval
     x_eval: XEval
-    # Opzionale: la specifica Esonero 1 NON lo prevede (niente LLM Judge in
-    # questa fase); la specifica Progetto Finale invece lo richiede. Viene
-    # valorizzato solo se il chiamante passa include_judge=true.
-    judge_score: float | None = None
+    judge_score: float
 
 
 class AddWebResourceRequest(BaseModel):

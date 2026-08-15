@@ -10,6 +10,14 @@ condivisione in ".social_share"). Verificato sia su una recensione album,
 sia su un'intervista, sia su una monografia: la struttura ".main_text" e'
 condivisa da tutte e tre le sezioni.
 
+La pagina "/news" (elenco delle notizie, non un singolo articolo) non ha
+".main_text": il contenuto informativo qui e' la lista stessa, ripetuta in
+tanti blocchi ".news_content" (data + titolo di ogni notizia). La includiamo
+nello scope per lo stesso motivo di ".main_text": e' il vero contenuto
+testuale della pagina, non boilerplate. CSS multi-selector: su un articolo
+singolo ".news_content" non trova nulla e ".main_text" resta valido, e
+viceversa sulla pagina elenco.
+
 NOTA sulle esclusioni: come per AppleVis e Basketball-Reference, tutto va
 in excluded_selector (mai in excluded_tags insieme allo stesso elemento,
 altrimenti Crawl4AI puo' azzerare l'output), e non usiamo
@@ -31,7 +39,7 @@ class OndaRockParser(BaseDomainParser):
 
     def build_crawler_run_config(self) -> CrawlerRunConfig:
         return CrawlerRunConfig(
-            css_selector=".main_text",
+            css_selector=".main_text, .news_content",
             excluded_selector=", ".join(
                 [
                     "script",
