@@ -1,8 +1,3 @@
-"""
-Livello di accesso ai dati (Obiettivo 5): tutte le query SQL del backend
-passano da qui, cosi' il resto del codice (endpoint, evaluation, seed)
-non scrive mai SQL direttamente.
-"""
 
 from __future__ import annotations
 
@@ -14,22 +9,16 @@ import mariadb
 
 
 class WebResourceNotFoundError(LookupError):
-    """Nessuna web_resource trovata per l'url richiesto."""
+    pass
 
 
 class GoldStandardNotFoundError(LookupError):
-    """Nessuna entry di gold_standard trovata per l'url richiesto."""
+    pass
 
 
-# --------------------------------------------------------------------- #
-# Inizializzazione schema
-# --------------------------------------------------------------------- #
 def init_schema(conn: mariadb.Connection) -> None:
     schema_path = Path(__file__).resolve().parent / "schema.sql"
     raw_sql = schema_path.read_text(encoding="utf-8")
-    # Rimuove le righe di commento PRIMA di spezzare in statement (altrimenti
-    # il blocco di commenti in testa al file finirebbe attaccato al primo
-    # CREATE TABLE, facendolo scartare dal filtro "inizia con --").
     sql_no_comments = re.sub(r"(?m)^\s*--.*$", "", raw_sql)
     statements = [stmt.strip() for stmt in sql_no_comments.split(";") if stmt.strip()]
 
@@ -38,9 +27,6 @@ def init_schema(conn: mariadb.Connection) -> None:
         cur.execute(statement)
 
 
-# --------------------------------------------------------------------- #
-# web_resources
-# --------------------------------------------------------------------- #
 def upsert_web_resource(conn: mariadb.Connection, url: str, domain: str, title: str, html_text: str) -> None:
     cur = conn.cursor()
     cur.execute(
@@ -68,12 +54,9 @@ def delete_web_resource(conn: mariadb.Connection, url: str) -> None:
     cur.execute("SELECT 1 FROM web_resources WHERE url = ?", (url,))
     if cur.fetchone() is None:
         raise WebResourceNotFoundError(url)
-    cur.execute("DELETE FROM web_resources WHERE url = ?", (url,))  # CASCADE ripulisce le altre tabelle
+    cur.execute("DELETE FROM web_resources WHERE url = ?", (url,))
 
 
-# --------------------------------------------------------------------- #
-# gold_standard
-# --------------------------------------------------------------------- #
 def upsert_gold_standard(conn: mariadb.Connection, url: str, gold_text: str) -> None:
     if get_web_resource(conn, url) is None:
         raise WebResourceNotFoundError(url)
@@ -145,9 +128,6 @@ def delete_gold_standard(conn: mariadb.Connection, url: str) -> None:
     cur.execute("DELETE FROM gold_standard WHERE url = ?", (url,))
 
 
-# --------------------------------------------------------------------- #
-# evaluations / llm_judgments (risultati pre-calcolati per /db_stats)
-# --------------------------------------------------------------------- #
 def upsert_evaluation(
     conn: mariadb.Connection,
     url: str,
@@ -198,9 +178,6 @@ def upsert_llm_judgment(
     )
 
 
-# --------------------------------------------------------------------- #
-# Statistiche e schema (Obiettivo 6: /db_stats, /db_schema)
-# --------------------------------------------------------------------- #
 def get_db_stats(conn: mariadb.Connection) -> dict[str, Any]:
     cur = conn.cursor()
 
@@ -252,12 +229,6 @@ def get_db_stats(conn: mariadb.Connection) -> dict[str, Any]:
 
 
 def get_db_schema() -> dict[str, Any]:
-    """
-    Descrizione dello schema del DB (Obiettivo 6: GET /db_schema).
-    Tenuta come dizionario "a mano" (allineato a schema.sql) invece che
-    tramite introspezione INFORMATION_SCHEMA, per restituire una
-    descrizione leggibile coerente col formato mostrato nella specifica.
-    """
     return {
         "web_resources": {
             "url": "varchar(768), PK",

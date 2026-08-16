@@ -1,20 +1,3 @@
-"""
-Parser per il dominio it.wikipedia.org (obbligatorio per il gruppo).
-
-Strategia:
-- css_selector: limitiamo l'estrazione al div principale del contenuto
-  dell'articolo ("#mw-content-text"), escludendo header/menu laterale/footer
-  del sito che Wikipedia mette FUORI da quel div.
-- excluded_selector: dentro il div del contenuto, rimuoviamo elementi che
-  sono "rumore" anche se tecnicamente fanno parte dell'articolo:
-  navbox in fondo pagina, link "[modifica]", riferimenti numerati, hatnote
-  (es. "Questa voce è orfana"), box di disambiguazione, infobox e
-  miniature immagini (sono box laterali/collaterali rispetto al testo
-  informativo, non il testo dell'articolo vero e proprio).
-- PruningContentFilter: filtro aggiuntivo lato markdown-generator che
-  scarta blocchi di testo troppo corti/poco informativi (spesso residui
-  di menu o didascalie isolate).
-"""
 
 from __future__ import annotations
 
@@ -59,7 +42,7 @@ class WikipediaItParser(BaseDomainParser):
             excluded_tags=["script", "style", "form", "nav", "img", "figure"],
             word_count_threshold=10,
             markdown_generator=markdown_generator,
-            exclude_external_links=False,  # i link interni sono spesso utili come contesto
+            exclude_external_links=False,
             wait_until="domcontentloaded",
             page_timeout=30000,
         )
@@ -68,13 +51,11 @@ class WikipediaItParser(BaseDomainParser):
         metadata = getattr(result, "metadata", None) or {}
         title = metadata.get("title") if isinstance(metadata, dict) else None
         if title:
-            # Wikipedia aggiunge " - Wikipedia" al <title> della pagina HTML
             return title.replace(" - Wikipedia", "").strip()
         return url
 
     def postprocess_markdown(self, raw_markdown: str) -> str:
         text = super().postprocess_markdown(raw_markdown)
-        # Rimuove sezioni finali ricorrenti e poco informative per il GS/eval
         for section in ("## Voci correlate", "## Altri progetti", "## Collegamenti esterni", "## Note"):
             idx = text.find(section)
             if idx != -1:

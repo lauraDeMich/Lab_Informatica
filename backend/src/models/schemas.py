@@ -1,23 +1,10 @@
-"""
-Modelli Pydantic per l'intero backend.
-
-Contiene sia gli schemi "di dominio" (ParsedPage per l'Obiettivo 1,
-GoldStandardEntry per l'Obiettivo 2) sia gli schemi di richiesta/risposta
-per ogni endpoint REST dell'Obiettivo 6. I nomi dei campi rispettano
-esattamente quanto richiesto dalla specifica del progetto, perché saranno
-testati automaticamente.
-"""
 
 from __future__ import annotations
 
 from pydantic import BaseModel, Field
 
 
-# --------------------------------------------------------------------- #
-# Obiettivo 1 / 2: schemi di dominio
-# --------------------------------------------------------------------- #
 class ParsedPage(BaseModel):
-    """Output strutturato del parsing di una singola pagina web (Obiettivo 1)."""
 
     url: str = Field(..., description="URL della pagina originale")
     domain: str = Field(..., description="Dominio della pagina, es. it.wikipedia.org")
@@ -39,7 +26,6 @@ class ParsedPage(BaseModel):
 
 
 class GoldStandardEntry(BaseModel):
-    """Singola entry del Gold Standard (Obiettivo 2)."""
 
     url: str = Field(..., description="URL della pagina originale")
     domain: str = Field(..., description="Dominio della pagina, es. it.wikipedia.org")
@@ -57,16 +43,9 @@ class GoldStandardEntry(BaseModel):
         return self.model_dump()
 
 
-# --------------------------------------------------------------------- #
-# Obiettivo 6: request/response per gli endpoint REST
-# --------------------------------------------------------------------- #
 class ParseRequest(BaseModel):
     url: str
-    # html_text: usato dalla specifica Esonero 1 (POST /parse parsa
-    # direttamente l'HTML fornito, senza toccare il DB).
     html_text: str | None = None
-    # local: usato dalla specifica Progetto Finale (POST /parse con
-    # local=true recupera l'HTML gia' salvato nel DB per quell'url).
     local: bool | None = False
 
 
@@ -140,7 +119,7 @@ class UrlOnlyRequest(BaseModel):
 
 
 class StatusOkResponse(BaseModel):
-    status: str  # "ok" oppure "error"
+    status: str
 
 
 class DomainAvgEval(BaseModel):

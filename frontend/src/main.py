@@ -1,7 +1,3 @@
-"""
-Web UI (Obiettivo 7): FastAPI + Jinja2, comunica ESCLUSIVAMENTE con il
-backend tramite le sue API REST (nessun accesso diretto al database).
-"""
 
 from __future__ import annotations
 
@@ -17,12 +13,6 @@ from fastapi.templating import Jinja2Templates
 BACKEND_URL = os.getenv("BACKEND_URL", "http://backend:8003")
 
 REQUEST_TIMEOUT_SECONDS = float(os.getenv("REQUEST_TIMEOUT_SECONDS", "90"))
-# Il giudizio LLM (Ollama, CPU) e' molto variabile su questa macchina: da
-# ~60s a oltre 4 minuti, soprattutto se il modello e' stato scaricato dalla
-# RAM per inattivita' e va ricaricato da zero. Serve un timeout dedicato
-# molto piu' ampio di quello usato per le altre chiamate (parse/evaluate),
-# che sono quasi istantanee. Resta sotto OLLAMA_TIMEOUT_SECONDS del backend
-# (600s di default) per non aspettare inutilmente oltre quel limite.
 JUDGE_TIMEOUT_SECONDS = float(os.getenv("JUDGE_TIMEOUT_SECONDS", "400"))
 
 STUDENTS = [
@@ -77,9 +67,6 @@ def _extract_detail(exc: httpx.HTTPStatusError) -> str:
         return exc.response.text
 
 
-# --------------------------------------------------------------------- #
-# Home
-# --------------------------------------------------------------------- #
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request) -> HTMLResponse:
     async with httpx.AsyncClient() as client:
@@ -97,9 +84,6 @@ async def home(request: Request) -> HTMLResponse:
     )
 
 
-# --------------------------------------------------------------------- #
-# Parser & Evaluation
-# --------------------------------------------------------------------- #
 @app.get("/parser", response_class=HTMLResponse)
 async def parser_page_get(request: Request, domain: str | None = None) -> HTMLResponse:
     return await _render_parser_page(request, domain=domain)
@@ -174,9 +158,6 @@ async def _render_parser_page(
     )
 
 
-# --------------------------------------------------------------------- #
-# Gold Standard Builder
-# --------------------------------------------------------------------- #
 @app.get("/gold-standard", response_class=HTMLResponse)
 async def gold_standard_page_get(request: Request, domain: str | None = None) -> HTMLResponse:
     return await _render_gold_standard_page(request, domain=domain)
@@ -252,9 +233,6 @@ async def _render_gold_standard_page(
     )
 
 
-# --------------------------------------------------------------------- #
-# Stats
-# --------------------------------------------------------------------- #
 @app.get("/stats", response_class=HTMLResponse)
 async def stats_page(request: Request) -> HTMLResponse:
     async with httpx.AsyncClient() as client:

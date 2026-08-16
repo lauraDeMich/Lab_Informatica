@@ -1,14 +1,3 @@
-"""
-Popolamento iniziale del database (Obiettivo 5): all'avvio del backend,
-tutti i file JSON dentro gs_data/ vengono caricati in web_resources +
-gold_standard. L'operazione e' idempotente (UPSERT), quindi puo' essere
-rieseguita a ogni avvio senza duplicare dati o perdere modifiche fatte
-successivamente tramite le API (a meno che il file JSON non venga
-ri-modificato, nel qual caso vince il contenuto del file).
-
-Questo modulo pre-calcola anche le valutazioni (Obiettivo 3/4) delle entry
-appena caricate, vedi precompute_initial_evaluations().
-"""
 
 from __future__ import annotations
 
@@ -60,21 +49,6 @@ def seed_from_gs_data(conn: mariadb.Connection, gs_dir: Path) -> None:
 
 
 async def precompute_initial_evaluations(conn: mariadb.Connection) -> None:
-    """
-    Popola le tabelle evaluations/llm_judgments SUBITO dopo il seed, cosi'
-    che GET /db_stats abbia sempre "avg_eval"/"avg_eval_judge" non vuoti per
-    ogni dominio anche prima che un utente (o il grader) chiami /evaluate,
-    /evaluate_judge o /full_gs_eval - quegli endpoint scrivono nelle stesse
-    tabelle, ma solo quando vengono effettivamente invocati.
-
-    Le metriche token-level (economiche, nessuna chiamata LLM) vengono
-    calcolate per OGNI entry di Gold Standard di ogni dominio. Il giudizio
-    LLM invece viene calcolato solo per la PRIMA entry di ogni dominio: e'
-    l'unico modo per avere "avg_eval_judge" non vuoto all'avvio senza far
-    dipendere i tempi di startup del container dal numero totale di entry
-    del Gold Standard moltiplicato per la latenza di Ollama su CPU (nel
-    caso di /full_gs_eval, minuti per dominio).
-    """
     for domain in ParserFactory.get_supported_domains():
         entries = repository.get_all_gold_standard_entries(conn, domain)
         if not entries:
@@ -86,7 +60,7 @@ async def precompute_initial_evaluations(conn: mariadb.Connection) -> None:
         for entry in entries:
             try:
                 parsed_page = await parser.parse_from_html(entry["html_text"], entry["url"])
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 logger.error("precompute_initial_evaluations: parsing fallito per %s: %s", entry["url"], exc)
                 continue
 

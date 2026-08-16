@@ -1,14 +1,3 @@
-"""
-Metriche di valutazione automatica dei parser (Obiettivo 3).
-
-- token_level_eval: OBBLIGATORIA, precision/recall/F1 sull'insieme dei
-  token (parole separate da spazio, lowercase) tra testo estratto e Gold
-  Standard, dopo aver rimosso markdown da entrambi.
-- rouge1_eval: metrica aggiuntiva esplorata autonomamente (ROUGE-1),
-  usata come "x_eval" per dare un secondo punto di vista sulla qualita'
-  del parsing (cattura anche l'ordine/ripetizione dei token via n-grammi
-  a livello di parola, non solo l'insieme).
-"""
 
 from __future__ import annotations
 
@@ -20,16 +9,10 @@ _rouge_scorer = rouge_scorer.RougeScorer(["rouge1"], use_stemmer=False)
 
 
 def _tokenize(text: str) -> list[str]:
-    """Parole separate da spazio, in lowercase (come richiesto dalla spec)."""
     return text.lower().split()
 
 
 def token_level_eval(parsed_text: str, gold_text: str) -> dict[str, float]:
-    """
-    Precision/recall/F1 calcolate sugli INSIEMI di token estratti dal
-    parser e dal Gold Standard. Gli input possono essere in Markdown:
-    vengono normalizzati internamente con remove_markdown().
-    """
     parsed_clean = remove_markdown(parsed_text)
     gold_clean = remove_markdown(gold_text)
 
@@ -50,12 +33,6 @@ def token_level_eval(parsed_text: str, gold_text: str) -> dict[str, float]:
 
 
 def rouge1_eval(parsed_text: str, gold_text: str) -> dict[str, float]:
-    """
-    ROUGE-1: precision/recall/F1 basate su unigrammi, ma calcolate come
-    conteggio (non insieme) -> a differenza di token_level_eval penalizza
-    ripetizioni/omissioni multiple della stessa parola, non solo la sua
-    presenza/assenza.
-    """
     parsed_clean = remove_markdown(parsed_text)
     gold_clean = remove_markdown(gold_text)
 
@@ -70,7 +47,6 @@ def rouge1_eval(parsed_text: str, gold_text: str) -> dict[str, float]:
 
 
 def evaluate_all(parsed_text: str, gold_text: str) -> dict:
-    """Aggrega tutte le metriche nel formato di risposta di POST /evaluate."""
     return {
         "token_level_eval": token_level_eval(parsed_text, gold_text),
         "x_eval": {"rouge1": rouge1_eval(parsed_text, gold_text)},

@@ -1,11 +1,3 @@
-"""
-Registro/dispatcher dei parser di dominio (Obiettivo 1 + supporto a
-POST /parse e GET /domains dell'Obiettivo 6).
-
-Registra una sottoclasse di BaseDomainParser per ciascun dominio assegnato
-al gruppo: aggiungere un nuovo dominio richiede solo di istanziarne il
-parser qui, senza toccare il resto del backend.
-"""
 
 from __future__ import annotations
 
@@ -19,22 +11,16 @@ from .wikipedia_it_parser import WikipediaItParser
 
 
 class UnsupportedDomainError(ValueError):
-    """Il dominio richiesto non è tra quelli assegnati/supportati dal gruppo."""
+    pass
 
 
 def _domain_matches(netloc: str, registered_domain: str) -> bool:
-    """
-    Vero se netloc e' esattamente registered_domain oppure un suo
-    sottodominio (es. "www.applevis.com" per il dominio "applevis.com"),
-    con lo stesso criterio usato da BaseDomainParser._validate_domain.
-    """
     netloc = netloc.lower()
     registered_domain = registered_domain.lower()
     return netloc == registered_domain or netloc.endswith("." + registered_domain)
 
 
 class ParserFactory:
-    """Dispatcher dominio -> istanza di BaseDomainParser."""
 
     _registry: dict[str, BaseDomainParser] | None = None
 

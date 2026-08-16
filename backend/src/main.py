@@ -1,8 +1,3 @@
-"""
-Backend FastAPI (Obiettivo 6): espone via REST tutta la pipeline di
-parsing/valutazione/gestione dati implementata nei moduli db/, parsers/
-ed evaluation/.
-"""
 
 from __future__ import annotations
 
@@ -43,10 +38,6 @@ from .models.schemas import (
 from .parsers.base import DomainMismatchError
 from .parsers.factory import ParserFactory, UnsupportedDomainError
 
-# force=True: uvicorn configura il root logger PRIMA di importare questo
-# modulo, quindi una basicConfig() "normale" verrebbe ignorata (no-op se il
-# root logger ha gia' degli handler) e i nostri logger.info/warning
-# sparirebbero silenziosamente da `docker compose logs`.
 logging.basicConfig(level=logging.INFO, force=True)
 logger = logging.getLogger(__name__)
 
@@ -63,10 +54,6 @@ async def lifespan(app: FastAPI):
         conn.close()
     logger.info("Database inizializzato e popolato. Backend pronto.")
 
-    # Pre-carica il modello Ollama in background: non blocca l'avvio del
-    # backend, ma riduce la probabilita' che la PRIMA richiesta reale a
-    # /evaluate_judge vada in timeout per via del caricamento a freddo del
-    # modello (puo' richiedere diversi minuti su CPU).
     warmup_task = asyncio.create_task(warmup_model())
     app.state.warmup_task = warmup_task
 
@@ -88,11 +75,7 @@ def _require_supported_domain(domain: str) -> None:
         raise HTTPException(status_code=400, detail=f"Dominio non supportato: {domain!r}")
 
 
-# --------------------------------------------------------------------- #
-# Obiettivo 1: parsing
-# --------------------------------------------------------------------- #
 async def _parse_live(url: str) -> ParsedPage:
-    """Scarica dal vivo e parsa. Usata da GET /parse e da POST /parse senza html_text/local."""
     try:
         parser = ParserFactory.get_parser_for_url(url)
     except UnsupportedDomainError as exc:
@@ -101,24 +84,17 @@ async def _parse_live(url: str) -> ParsedPage:
         return await parser.parse(url)
     except DomainMismatchError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
-    except Exception as exc:  # noqa: BLE001 - qualunque errore di rete/crawling
+    except Exception as exc:
         raise HTTPException(status_code=502, detail=f"URL irraggiungibile: {exc}") from exc
 
 
 @app.get("/parse", response_model=ParsedPage)
 async def parse_url_get(url: str = Query(...)) -> ParsedPage:
-    """Specifica Esonero 1: GET /parse?url=... scarica dal vivo e parsa."""
     return await _parse_live(url)
 
 
 @app.post("/parse", response_model=ParsedPage)
 async def parse_url_post(payload: ParseRequest) -> ParsedPage:
-    """
-    Due contratti supportati sullo stesso endpoint:
-    - Esonero 1: {"url": str, "html_text": str} -> parsa l'HTML fornito direttamente.
-    - Progetto Finale: {"url": str, "local": bool} -> con local=true recupera
-      l'HTML gia' salvato nel DB per quell'url; altrimenti scarica dal vivo.
-    """
     try:
         parser = ParserFactory.get_parser_for_url(payload.url)
     except UnsupportedDomainError as exc:
@@ -151,9 +127,6 @@ def get_domains() -> DomainsResponse:
     return DomainsResponse(domains=ParserFactory.get_supported_domains())
 
 
-# --------------------------------------------------------------------- #
-# Obiettivo 2: gold standard
-# --------------------------------------------------------------------- #
 @app.get("/gold_standard", response_model=GoldStandardEntry)
 def get_gold_standard(url: str = Query(...)) -> GoldStandardEntry:
     conn = get_connection()
@@ -165,10 +138,6 @@ def get_gold_standard(url: str = Query(...)) -> GoldStandardEntry:
     if entry is not None:
         return GoldStandardEntry(**entry)
 
-    # Non trovato: se e' un dominio che non gestiamo nemmeno, e' piu' utile
-    # dirlo esplicitamente (400) che restituire un generico "non trovato".
-    # Gli URL aggiunti con /add_web_resource su domini arbitrari restano
-    # comunque leggibili sopra, indipendentemente da questo controllo.
     domain = urlparse(url).netloc.lower()
     _require_supported_domain(domain)
     raise HTTPException(status_code=404, detail="URL non presente nel Gold Standard")
@@ -187,7 +156,6 @@ def get_gold_standard_urls(domain: str = Query(...)) -> GoldStandardUrlsResponse
 
 @app.get("/full_gold_standard", response_model=FullGoldStandardResponse)
 def get_full_gold_standard(domain: str = Query(...)) -> FullGoldStandardResponse:
-    """Specifica Esonero 1: tutte le entry del GS di un dominio (non solo gli url)."""
     _require_supported_domain(domain)
     conn = get_connection()
     try:
@@ -197,9 +165,6 @@ def get_full_gold_standard(domain: str = Query(...)) -> FullGoldStandardResponse
     return FullGoldStandardResponse(gold_standard=[GoldStandardEntry(**e) for e in entries])
 
 
-# --------------------------------------------------------------------- #
-# Obiettivo 3 / 4: valutazione
-# --------------------------------------------------------------------- #
 @app.post("/evaluate", response_model=EvaluateResponse)
 def evaluate(payload: EvaluateRequest) -> EvaluateResponse:
     return EvaluateResponse(**metrics.evaluate_all(payload.parsed_text, payload.gold_text))
@@ -235,7 +200,7 @@ async def full_gs_eval(
         for entry in entries:
             try:
                 parsed_page = await parser.parse_from_html(entry["html_text"], entry["url"])
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 logger.error("full_gs_eval: parsing fallito per %s: %s", entry["url"], exc)
                 continue
 
@@ -256,10 +221,6 @@ async def full_gs_eval(
             judge_score = None
             judge_feedback = None
             try:
-                # keep_alive lungo: qui il testo e' sempre gia' in cache
-                # (parse_from_html, mai un fetch live), quindi non c'e' mai
-                # un browser attivo in concorrenza col modello caricato in
-                # RAM. Evita di ricaricare il modello (~25s) ad ogni entry.
                 judge_result = await evaluate_with_judge(
                     parsed_page.parsed_text, entry["gold_text"], keep_alive="5m"
                 )
@@ -295,16 +256,8 @@ async def full_gs_eval(
     )
 
 
-# --------------------------------------------------------------------- #
-# Obiettivo 5: gestione dati nel DB
-# --------------------------------------------------------------------- #
 @app.post("/add_web_resource", response_model=StatusOkResponse)
 def add_web_resource(payload: AddWebResourceRequest) -> StatusOkResponse:
-    # A differenza di /parse e /gold_standard, la specifica NON elenca il
-    # dominio non supportato come errore per questo endpoint: accetta
-    # qualunque URL. Se il dominio corrisponde a un parser registrato
-    # normalizziamo al suo dominio "canonico" (es. "www.applevis.com"),
-    # altrimenti usiamo il netloc grezzo dell'URL cosi' com'e'.
     try:
         domain = ParserFactory.get_parser_for_url(payload.url).domain
     except UnsupportedDomainError:
@@ -314,7 +267,7 @@ def add_web_resource(payload: AddWebResourceRequest) -> StatusOkResponse:
     conn = get_connection()
     try:
         repository.upsert_web_resource(conn, payload.url, domain, title, payload.html_text)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         logger.error("add_web_resource fallito: %s", exc)
         return StatusOkResponse(status="error")
     finally:
@@ -329,7 +282,7 @@ def add_gold_standard(payload: AddGoldStandardRequest) -> StatusOkResponse:
         repository.upsert_gold_standard(conn, payload.url, payload.gold_text)
     except WebResourceNotFoundError:
         return StatusOkResponse(status="error")
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         logger.error("add_gold_standard fallito: %s", exc)
         return StatusOkResponse(status="error")
     finally:
@@ -344,7 +297,7 @@ def delete_web_resource(payload: UrlOnlyRequest) -> StatusOkResponse:
         repository.delete_web_resource(conn, payload.url)
     except WebResourceNotFoundError:
         return StatusOkResponse(status="error")
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         logger.error("delete_web_resource fallito: %s", exc)
         return StatusOkResponse(status="error")
     finally:
@@ -359,7 +312,7 @@ def delete_gold_standard(payload: UrlOnlyRequest) -> StatusOkResponse:
         repository.delete_gold_standard(conn, payload.url)
     except GoldStandardNotFoundError:
         return StatusOkResponse(status="error")
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         logger.error("delete_gold_standard fallito: %s", exc)
         return StatusOkResponse(status="error")
     finally:
@@ -382,9 +335,6 @@ def db_schema() -> dict:
     return repository.get_db_schema()
 
 
-# --------------------------------------------------------------------- #
-# Stato del sistema
-# --------------------------------------------------------------------- #
 @app.get("/status", response_model=SystemStatusResponse)
 async def status() -> JSONResponse:
     database_ok = is_database_reachable()
@@ -394,5 +344,4 @@ async def status() -> JSONResponse:
         database="ok" if database_ok else "error",
         ollama="ok" if ollama_ok else "error",
     )
-    # Sempre HTTP 200: e' il contenuto del JSON a indicare lo stato reale.
     return JSONResponse(status_code=200, content=payload.model_dump())
