@@ -155,18 +155,22 @@ def get_domains() -> DomainsResponse:
 # --------------------------------------------------------------------- #
 @app.get("/gold_standard", response_model=GoldStandardEntry)
 def get_gold_standard(url: str = Query(...)) -> GoldStandardEntry:
-    domain = urlparse(url).netloc.lower()
-    _require_supported_domain(domain)
-
     conn = get_connection()
     try:
         entry = repository.get_gold_standard(conn, url)
     finally:
         conn.close()
 
-    if entry is None:
-        raise HTTPException(status_code=404, detail="URL non presente nel Gold Standard")
-    return GoldStandardEntry(**entry)
+    if entry is not None:
+        return GoldStandardEntry(**entry)
+
+    # Non trovato: se e' un dominio che non gestiamo nemmeno, e' piu' utile
+    # dirlo esplicitamente (400) che restituire un generico "non trovato".
+    # Gli URL aggiunti con /add_web_resource su domini arbitrari restano
+    # comunque leggibili sopra, indipendentemente da questo controllo.
+    domain = urlparse(url).netloc.lower()
+    _require_supported_domain(domain)
+    raise HTTPException(status_code=404, detail="URL non presente nel Gold Standard")
 
 
 @app.get("/gold_standard_urls", response_model=GoldStandardUrlsResponse)
