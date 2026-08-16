@@ -21,3 +21,6 @@ ollama_data/*
 .env
 .DS_Store
 **/.DS_Store
+
+report/report.aux
+report/report.log
