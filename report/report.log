@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.2)  5 AUG 2026 17:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.16)  16 AUG 2026 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-06-18>
+L3 programming layer <2026-07-20>
 (/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2026/texmf-dist/tex/latex/base/size11.clo
@@ -127,7 +127,7 @@ File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
 LaTeX Info: Redefining \microtypesetup on input line 3065.
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2026-07-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count290
 )
 (./report.aux)
@@ -156,15 +156,15 @@ LaTeX Font Info:    ... okay on input line 28.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* h-part:(L,W,R)=(62.59596pt, 472.31595pt, 62.59596pt)
+* v-part:(T,H,B)=(62.59596pt, 719.85492pt, 62.59596pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.1381pt
+* \textwidth=472.31595pt
+* \textheight=719.85492pt
+* \oddsidemargin=-9.67403pt
+* \evensidemargin=-9.67403pt
+* \topmargin=-46.67403pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=11.0pt
@@ -213,36 +213,48 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (44.38606pt too wide) in paragraph at lines 29--29
+Overfull \hbox (27.31422pt too wide) in paragraph at lines 29--29
  [][] 
+ []
+
+
+Underfull \hbox (badness 4940) in paragraph at lines 68--80
+[]\T1/ptm/m/n/10.95 (+20) Gli F1 medi sulle 10 pagine di ogni do-minio, letti d
+a \T1/pcr/m/n/10.95 GET /db_stats \T1/ptm/m/n/10.95 (+20) (pre-calcolati a
+ []
+
+
+Underfull \hbox (badness 3098) in paragraph at lines 68--80
+\T1/ptm/m/n/10.95 (+20) ogni avvio, vedi Sezione 4), sono: \T1/pcr/m/n/10.95 it
+.wikipedia.org \T1/ptm/m/n/10.95 (+20) 0.90, \T1/pcr/m/n/10.95 www.applevis.com
+ \T1/ptm/m/n/10.95 (+20) 0.97,
  []
 
 [1
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2] [3]
-(./report.aux)
+al/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2] (./report.aux)
  ***********
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-06-18>
+L3 programming layer <2026-07-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4455 strings out of 467168
- 71741 string characters out of 5409469
- 533709 words of memory out of 5000000
- 33604 multiletter control sequences out of 15000+600000
- 649855 words of font info for 127 fonts, out of 8000000 for 9000
+ 4443 strings out of 467159
+ 71655 string characters out of 5409224
+ 532028 words of memory out of 5000000
+ 33613 multiletter control sequences out of 15000+600000
+ 649335 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,65p,1195b,313s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/
 local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texl
 ive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/t
 exmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (3 pages, 63414 bytes).
+Output written on report.pdf (2 pages, 63864 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 32 PDF objects out of 1000 (max. 8388607)
+ 19 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  24065 words of extra memory for PDF output out of 24883 (max. 10000000)
 

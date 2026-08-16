@@ -34,7 +34,7 @@ class AppleVisParser(BaseDomainParser):
     # risulterebbe "non nella lista valida" nei controlli automatici.
     domain = "www.applevis.com"
 
-    def build_crawler_run_config(self) -> CrawlerRunConfig:
+    def build_crawler_run_config(self, url: str | None = None) -> CrawlerRunConfig:
         markdown_generator = DefaultMarkdownGenerator(
             content_filter=PruningContentFilter(
                 threshold=0.30,

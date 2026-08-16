@@ -3,7 +3,7 @@
 % Layout a colonna singola (adattato dal template ACL 2018 richiesto dalla consegna)
 %
 \documentclass[11pt]{article}
-\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[a4paper, margin=2.2cm]{geometry}
 \usepackage{times}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -65,29 +65,31 @@ testi), e in più abbiamo aggiunto ROUGE-1: a differenza della prima metrica,
 che guarda solo se una parola c'è o no, ROUGE-1 conta anche quante volte
 compare, quindi si accorge anche se il parser ripete o salta pezzi di testo.
 
-Gli F1 medi che abbiamo ottenuto sulle 10 pagine di ogni dominio sono:
+Gli F1 medi sulle 10 pagine di ogni dominio, letti da \texttt{GET
+/db\_stats} (pre-calcolati a ogni avvio, vedi Sezione~4), sono:
 \texttt{it.wikipedia.org} 0.90, \texttt{www.applevis.com} 0.97,
-\texttt{www.basketball-reference.com} 0.90, \texttt{www.ondarock.it} 0.99.
-Per basketball-reference.com abbiamo deciso di far coprire al Gold Standard
-solo il blocco anagrafico in alto alla pagina (\texttt{\#meta}: ruolo,
-squadra, dati di nascita, statistiche riassuntive), e non le tabelle enormi
-di statistiche partita per partita che seguono, perché quelle sono dati
-veri ma non ``testo informativo di sintesi'' nel senso che chiede la
-consegna.
+\texttt{www.basketball-reference.com} 0.77, \texttt{www.ondarock.it} 0.97.
+Per basketball-reference.com lo scope dipende dal tipo di pagina: sulle
+schede giocatore/squadra/campionato copriamo solo il blocco anagrafico
+(\texttt{\#meta}, \texttt{\#bling}, \texttt{.stats\_pullout}), non le
+tabelle partita-per-partita; sulle pagine \texttt{/playoffs/} invece il
+Gold Standard ufficiale del corso include anche le tabelle di sintesi
+Team/Opponent e i leader statistici -- nascosti nell'HTML dentro commenti
+\texttt{<!-- -->} rivelati via JavaScript in un browser reale, quindi
+``scommentati'' esplicitamente solo su quelle pagine prima del parsing.
 
-Durante la costruzione e il controllo del Gold Standard abbiamo trovato due
-problemi interessanti. Il primo: il parser HTML della libreria standard di
-Python si fermava senza dire niente a metà di una pagina con un markup un
-po' irregolare, tagliando via il 95\% del contenuto reale -- ce ne siamo
-accorti confrontando la lunghezza che ci aspettavamo con quella che
-uscivano, e abbiamo risolto passando a un parser HTML più permissivo. Il
-secondo: anche quando l'estrazione è sostanzialmente giusta, piccoli residui
-di formattazione Markdown (uno spazio in più o in meno prima dei due punti,
-parole attaccate ai bordi di un grassetto o un corsivo dopo aver tolto i
-simboli) fanno perdere qualche punto di F1: è un limite di come si
-tokenizza il testo (a spazi), più che un vero difetto del parser -- l'abbiamo
-verificato controllando a mano i token che non combaciavano tra estrazione e
-Gold Standard.
+Durante la costruzione del Gold Standard, e poi confrontando i risultati
+con lo script di valutazione ufficiale del corso, abbiamo trovato alcuni
+problemi. Il parser HTML della libreria standard di Python si fermava senza
+avvisi a metà pagina su markup irregolare, tagliando il 95\% del contenuto
+reale -- risolto con un parser più permissivo. Piccoli residui di Markdown
+(spazi in più, parole attaccate a un grassetto dopo aver tolto i simboli)
+fanno perdere qualche punto di F1, limite della tokenizzazione a spazi più
+che del parser. Infine, sullo script ufficiale il Gold Standard di
+\texttt{www.ondarock.it} ha caratteri accentati mancanti già
+nell'\texttt{html\_text} di partenza (persi a monte, non nel nostro
+parsing) mentre il \texttt{gold\_text} li ha: un limite del fixture non
+recuperabile, che tiene l'F1 di quella pagina a 0.72 pur sopra soglia.
 
 \section{Valutazione dei Judge}
 
@@ -104,46 +106,33 @@ livelli di fallback in cascata (JSON diretto, poi il primo blocco
 infine una cifra isolata), e solo se proprio niente funziona ricadiamo su un
 punteggio neutro.
 
-Una cosa che ci ha colpito facendo i test: su tutte e 40 le pagine del Gold
-Standard il punteggio è quasi sempre 4/5, indipendentemente dal vero F1
-(che va da 0.85 a 0.99). Per capire se fosse un bug abbiamo fatto un test di
-controllo dandogli un testo completamente scollegato dal Gold Standard, e
-lì il punteggio è sceso correttamente a 2/5, con un feedback che citava
-proprio l'argomento sbagliato -- quindi il modello legge davvero il
-contenuto, non restituisce sempre lo stesso numero. Semplicemente sembra che
-riservi il 5/5 quasi solo a corrispondenze testuali identiche, e tratti
-qualunque piccola imperfezione (anche minima) allo stesso modo. È un
-comportamento abbastanza noto dei modelli piccoli usati come giudici
-automatici a bassa temperatura, non un difetto della nostra pipeline.
+Una cosa che ci ha colpito: su tutte e 40 le pagine del Gold Standard il
+punteggio è quasi sempre 4/5, indipendentemente dal vero F1 (0.85--0.99).
+Per escludere un bug abbiamo dato al judge un testo scollegato dal Gold
+Standard: il punteggio è sceso a 2/5, con feedback che citava l'argomento
+sbagliato -- il modello legge davvero il contenuto, ma sembra riservare il
+5/5 quasi solo a corrispondenze testuali identiche, trattando ogni
+imperfezione minima allo stesso modo. Comportamento noto dei modelli
+piccoli usati come giudici a bassa temperatura, non un difetto nostro.
 
-Per curiosità abbiamo provato anche altri modelli oltre a
-\texttt{llama3.2:3b}: \texttt{qwen3:4b} (non compatibile con il nostro
-codice così com'è, perché restituisce il ragionamento in un campo
-\texttt{thinking} separato invece che in \texttt{response}),
-\texttt{phi4-mini} (risultati peggiori, punteggi ancora meno informativi),
-\texttt{gemma3:e2b} (7GB, troppo pesante: il caricamento del modello
-saturava la RAM e faceva andare in timeout il browser usato per lo
-scraping) e \texttt{ministral-3:3b} (3GB, dimensione simile a
-\texttt{llama3.2:3b}, ma con generazione a circa 1 token al secondo sulla
-nostra CPU: una singola valutazione ha impiegato oltre 7 minuti e la
-richiesta successiva ha fatto crashare il processo interno di Ollama).
-Questi test confermano che il collo di bottiglia è l'hardware della
-macchina di sviluppo (CPU senza GPU dedicata, RAM condivisa tra Docker,
-Ollama e il browser per lo scraping) più che la scelta del modello, e che
-\texttt{llama3.2:3b} resta il compromesso più stabile tra i cinque
-proposti.
+Per curiosità abbiamo provato anche gli altri modelli proposti:
+\texttt{qwen3:4b} (incompatibile col nostro codice, mette il ragionamento
+in un campo \texttt{thinking} separato da \texttt{response}),
+\texttt{phi4-mini} (punteggi peggiori e meno informativi),
+\texttt{gemma3:e2b} (7GB, troppo pesante: saturava la RAM e mandava in
+timeout il browser di scraping) e \texttt{ministral-3:3b} (generazione a
+~1 token/s sulla nostra CPU: una valutazione oltre 7 minuti, poi crash del
+processo Ollama). Confermano che il collo di bottiglia è l'hardware di
+sviluppo (CPU senza GPU, RAM condivisa tra Docker/Ollama/browser) più che
+il modello, e che \texttt{llama3.2:3b} resta il compromesso più stabile.
 
-Abbiamo anche provato a migliorare il prompt del judge dando una rubrica
-esplicita (criteri diversi per ogni punteggio da 1 a 5, invece della
-richiesta generica) su tre pagine reali con F1 molto diverso tra loro
-(1.00, 0.92, 0.81): il punteggio restituito è stato 4/5 in tutti e tre i
-casi, sia col prompt vecchio che con quello nuovo. Il feedback testuale
-cambiava correttamente da un caso all'altro (segno che il modello legge
-davvero i testi), ma il punteggio numerico no. Consideriamo quindi questo
-comportamento un limite di calibrazione del modello più che un problema
-risolvibile lato nostro senza introdurre un aggiustamento manuale del
-punteggio, cosa che abbiamo deciso di non fare per non falsare il giudizio
-dell'LLM.
+Abbiamo anche provato a dare al judge una rubrica esplicita (criteri
+diversi per ogni punteggio 1--5) su tre pagine con F1 molto diverso (1.00,
+0.92, 0.81): punteggio 4/5 in tutti e tre i casi, col prompt vecchio e col
+nuovo. Il feedback testuale cambiava correttamente (il modello legge i
+testi), il punteggio no: un limite di calibrazione del modello, non
+qualcosa che abbiamo voluto ``correggere'' a mano per non falsare il
+giudizio dell'LLM.
 
 \section{Organizzazione del DB}
 
@@ -154,11 +143,15 @@ tabelle nostre: \texttt{evaluations} (i risultati di
 \texttt{token\_level\_eval} e ROUGE-1 per ogni pagina) e
 \texttt{llm\_judgments} (punteggio, feedback e nome del modello usato per il
 giudizio). Tutte le query passano da un livello di repository e sono
-parametrizzate. All'avvio del backend, uno script di seed legge tutti i file
-\texttt{gs\_data/*.json} e riempie \texttt{web\_resources} e
-\texttt{gold\_standard} con un upsert, così l'HTML grezzo di ogni pagina
-resta sempre disponibile per rifare il parsing e confrontarlo col
-\texttt{gold\_text} quando vogliamo, senza dover riscaricare niente.
+parametrizzate. All'avvio, uno script di seed legge \texttt{gs\_data/*.json}
+e riempie \texttt{web\_resources}/\texttt{gold\_standard} con un upsert,
+così l'HTML grezzo resta sempre disponibile per rifare il parsing senza
+riscaricare niente. Subito dopo pre-calcola anche \texttt{evaluations}
+(metriche token-level/ROUGE-1 su ogni pagina, economiche) e
+\texttt{llm\_judgments} (un giudizio LLM per la prima pagina di ogni
+dominio, per non allungare troppo l'avvio): così \texttt{GET /db\_stats} ha
+sempre dati pronti anche prima che un utente chiami \texttt{/evaluate} o
+\texttt{/full\_gs\_eval} (che aggiornano le stesse tabelle quando usati).
 
 
 

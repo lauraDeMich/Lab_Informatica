@@ -56,11 +56,16 @@ class BaseDomainParser(ABC):
         )
 
     @abstractmethod
-    def build_crawler_run_config(self) -> CrawlerRunConfig:
+    def build_crawler_run_config(self, url: str | None = None) -> CrawlerRunConfig:
         """
         Configurazione della singola richiesta, SPECIFICA per il dominio.
         Qui si agisce ad es. su css_selector, excluded_tags, markdown
         generator, filtri di contenuto, ecc. per migliorare l'output.
+
+        L'URL e' opzionale: la maggior parte dei domini usa la stessa
+        configurazione per ogni pagina, ma alcuni (es. Basketball Reference)
+        hanno layout radicalmente diversi in base al tipo di pagina e ne
+        hanno bisogno per scegliere il css_selector giusto.
         """
         raise NotImplementedError
 
@@ -92,6 +97,21 @@ class BaseDomainParser(ABC):
         sezioni ricorrenti (es. "Note", "Voci correlate" su Wikipedia).
         """
         return raw_markdown.strip()
+
+    def preprocess_html(self, html: str, url: str | None = None) -> str:
+        """
+        Hook per pre-processare l'HTML GREZZO prima di darlo in pasto a
+        Crawl4AI. Default: nessuna modifica. Serve ai domini che nascondono
+        contenuto dentro commenti HTML "<!-- ... -->", rivelati via
+        JavaScript solo in un browser reale (Crawl4AI in modalita' "raw:"
+        non esegue quel JS, quindi senza questo hook quel contenuto
+        resterebbe invisibile all'estrazione).
+
+        L'URL e' opzionale per lo stesso motivo di build_crawler_run_config:
+        alcuni domini hanno bisogno di sapere il tipo di pagina per capire
+        SE e QUALI commenti vada bene rivelare (vedi Basketball Reference).
+        """
+        return html
 
     # ------------------------------------------------------------------ #
     # Validazione
@@ -149,8 +169,9 @@ class BaseDomainParser(ABC):
         cambiano spesso, senza dover rifare la richiesta di rete).
         """
         self._validate_domain(url)
+        html = self.preprocess_html(html, url)
         browser_cfg = self.build_browser_config()
-        run_cfg = self.build_crawler_run_config()
+        run_cfg = self.build_crawler_run_config(url)
 
         async with AsyncWebCrawler(config=browser_cfg) as crawler:
             result = await crawler.arun(url=f"raw:{html}", config=run_cfg)

@@ -135,12 +135,24 @@ def test_applevis_markdown_postprocess():
 def test_basketball_reference_instantiation_and_config():
     parser = BasketballReferenceParser()
     assert parser.domain == "www.basketball-reference.com"
-    run_cfg = parser.build_crawler_run_config()
+    run_cfg = parser.build_crawler_run_config("https://www.basketball-reference.com/players/j/jamesle01.html")
     # "#meta" (bio/riepilogo), NON "#content" (che include anche le enormi
     # tabelle di statistiche partita-per-partita, fuori scope per il GS).
-    assert run_cfg.css_selector == "#meta"
+    assert run_cfg.css_selector == "#meta, #bling, .stats_pullout, #div_faq, #all_playoffs"
     assert not run_cfg.excluded_tags
     print("OK: istanziazione e config BasketballReferenceParser")
+
+
+def test_basketball_reference_playoffs_config():
+    parser = BasketballReferenceParser()
+    run_cfg = parser.build_crawler_run_config("https://www.basketball-reference.com/playoffs/NBA_2000.html")
+    # Sulle pagine "/playoffs/" lo scope e' diverso: niente "#meta", ma tutte
+    # le tabelle di sintesi per squadra della post-season (vedi Gold Standard).
+    assert "#meta" not in run_cfg.css_selector
+    assert "#all_playoffs" in run_cfg.css_selector
+    assert "#all_per_game_team-opponent" in run_cfg.css_selector
+    assert "#all_leaders" in run_cfg.css_selector
+    print("OK: config specifica per le pagine /playoffs/ di Basketball Reference")
 
 
 def test_basketball_reference_domain_matching():

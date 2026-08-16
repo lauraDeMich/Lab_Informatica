@@ -37,7 +37,7 @@ from .base import BaseDomainParser
 class OndaRockParser(BaseDomainParser):
     domain = "www.ondarock.it"
 
-    def build_crawler_run_config(self) -> CrawlerRunConfig:
+    def build_crawler_run_config(self, url: str | None = None) -> CrawlerRunConfig:
         return CrawlerRunConfig(
             css_selector=".main_text, .news_content",
             excluded_selector=", ".join(

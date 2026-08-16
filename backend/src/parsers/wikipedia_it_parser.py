@@ -28,7 +28,7 @@ from .base import BaseDomainParser
 class WikipediaItParser(BaseDomainParser):
     domain = "it.wikipedia.org"
 
-    def build_crawler_run_config(self) -> CrawlerRunConfig:
+    def build_crawler_run_config(self, url: str | None = None) -> CrawlerRunConfig:
         markdown_generator = DefaultMarkdownGenerator(
             content_filter=PruningContentFilter(
                 threshold=0.45,

@@ -58,6 +58,7 @@ async def lifespan(app: FastAPI):
     try:
         repository.init_schema(conn)
         seed.seed_from_gs_data(conn, config.GS_DATA_DIR)
+        await seed.precompute_initial_evaluations(conn)
     finally:
         conn.close()
     logger.info("Database inizializzato e popolato. Backend pronto.")
