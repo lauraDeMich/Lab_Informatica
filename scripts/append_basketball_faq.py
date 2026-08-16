@@ -1,17 +1,3 @@
-"""
-Aggiunge alla gold_text delle pagine giocatore di
-gs_data/basketball_reference_gs.json il contenuto della sezione
-"Frequently Asked Questions" (div id="div_faq"), presente solo sulle
-pagine giocatore (non su squadre/campionato) e non ancora coperta dal
-Gold Standard. Il parser (vedi backend/src/parsers/basketball_reference_parser.py)
-e' stato aggiornato per includere lo stesso blocco nello scope.
-
-Scrive una bozza automatica: va rivista a mano come il resto del Gold
-Standard (vedi scripts/export_gold_text_for_review.py).
-
-Uso:
-    python scripts/append_basketball_faq.py
-"""
 
 from __future__ import annotations
 
@@ -29,10 +15,6 @@ def extract_faq_text(html: str) -> str | None:
     if not div_faq:
         return None
 
-    # Struttura fissa: ogni <h3> (domanda) e' seguito da un SOLO <p>
-    # (risposta); in coda al blocco c'e' anche uno <script type=
-    # "application/ld+json"> con lo stesso contenuto in JSON per la SEO,
-    # che va ignorato esplicitamente (non e' testo per un lettore umano).
     parts = []
     for h3 in div_faq.find_all("h3"):
         question = h3.get_text(strip=True)

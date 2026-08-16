@@ -1,9 +1,3 @@
-"""
-Test "statico": verifica che le classi si importino, si istanzino e che
-la validazione del dominio funzioni correttamente. NON apre un browser,
-quindi funziona anche in ambienti senza Chromium/Playwright installato
-(utile per un rapido controllo prima di lanciare il crawling vero).
-"""
 
 import sys
 from pathlib import Path
@@ -91,19 +85,12 @@ def test_applevis_instantiation_and_config():
     assert parser.domain == "www.applevis.com"
     run_cfg = parser.build_crawler_run_config()
     assert run_cfg.css_selector == "main[role=main]"
-    # "img" deve stare in excluded_selector, NON in excluded_tags: passare lo
-    # stesso tag in entrambi i parametri contemporaneamente fa collassare
-    # l'output di Crawl4AI a stringa vuota (verificato empiricamente).
     assert "img" in run_cfg.excluded_selector
     assert not run_cfg.excluded_tags
     print("OK: istanziazione e config AppleVisParser")
 
 
 def test_applevis_domain_matching_with_www_subdomain():
-    """
-    "www.applevis.com" e' il dominio canonico ufficiale (non "applevis.com"
-    nudo): ParserFactory deve risolverlo correttamente.
-    """
     parser = ParserFactory.get_parser_for_url("https://www.applevis.com/help")
     assert isinstance(parser, AppleVisParser)
     parser._validate_domain("https://www.applevis.com/help")
@@ -136,8 +123,6 @@ def test_basketball_reference_instantiation_and_config():
     parser = BasketballReferenceParser()
     assert parser.domain == "www.basketball-reference.com"
     run_cfg = parser.build_crawler_run_config("https://www.basketball-reference.com/players/j/jamesle01.html")
-    # "#meta" (bio/riepilogo), NON "#content" (che include anche le enormi
-    # tabelle di statistiche partita-per-partita, fuori scope per il GS).
     assert run_cfg.css_selector == "#meta, #bling, .stats_pullout, #div_faq, #all_playoffs"
     assert not run_cfg.excluded_tags
     print("OK: istanziazione e config BasketballReferenceParser")
@@ -146,8 +131,6 @@ def test_basketball_reference_instantiation_and_config():
 def test_basketball_reference_playoffs_config():
     parser = BasketballReferenceParser()
     run_cfg = parser.build_crawler_run_config("https://www.basketball-reference.com/playoffs/NBA_2000.html")
-    # Sulle pagine "/playoffs/" lo scope e' diverso: niente "#meta", ma tutte
-    # le tabelle di sintesi per squadra della post-season (vedi Gold Standard).
     assert "#meta" not in run_cfg.css_selector
     assert "#all_playoffs" in run_cfg.css_selector
     assert "#all_per_game_team-opponent" in run_cfg.css_selector
@@ -177,8 +160,6 @@ def test_ondarock_instantiation_and_config():
     parser = OndaRockParser()
     assert parser.domain == "www.ondarock.it"
     run_cfg = parser.build_crawler_run_config()
-    # ".main_text" e' condiviso da recensioni/interviste/monografie, verificato
-    # empiricamente su un campione di pagine di tutte e tre le sezioni.
     assert run_cfg.css_selector == ".main_text"
     assert not run_cfg.excluded_tags
     print("OK: istanziazione e config OndaRockParser")

@@ -1,17 +1,3 @@
-"""
-Reinserisce nei file gs_data/basketball_reference_gs.json e
-gs_data/ondarock_it_gs.json i 'gold_text' rivisti/corretti a mano nei file
-.txt dentro data/manual_texts/<dominio>/ (creati da
-scripts/export_gold_text_for_review.py).
-
-Stesso principio di scripts/fill_gold_text.py: si scrive testo semplice nei
-.txt (niente virgolette/escaping da gestire a mano), poi questo script si
-occupa di iniettarlo nel JSON in modo sicuro con json.dump.
-
-Uso:
-    python scripts/apply_reviewed_gold_text.py
-    python tests/test_gold_standard.py   # verifica finale
-"""
 
 from __future__ import annotations
 

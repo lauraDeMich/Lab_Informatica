@@ -1,16 +1,3 @@
-"""
-Test per l'Obiettivo 2 (Gold Standard).
-
-Due livelli di verifica:
-1. test_schema_validation_static: NON richiede il file GS, valida solo che
-   il modello Pydantic GoldStandardEntry accetti/rifiuti correttamente i
-   dati (funziona sempre, anche prima di aver costruito il GS).
-2. test_gold_standard_file_*: richiedono che
-   gs_data/it_wikipedia_org_gs.json esista già (generato con
-   scripts/build_gold_standard.py e poi completato A MANO con i gold_text).
-   Se il file non esiste ancora, questi test vengono saltati con un
-   messaggio esplicativo invece di fallire "a sorpresa".
-"""
 
 import json
 import sys
@@ -73,7 +60,7 @@ def test_gold_standard_file_structure():
     )
 
     for raw_entry in data:
-        entry = GoldStandardEntry(**raw_entry)  # valida schema + campi obbligatori
+        entry = GoldStandardEntry(**raw_entry)
         assert entry.domain == EXPECTED_DOMAIN
 
     print(f"OK: {len(data)} entry, tutte conformi allo schema GoldStandardEntry")

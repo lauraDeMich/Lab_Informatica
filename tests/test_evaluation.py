@@ -1,7 +1,3 @@
-"""
-Test statici per l'Obiettivo 3 (metriche di valutazione). Non richiedono
-rete, browser ne' database: solo logica pura su stringhe.
-"""
 
 import sys
 from pathlib import Path
@@ -35,7 +31,6 @@ def test_token_level_eval_partial_overlap():
     parsed = "il gatto nero corre veloce"
     gold = "il gatto nero dorme"
     result = token_level_eval(parsed, gold)
-    # intersezione: {il, gatto, nero} -> 3 token
     assert result["precision"] == round(3 / 5, 4)
     assert result["recall"] == round(3 / 4, 4)
     assert 0 < result["f1"] < 1

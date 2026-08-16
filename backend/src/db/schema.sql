@@ -1,13 +1,3 @@
--- Schema del database (Obiettivo 5).
---
--- web_resources e gold_standard hanno nomi/campi FISSI per requisito di
--- progetto (usati dai test automatici). Le altre due tabelle sono libere
--- e servono a salvare i risultati pre-calcolati usati da GET /db_stats.
---
--- Nota sugli indici: url e' VARCHAR(768) (non 2048) perche' con charset
--- utf8mb4 (4 byte/carattere) e' il massimo indicizzabile per una chiave
--- primaria InnoDB (768 * 4 = 3072 byte, limite di default di MariaDB).
-
 CREATE TABLE IF NOT EXISTS web_resources (
     url        VARCHAR(768)  NOT NULL,
     domain     VARCHAR(255)  NOT NULL,

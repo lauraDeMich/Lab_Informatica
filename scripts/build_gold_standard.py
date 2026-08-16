@@ -1,32 +1,3 @@
-"""
-Script di supporto per costruire lo SCHELETRO del Gold Standard (Obiettivo 2)
-per il dominio it.wikipedia.org.
-
-Cosa fa in automatico:
-- Scarica l'HTML grezzo di ogni URL della lista CANDIDATE_URLS (tramite
-  WikipediaItParser.fetch_raw_html, quindi con lo stesso browser/Crawl4AI
-  usato per l'Obiettivo 1).
-- Estrae il <title> dall'HTML e rimuove il suffisso " - Wikipedia".
-- Scrive/aggiorna data/gold_standard/it_wikipedia_org.json con una entry
-  per ogni URL: url, domain, title, html_text (compilati), gold_text (LASCIATO
-  VUOTO, "" -> da riempire A MANO, vedi istruzioni nel README).
-- Salva anche una copia dell'HTML grezzo in data/raw_html/wikipedia_it/
-  (utile come backup e per debug, NON viene versionata su Git).
-
-Cosa NON fa (va fatto a mano, vedi README):
-- Riempire "gold_text": bisogna aprire ogni URL nel browser e copiare
-  SOLO il testo informativo (titolo + corpo dell'articolo), escludendo
-  menu di navigazione, sidebar, footer, box "Voci correlate" ecc.
-
-Uso:
-    python scripts/build_gold_standard.py
-
-NOTA BENE: questo script richiede una connessione di rete libera verso
-it.wikipedia.org e richiede che 'crawl4ai-setup' sia già stato eseguito
-(scarica Chromium). Va quindi lanciato sulla vostra macchina locale,
-DENTRO il virtualenv del progetto (vedi README, sezione "Setup"), non in
-ambienti sandbox privi di accesso a Internet.
-"""
 
 from __future__ import annotations
 
@@ -40,30 +11,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from backend.src.parsers.wikipedia_it_parser import WikipediaItParser
 
-# ---------------------------------------------------------------------- #
-# 1) LISTA DEGLI URL CANDIDATI PER IL GOLD STANDARD DI it.wikipedia.org
-#
-# Requisito dell'Obiettivo 2: almeno 10 URL rappresentativi (pagine di
-# tipo diverso, con contenuti vari, NO home page). Qui ne mettiamo 10
-# scelti per coprire categorie eterogenee (videogiochi, aziende, scienza,
-# monumenti, spazio, informatica, musica) così da avere un GS di buona
-# qualità.
-#
-# Sentitevi liberi di modificare/estendere questa lista: potete anche
-# usare l'operatore "site:it.wikipedia.org" su Google per trovare altre
-# pagine interessanti (vedi slide dell'Obiettivo 2).
-# ---------------------------------------------------------------------- #
+
 CANDIDATE_URLS = [
-    "https://it.wikipedia.org/wiki/Super_Mario",                     # videogiochi
-    "https://it.wikipedia.org/wiki/Amazon",                          # azienda / tecnologia
-    "https://it.wikipedia.org/wiki/Tavola_periodica_degli_elementi", # scienza / chimica
-    "https://it.wikipedia.org/wiki/Torre_Eiffel",                    # monumento / luogo
-    "https://it.wikipedia.org/wiki/Artemis_II",                      # spazio / missione
-    "https://it.wikipedia.org/wiki/Facebook",                        # azienda / tecnologia
-    "https://it.wikipedia.org/wiki/Ferrero_(azienda)",                # azienda
-    "https://it.wikipedia.org/wiki/McDonald%27s",                    # azienda
-    "https://it.wikipedia.org/wiki/Python",                          # informatica / linguaggio di programmazione
-    "https://it.wikipedia.org/wiki/Caparezza",                       # persona / musica
+    "https://it.wikipedia.org/wiki/Super_Mario",                     
+    "https://it.wikipedia.org/wiki/Amazon",                          
+    "https://it.wikipedia.org/wiki/Tavola_periodica_degli_elementi", 
+    "https://it.wikipedia.org/wiki/Torre_Eiffel",                   
+    "https://it.wikipedia.org/wiki/Artemis_II",                     
+    "https://it.wikipedia.org/wiki/Facebook",                        
+    "https://it.wikipedia.org/wiki/Ferrero_(azienda)",                
+    "https://it.wikipedia.org/wiki/McDonald%27s",                   
+    "https://it.wikipedia.org/wiki/Python",                          
+    "https://it.wikipedia.org/wiki/Caparezza",                       
 ]
 
 OUTPUT_JSON = Path(__file__).resolve().parent.parent / "gs_data" / "it_wikipedia_org_gs.json"
@@ -118,7 +77,7 @@ async def build() -> None:
 
         title = extract_title_from_html(html)
 
-        # Se l'entry esiste già ed è stata compilata a mano, mantieni il gold_text.
+        
         previous_gold_text = existing.get(url, {}).get("gold_text", "")
 
         entries.append(
@@ -133,9 +92,7 @@ async def build() -> None:
         )
         print(f"  OK  -> title='{title}'  (html salvato in {html_path.relative_to(Path.cwd())})")
 
-        # Crea (se non esiste già) un file .txt vuoto col nome corretto, pronto
-        # per essere aperto e riempito a mano con il testo copiato dal browser.
-        # Non lo sovrascrive mai se esiste già, per non perdere lavoro manuale.
+       
         txt_placeholder = MANUAL_TEXTS_DIR / f"{slug}.txt"
         if not txt_placeholder.exists():
             txt_placeholder.write_text("", encoding="utf-8")

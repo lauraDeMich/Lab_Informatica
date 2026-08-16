@@ -13,9 +13,6 @@ services:
     volumes:
       - mariadb_volume:/var/lib/mysql
     healthcheck:
-      # Script ufficiale incluso nell'immagine mariadb, pensato apposta per
-      # gli healthcheck Docker: piu' robusto di chiamare mysqladmin/mariadb-admin
-      # a mano, il cui nome binario e' cambiato tra le versioni dell'immagine.
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 5s
       timeout: 5s
@@ -33,26 +30,13 @@ services:
     entrypoint:
       - /bin/sh
       - -c
-      # Aspetta che il server risponda davvero (poll su "ollama list") invece
-      # di un semplice "sleep N" a tempo fisso, che potrebbe non bastare su
-      # macchine piu' lente e far fallire il pull.
       - "ollama serve & until ollama list > /dev/null 2>&1; do sleep 1; done && ollama pull ${OLLAMA_MODEL:-llama3.2:3b} && wait"
 
   backend:
     build: ./backend
     container_name: minerva_backend
     restart: unless-stopped
-    # Playwright/Chromium (usati da Crawl4AI) possono andare in crash con lo
-    # /dev/shm di default di Docker (64MB), troppo piccolo per un browser
-    # headless reale.
     shm_size: '1g'
-    # Senza un vero init come PID 1, i processi Chromium/crashpad che
-    # muoiono a metà lancio (es. per timeout su una macchina con poca RAM)
-    # restano orfani/zombie e non vengono mai reaped: accumulandosi, alla
-    # fine bloccano anche il processo principale (uvicorn) rendendolo esso
-    # stesso uno zombie non killabile (verificato: "docker restart" falliva
-    # con "PID è zombie e non può essere ucciso"). init: true fa partire
-    # tini come PID 1, che fa il reap di questi processi automaticamente.
     init: true
     environment:
       DB_HOST: database
