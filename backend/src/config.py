@@ -29,7 +29,13 @@ OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2:3b")
 # HTTP 499 anche se Ollama stava lavorando correttamente.
 OLLAMA_TIMEOUT_SECONDS = float(os.getenv("OLLAMA_TIMEOUT_SECONDS", "600"))
 # Troncamento dei testi inviati al judge, per limitare i tempi di risposta su CPU.
-JUDGE_MAX_CHARS = int(os.getenv("JUDGE_MAX_CHARS", "4000"))
+# Misurato empiricamente: su questa CPU il prefill di llama3.2:3b procede a
+# ~16 token/s, quindi un prompt vicino al vecchio limite di 4000 char per lato
+# (~2500 token totali con il template) da solo supera i 2 minuti PRIMA che il
+# modello inizi a generare la risposta. Valore abbassato per restare entro
+# tempi ragionevoli anche sulle pagine piu' lunghe (es. tabelle NBA, elenchi
+# news), a scapito di un contesto piu' corto passato al giudice.
+JUDGE_MAX_CHARS = int(os.getenv("JUDGE_MAX_CHARS", "1500"))
 
 # --- Gold Standard: cartella con i JSON da caricare all'avvio ---------- #
 GS_DATA_DIR = Path(os.getenv("GS_DATA_DIR", "gs_data"))

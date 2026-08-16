@@ -255,7 +255,13 @@ async def full_gs_eval(
             judge_score = None
             judge_feedback = None
             try:
-                judge_result = await evaluate_with_judge(parsed_page.parsed_text, entry["gold_text"])
+                # keep_alive lungo: qui il testo e' sempre gia' in cache
+                # (parse_from_html, mai un fetch live), quindi non c'e' mai
+                # un browser attivo in concorrenza col modello caricato in
+                # RAM. Evita di ricaricare il modello (~25s) ad ogni entry.
+                judge_result = await evaluate_with_judge(
+                    parsed_page.parsed_text, entry["gold_text"], keep_alive="5m"
+                )
                 judge_score = judge_result["judge_score"]
                 judge_feedback = judge_result["judge_feedback"]
                 judge_scores.append(judge_score)

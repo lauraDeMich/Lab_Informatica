@@ -110,7 +110,7 @@ def _parse_judge_response(raw_response: str) -> tuple[int, str]:
     return 3, fallback_feedback
 
 
-async def evaluate_with_judge(parsed_text: str, gold_text: str) -> dict:
+async def evaluate_with_judge(parsed_text: str, gold_text: str, keep_alive: str = "30s") -> dict:
     """Chiama Ollama e restituisce {model_name, judge_score, judge_feedback}."""
     prompt = _build_prompt(parsed_text, gold_text)
 
@@ -126,10 +126,11 @@ async def evaluate_with_judge(parsed_text: str, gold_text: str) -> dict:
         # modello caricato (~2.5GB) puo' far mancare memoria al browser
         # usato per il fetch live, causando timeout di navigazione (verificato
         # empiricamente). Un keep_alive breve libera la RAM presto dopo
-        # l'uso, restando comunque abbastanza lungo da non far ricaricare il
-        # modello tra una pagina e l'altra in un ciclo di valutazione veloce
-        # come /full_gs_eval.
-        "keep_alive": "30s",
+        # l'uso. Chi chiama con testo gia' scaricato (mai un fetch live, es.
+        # /full_gs_eval) puo' passare un keep_alive piu' lungo per evitare di
+        # far ricaricare il modello (~25s persi) ad ogni singola entry del
+        # ciclo, dato che ogni chiamata dura gia' piu' di 30s da sola.
+        "keep_alive": keep_alive,
     }
 
     try:
