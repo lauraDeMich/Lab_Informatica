@@ -7,7 +7,8 @@ containerizzato con Docker Compose.
 
 **Stato attuale**: pipeline completa e funzionante per tutti e 4 i domini
 assegnati: **it.wikipedia.org** (F1 ~0.90), **www.applevis.com** (F1 ~0.97),
-**www.basketball-reference.com** (F1 ~0.90) e **www.ondarock.it** (F1 ~0.98).
+**www.basketball-reference.com** (F1 ~0.77) e **www.ondarock.it** (F1 ~0.97).
+Verificato con il grader ufficiale del corso: 29/29 test superati.
 
 > Nota sui domini: nell'elenco ufficiale del corso i domini extra sono
 > registrati con "www." (`www.applevis.com`, `www.basketball-reference.com`,
@@ -52,13 +53,17 @@ assegnati: **it.wikipedia.org** (F1 ~0.90), **www.applevis.com** (F1 ~0.97),
 │       ├── main.py
 │       └── templates/
 ├── gs_data/                   # Obiettivo 2: Gold Standard, un JSON per dominio
-│   └── it_wikipedia_org_gs.json
+│   ├── it_wikipedia_org_gs.json
+│   ├── applevis_gs.json
+│   ├── basketball_reference_gs.json
+│   └── ondarock_it_gs.json
 ├── mariadb_data/, ollama_data/  # placeholder richiesti dalla consegna (persistenza reale via named volume Docker)
 ├── data/
 │   ├── manual_texts/          # testo copiato a mano per ogni pagina del GS (intermedio)
 │   └── raw_html/              # snapshot HTML grezzi scaricati dagli script (non versionato)
 ├── scripts/                   # tooling di sviluppo per costruire il GS di Wikipedia
 ├── tests/                     # test locali, senza Docker (parser/evaluation/GS)
+├── report.pdf                 # relazione finale (LaTeX, template ACL 2018)
 └── requirements.txt            # dipendenze per far girare scripts/ e tests/ in locale
 ```
 
@@ -95,22 +100,23 @@ python tests/test_evaluation.py     # Obiettivo 3: metriche di valutazione
 |-----------------------------------|-------|
 | it.wikipedia.org (ITA)            | ✅ completo (F1 ~0.90) |
 | www.applevis.com                  | ✅ completo (F1 ~0.97) |
-| www.basketball-reference.com      | ✅ completo (F1 ~0.90) |
-| www.ondarock.it                   | ✅ completo (F1 ~0.98) |
+| www.basketball-reference.com      | ✅ completo (F1 ~0.77) |
+| www.ondarock.it                   | ✅ completo (F1 ~0.97) |
 
-## Grader ufficiale (esonero 1)
+## Grader ufficiale (progetto finale)
 
-Il professore fornisce un'immagine Docker che testa automaticamente gli
+Il corso fornisce un'immagine Docker che testa automaticamente tutti gli
 endpoint del backend. Uso:
 
 ```bash
-docker load -i lab-grader-esonero-1:1.0.1.tar.gz
+docker load -i lab-grader-progetto-finale_1.0.12.tar.gz
 docker compose up --build -d
-docker run --network host lab-grader-esonero-1:1.0.1 <matricola>
+docker run --network host lab-grader-progetto-finale:1.0.12 <matricola>
 ```
 
 Va eseguito con il sistema già su (`docker compose up --build -d`) e passando
-la matricola di un membro del gruppo come argomento.
+la matricola di un membro del gruppo come argomento. Verificato su Ubuntu
+22.04.5 LTS "jammy" (ambiente pulito, non Windows/WSL): 29/29 test superati.
 
 ## Costruzione del Gold Standard di Wikipedia (già fatto, per riferimento)
 
