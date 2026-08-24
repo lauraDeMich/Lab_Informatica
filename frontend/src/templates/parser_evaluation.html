@@ -22,12 +22,14 @@
         <div class="row g-2">
             <div class="col-md-6">
                 <label class="form-label">Pagina da testare</label>
-                <select name="url" class="form-select" required>
-                    <option value="" disabled {% if not url %}selected{% endif %}>Scegli una pagina dal Gold Standard…</option>
+                <input type="url" name="url" class="form-control" required
+                       list="gs-urls-list" value="{{ url or '' }}"
+                       placeholder="Incolla un URL o scegli dal Gold Standard…">
+                <datalist id="gs-urls-list">
                     {% for gs_url in gs_urls %}
-                    <option value="{{ gs_url }}" {% if gs_url == url %}selected{% endif %}>{{ gs_url }}</option>
+                    <option value="{{ gs_url }}">
                     {% endfor %}
-                </select>
+                </datalist>
             </div>
             <div class="col-md-3">
                 <label class="form-label">Modalità</label>
