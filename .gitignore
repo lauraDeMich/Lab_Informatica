@@ -24,3 +24,4 @@ ollama_data/*
 
 report/report.aux
 report/report.log
+report/report.out

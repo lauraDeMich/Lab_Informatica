@@ -1,27 +1,25 @@
 %
 % Report finale - Laboratorio di Ingegneria Informatica
-% Layout a colonna singola (adattato dal template ACL 2018 richiesto dalla consegna)
+% Basato sul template ACL 2018 richiesto dalla consegna (acl2018.sty)
 %
 \documentclass[11pt]{article}
-\usepackage[a4paper, margin=2.2cm]{geometry}
+\usepackage[hyperref]{acl2018}
 \usepackage{times}
+\usepackage{latexsym}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{url}
-\usepackage{titlesec}
-\usepackage{parskip}
 \usepackage{microtype}
 
-\sloppy
-\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
-\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+% Consegna: decommentare per mostrare nome/cognome invece di "anonymous submission"
+\aclfinalcopy
 
 \title{\textbf{Minerva: una Pipeline di Parsing e Valutazione Automatica \\ per Sorgenti Web Eterogenee}}
 \author{
-  Laura De Michelis \quad -- \quad Matricola 2119887 \quad -- \quad \texttt{\small demichelis.2119887@studenti.uniroma1.it} \\[2pt]
-  Andrea Giuliotti \quad -- \quad Matricola 2107814 \quad -- \quad \texttt{\small giuliotti.2107814@studenti.uniroma1.it} \\[2pt]
-  Alessandro Di Nitto \quad -- \quad Matricola 2109155 \quad -- \quad \texttt{\small dinitto.2109155@studenti.uniroma1.it} \\[6pt]
-  Sapienza Università di Roma
+  Laura De Michelis -- Matricola 2119887 -- \texttt{\small demichelis.2119887@studenti.uniroma1.it} \\
+  Andrea Giuliotti -- Matricola 2107814 -- \texttt{\small giuliotti.2107814@studenti.uniroma1.it} \\
+  Alessandro Di Nitto -- Matricola 2109155 -- \texttt{\small dinitto.2109155@studenti.uniroma1.it} \\
+  Sapienza Universit\`a di Roma
 }
 \date{}
 
@@ -66,7 +64,7 @@ che guarda solo se una parola c'è o no, ROUGE-1 conta anche quante volte
 compare, quindi si accorge anche se il parser ripete o salta pezzi di testo.
 
 Gli F1 medi sulle 10 pagine di ogni dominio, letti da \texttt{GET
-/db\_stats} (pre-calcolati a ogni avvio, vedi Sezione~4), sono:
+/db\_stats} (pre-calcolati a ogni avvio, vedi Sezione~5), sono:
 \texttt{it.wikipedia.org} 0.90, \texttt{www.applevis.com} 0.97,
 \texttt{www.basketball-reference.com} 0.77, \texttt{www.ondarock.it} 0.97.
 Per basketball-reference.com lo scope dipende dal tipo di pagina: sulle
@@ -152,7 +150,5 @@ riscaricare niente. Subito dopo pre-calcola anche \texttt{evaluations}
 dominio, per non allungare troppo l'avvio): così \texttt{GET /db\_stats} ha
 sempre dati pronti anche prima che un utente chiami \texttt{/evaluate} o
 \texttt{/full\_gs\_eval} (che aggiornano le stesse tabelle quando usati).
-
-
 
 \end{document}
